@@ -1,0 +1,216 @@
+/* header image styling */
+.hero-image {
+    margin: 0;
+    width: 100%;
+}
+
+.small-header {
+    width: auto;
+    height: auto;
+    background-image: url("../img/hero1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+  
+.small-header-image {
+    visibility: hidden;
+    height: auto;
+    width: 100%;
+}
+
+.product-image { 
+    max-width: 224px;
+    max-height: 224px;
+}
+
+  /* flexbox container for filter list */
+.filter-flexbox-container { 
+    display: flex; 
+    flex-direction: column;
+	flex-wrap: nowrap; 
+	justify-content: flex-start; 
+	align-items: flex-start; 
+	padding-right: 1rem;
+    padding-left: 3rem;
+    max-width: 14rem;
+    background: #0001;
+    position: absolute;
+}
+
+  /* filter items as flex units */
+.filter-flex-item { 
+    padding-bottom: 10rem;
+}
+
+/* list styling */
+ul { 
+    list-style-type: none;
+    margin-left: -2.5rem;
+    margin-top: 0.25rem;
+    padding-bottom: 1rem;
+    line-height: 0.5rem;
+}
+
+li{
+    margin-bottom: 1rem;
+}
+
+/* Color Filter Buttons */
+.color-container { 
+    max-width: 10rem;
+    padding-bottom: 1rem;
+}
+
+button{
+    padding: 0.6rem;
+    margin: 0.3rem;
+    border: 1px solid grey;
+}
+
+.black-button{
+    background: black;
+}
+
+.white-button{
+    background-color: white;
+}
+
+.red-button{
+    background-color: red;
+}
+
+.beige-button{
+    background-color: #f8dc9a
+}
+
+.green-button{
+    background-color: darkgreen;
+}
+
+.grid {
+    display: grid;
+}
+
+/* grid gutters for content units */ 
+.grid.add-gutters { 
+    grid-column-gap: 0rem;
+    grid-row-gap: 2rem; 
+}
+
+/* grid layout for content units */ 
+.grid.four-column { 
+    margin-left: 16%;
+    margin-right: 19%;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: auto;
+    grid-auto-flow: row;    
+}
+
+/* captions for unit pictures: price, name */
+.content-unit-text {
+    padding-top: 0;
+    text-align: left; 
+    line-height: 1.5rem;  
+}
+
+/* grid layout for size filter layout */ 
+.grid.three-column { 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+}
+
+/* spacing and alignment for size filters */
+.size-filter-spacing {
+    text-align: center;
+
+    /* change this for numbers to match section header */ 
+    margin-left: -3.3rem;
+    
+    /* change this to fix spacing in between numbers */ 
+    padding-right: 1.5rem;
+
+}
+
+/* spacing in between numbers on size filter list */ 
+.grid.filter-add-gutters { 
+    grid-column-gap: 0.4rem;
+    grid-row-gap: 1rem; 
+}
+
+/* Custom Check Box Styling: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    /* background-color: black; */
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    /* background-color: #2196F3; */
+    border: 2px solid black
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  /* .container input:checked ~ .checkmark:after {
+    display: block;
+  } */
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    /* border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); */
+  }
+
+  .checkbox-line-spacing { 
+     padding-top: 0.15rem;
+     padding-bottom: 0.15rem;
+  }
+
+

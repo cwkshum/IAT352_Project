@@ -1,0 +1,70 @@
+/* carousel styling */
+.carousel{
+    margin-top: 3rem;
+    position: relative;
+  }
+   
+  .carousel .item{
+    height: 68rem;  
+  }
+
+  /* centering the carousel image */
+  .carousel-inner > .item > a > img {
+    margin: 0 auto;
+  }
+  
+  /* changing carousel indicator colour */
+  .carousel-indicators li{
+    background: rgba(100, 100, 100, 0.3);
+  }
+  
+  .carousel-indicators .active {
+    background-color: #5DA2D5;
+    margin-top: 4rem;
+    height: 1.2rem; 
+    width: 1.2rem; 
+  }
+  
+  /* shop now button styling */
+  .shop-now {
+    background: lightgrey;
+    border-radius: 60px;
+    border: none;
+    padding: 3rem;
+    position: absolute; 
+  
+    margin-top: -1rem;
+    margin-left: 43.7vw;
+    font-size: 2rem;
+    color: black;
+  
+    transition-property: background-color; 
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-out;
+  }
+  
+  .shop-now:active, .shop-now:hover, .shop-now:focus {
+      color: #FFFFFF;
+      background-color: #5da2d5;
+  }
+  
+  h2 {
+    margin-left: 10rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+  }
+  
+  a:hover{
+    text-decoration: none;
+  }
+
+  /* margin for recently viewed text */
+  .recently-viewed-margin {
+      margin-top: 12rem;
+  }
+
+  /* margin for "your favourites" text */
+  .favourites-margin {
+    margin-top: 5rem;
+  }
+  

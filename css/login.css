@@ -1,0 +1,69 @@
+/* button for sign-up and login */
+.log-in, .create-account{
+    background: grey;
+    border-radius: 60px;
+    border: none;
+    padding: 1rem 3rem;
+    display: inline-block;
+    color: black;
+    font-size: 1rem;
+    transition: 0.5s;
+    margin-left: 6rem;
+}
+
+/* further positioning for login button */
+.log-in { 
+    margin-left: 9.6rem;
+    margin-top: 5.5rem;
+}
+
+/* hover state - button for sign-up and login */
+.log-in:active, .create-account:active, .log-in:hover, .create-account:hover, .log-in:focus, .create-account:focus {
+    color: #FFFFFF;
+    background-color: #5da2d5;
+}
+/* change input textbox size */
+input[type = "text"]{
+    width:200px;
+    height:30px;
+}
+
+/* container box for login */
+.form-container { 
+    width: 35rem;
+    height: 50rem;
+    background-color: lightgrey;
+    padding-left: 3.3rem;
+    padding-right: 3rem;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    margin-left: 35vw;
+}
+
+/* text box size for password*/
+input[type = "password"]{
+    width:409px;
+    height:30px;
+}
+
+/* text box size for username */
+input[type = "email"]{
+    width:409px;
+    height:30px;
+}
+
+/* padding for input boxes  */
+.padding { 
+    padding-top: 2rem;
+}
+
+/* padding for "forgot password?" */
+.forgot-password-padding { 
+    padding-top: 1rem;
+}
+
+/* margin for "or" text */
+.or { 
+    margin-left: 13.6rem;
+    
+}

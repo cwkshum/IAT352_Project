@@ -1,0 +1,26 @@
+/* grid gutters for content units */ 
+.grid.add-gutters { 
+    grid-column-gap: 0rem;
+    grid-row-gap: 2rem; 
+}
+
+/* grid layout for content units */ 
+.grid.four-column { 
+    margin-left: 16%;
+    margin-right: 19%;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: auto;
+    grid-auto-flow: row;    
+}
+
+/* captions for unit pictures: price, name */
+.content-unit-text {
+    padding-top: 0;
+    text-align: left; 
+    line-height: 1.5rem;  
+}
+
+.product-image { 
+    max-width: 224px;
+    max-height: 224px;
+}
