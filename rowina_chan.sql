@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 30, 2020 at 10:15 PM
+-- Generation Time: Nov 12, 2020 at 12:01 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -26,60 +26,131 @@ USE `rowina_chan`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cart`
+--
+-- Creation: Nov 10, 2020 at 12:23 AM
+-- Last update: Nov 11, 2020 at 07:18 PM
+--
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE IF NOT EXISTS `cart` (
+  `cart_id` int(11) NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `product_name` varchar(50) DEFAULT NULL,
+  `product_brand` varchar(50) DEFAULT NULL,
+  `product_price` int(11) DEFAULT NULL,
+  `product_size` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cart_id`),
+  KEY `customer_id` (`customer_id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELATIONSHIPS FOR TABLE `cart`:
+--   `customer_id`
+--       `members` -> `customer_id`
+--   `product_id`
+--       `products` -> `product_id`
+--
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `product_name`, `product_brand`, `product_price`, `product_size`) VALUES
+(1, 7, 4103947, 'Adidas Superstar 20', 'Adidas ', 100, 6),
+(3, 7, 4103897, 'Timberland Premium Waterproof Boots', 'Timberland', 200, 7),
+(4, 7, 4103938, 'Nike Air Max 97', 'Nike', 170, 11),
+(5, 7, 4103930, 'UGG Classic Mini', 'Ugg', 150, 6),
+(6, 7, 4103947, 'Adidas Superstar 20', 'Adidas ', 100, 9),
+(7, 7, 4103873, 'Nike Air Force 1 Low', 'Nike', 120, 10),
+(8, 7, 4103890, 'PUMA Defy Mid Buckle', 'PUMA', 100, 8),
+(10, 7, 4103930, 'UGG Classic Mini', 'Ugg', 150, 8),
+(11, 7, 4103917, 'Jordan Retro 13', 'Jordan', 190, 13),
+(12, 7, 4103873, 'Nike Air Force 1 Low', 'Nike', 120, 11),
+(13, 7, 4103897, 'Timberland Premium Waterproof Boots', 'Timberland', 200, 17),
+(14, 7, 4103938, 'Nike Air Max 97', 'Nike', 170, 14),
+(15, 7, 4103947, 'Adidas Superstar 20', 'Adidas ', 100, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `favourites`
+--
+-- Creation: Oct 30, 2020 at 11:02 PM
 --
 
 DROP TABLE IF EXISTS `favourites`;
 CREATE TABLE IF NOT EXISTS `favourites` (
-  `customer_id` int(11) NOT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `products` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`customer_id`)
+  `favourites_id` int(11) NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `product_name` varchar(30) DEFAULT NULL,
+  `product_brand` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`favourites_id`),
+  KEY `customer_id` (`customer_id`),
+  KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELATIONSHIPS FOR TABLE `favourites`:
+--   `customer_id`
+--       `members` -> `customer_id`
+--   `product_id`
+--       `products` -> `product_id`
+--
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `members`
 --
+-- Creation: Nov 01, 2020 at 09:23 PM
+-- Last update: Nov 11, 2020 at 08:45 PM
+--
 
 DROP TABLE IF EXISTS `members`;
 CREATE TABLE IF NOT EXISTS `members` (
   `customer_id` int(11) NOT NULL,
-  `customerFirstName` varchar(50) NOT NULL,
-  `customerLastName` varchar(50) NOT NULL,
-  `customerEmail` varchar(50) NOT NULL,
-  `customerPassword` varchar(50) NOT NULL,
-  `customerDob` varchar(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `dob` varchar(11) NOT NULL,
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `orders`
+-- RELATIONSHIPS FOR TABLE `members`:
 --
 
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `customer_id` int(11) NOT NULL,
-  `price` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `products` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `dob`) VALUES
+(6, 'car', 'car', 'car@gmail.com', 'e6d96502596d7e7887b76646c5f615d9', 'Feb-02-2000'),
+(7, 'rowina', 'rowina', 'rowina@gmail.com', '551fbd27d540c5d111716950d7623857', 'Jan-01-2000'),
+(8, 'cs', 'cs', 'cs@gmail.com', '95cc64dd2825f9df13ec4ad683ecf339', 'Feb-02-2000'),
+(9, 'row', 'row', 'row@gmail.com', 'd257f106de7571b6758c7d9fef79dba9', 'Mar-03-2000'),
+(10, 'chamira', 'chamira', 'chamira@gmail.com', 'b500959f5bf6af14795842e5d29300d2', 'Jan-01-2000'),
+(11, 'carissa', 'carissa', 'carissa@gmail.com', '32ab14191a6fac0c525b6b2f86cd0db8', 'Feb-02-2000'),
+(12, 'shum', 'shum', 'shum@gmail.com', 'f164a1ee50299942fac6bf5d1b132964', 'Aug-08-2000');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
 --
+-- Creation: Oct 30, 2020 at 09:50 PM
+--
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int(11) NOT NULL,
-  `productName` varchar(50) DEFAULT NULL,
-  `productPrice` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
   `brand` varchar(50) DEFAULT NULL,
   `colour` varchar(50) DEFAULT NULL,
   `size` int(11) DEFAULT NULL,
@@ -89,10 +160,14 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONSHIPS FOR TABLE `products`:
+--
+
+--
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `productName`, `productPrice`, `brand`, `colour`, `size`, `gender`, `description`) VALUES
+INSERT INTO `products` (`product_id`, `name`, `price`, `brand`, `colour`, `size`, `gender`, `description`) VALUES
 (4103873, 'Nike Air Force 1 Low', 120, 'Nike', 'White', 6, 'Men', 'Nike\'s groundbreaking sneaker keeps you looking cool with its timeless style. Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon midsole with heel Air-Sole unit provides added shock absorption. Solid rubber outsole supplies durable traction.'),
 (4103874, 'Nike Air Force 1 Low', 120, 'Nike', 'White', 7, 'Men', 'Nike\'s groundbreaking sneaker keeps you looking cool with its timeless style. Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon midsole with heel Air-Sole unit provides added shock absorption. Solid rubber outsole supplies durable traction.'),
 (4103875, 'Nike Air Force 1 Low', 120, 'Nike', 'White', 8, 'Men', 'Nike\'s groundbreaking sneaker keeps you looking cool with its timeless style. Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon midsole with heel Air-Sole unit provides added shock absorption. Solid rubber outsole supplies durable traction.'),
@@ -169,7 +244,6 @@ INSERT INTO `products` (`product_id`, `productName`, `productPrice`, `brand`, `c
 (4103946, 'Nike Air Max 97', 170, 'Nike', 'Black', 15, 'Men', 'You\'d be hard-pressed to find a shoe more eye-catching than the Nike Air Max \'97. The heel and tongue pull tab make these sneakers easy wear. The famous Nike swoosh on the midfoot and tongue ensure your Nikes are recognizable from across the room. With a carefully designed foam midsole, you can comfortably sport these shoes for daily use. '),
 (4103947, 'Adidas Superstar 20', 100, 'Adidas ', 'White', 6, 'Women', 'A full-grain leather upper lets you carry a heritage look into your current day-to-day with the adidas Superstar 20. Rubber shell toe adds to your legacy look. Synthetic leather lining adds durability. Herringbone-pattern rubber cupsole. Imported.'),
 (4103948, 'Adidas Superstar 20', 100, 'Adidas ', 'White', 7, 'Women', 'A full-grain leather upper lets you carry a heritage look into your current day-to-day with the adidas Superstar 20. Rubber shell toe adds to your legacy look. Synthetic leather lining adds durability. Herringbone-pattern rubber cupsole. Imported.'),
-(4103949, 'Adidas Superstar 20', 100, 'Adidas ', 'White', 7, ' Women', 'A full-grain leather upper lets you carry a heritage look into your current day-to-day with the adidas Superstar 20. Rubber shell toe adds to your legacy look. Synthetic leather lining adds durability. Herringbone-pattern rubber cupsole. Imported.'),
 (4103950, 'Adidas Superstar 20', 100, 'Adidas ', 'White', 8, 'Women', 'A full-grain leather upper lets you carry a heritage look into your current day-to-day with the adidas Superstar 20. Rubber shell toe adds to your legacy look. Synthetic leather lining adds durability. Herringbone-pattern rubber cupsole. Imported.'),
 (4103951, 'Adidas Superstar 20', 100, 'Adidas ', 'White', 9, 'Women', 'A full-grain leather upper lets you carry a heritage look into your current day-to-day with the adidas Superstar 20. Rubber shell toe adds to your legacy look. Synthetic leather lining adds durability. Herringbone-pattern rubber cupsole. Imported.'),
 (4103952, 'Adidas Superstar 20', 100, 'Adidas ', 'White', 10, 'Women', 'A full-grain leather upper lets you carry a heritage look into your current day-to-day with the adidas Superstar 20. Rubber shell toe adds to your legacy look. Synthetic leather lining adds durability. Herringbone-pattern rubber cupsole. Imported.'),
@@ -182,6 +256,24 @@ INSERT INTO `products` (`product_id`, `productName`, `productPrice`, `brand`, `c
 (4103959, 'Reebok Question Mid', 150, 'Reebok', 'Red', 13, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.'),
 (4103960, 'Reebok Question Mid', 150, 'Reebok', 'Red', 14, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.'),
 (4103961, 'Reebok Question Mid', 150, 'Reebok', 'Red', 15, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `members` (`customer_id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Constraints for table `favourites`
+--
+ALTER TABLE `favourites`
+  ADD CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `members` (`customer_id`),
+  ADD CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
