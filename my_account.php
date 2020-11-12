@@ -70,7 +70,34 @@
         </div> 
 
         <div class="favourites-container"> 
-            <h1>My Favourites</h1>
+        <h2>My Favourites</h2>
+
+<div class="card_group ">
+<a href="about.html"><div class="homepage_card">
+ <img  src="img/NikeAirMax97.png" alt="Building" class="subsection_heading" style="width:100%" height="380">
+ <h3>NIKE AIR MAX 97</h3>
+ <p class="pricesize"> $170 </p>
+
+</div> </a>
+
+<a href="product_page.html"><div class="homepage_card">
+ <img src="img/JordanRetro13.png" alt="Ham and Swiss Omelet" class="subsection_heading" style="width:100%">
+ <h3>JORDAN RETRO 13</h3>
+ <p class="pricesize"> $190 </p></p>
+</div></a>
+
+<a href="about.html"><div class="homepage_card">
+ <img src="img/PUMADefyMidBuckle.png" alt="Entrees" class="subsection_heading" style="width:100%">
+ <h3>PUMA DEFY MID BUCKLE</h3>
+ <p class="pricesize"> $100 </p>  
+     </div></a>
+
+<a href="about.html"><div class="homepage_card">
+ <img src="img/UGGClassicMini.png" alt="Entrees" class="subsection_heading" style="width:100%">
+ <h3>UGG Classic Mini</h3>
+ <p class="pricesize"> $150 </p>  
+     </div></a>
+</div>
         </div> 
 
         

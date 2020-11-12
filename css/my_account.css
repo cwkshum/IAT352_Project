@@ -2,17 +2,19 @@ body{margin: 0;}
 
 .account-container{
     width: 40%;
-    top: 3rem;
-    position: fixed;
-    background: grey;
+    top: 6rem;
+    position: absolute;
+    background: white;
     padding: 3rem 6rem;
     height: 100%;
     bottom: 0;
+    box-shadow: 13px 13px #ECEEF0;
+
 }
 
 .favourites-container{
     margin-left: 40%;
-    padding: 3rem 6rem;
+    padding: 0rem 3rem 2rem;
 }
 
 /* login button */
@@ -33,3 +35,43 @@ body{margin: 0;}
     color: grey;
     background-color: #ffffff;
 }
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .card_group {
+    display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     padding-bottom: 20px;
+  }
+  
+  .homepage_card{
+    
+     max-width: 400px;
+     box-sizing: border-box;
+     margin-left: inherit;
+     margin-right:10px;
+     margin-bottom: 20px;
+     margin-top: 20px;
+     display: inline-block;
+     text-align: center;
+     float: left;
+     padding: 10px;
+  
+  }
+
+  .homepage_card:hover{
+    box-shadow: 13px 13px #ECEEF0;
+
+
+  }
