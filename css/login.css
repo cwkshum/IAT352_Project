@@ -1,55 +1,56 @@
-/* button for sign-up and login */
-.log-in, .create-account{
-    background: grey;
-    border-radius: 60px;
+/* image */
+.page-background{
+    width: 100%;
+    padding-top: 0;
+    padding-left: 10rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
+    background-image: url("../img/form2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+}
+
+.button { 
+    background: #C0CFC2;
+    color: white;
+    font-size: 20px;
+    border-radius: 1rem;
     border: none;
-    padding: 1rem 3rem;
-    display: inline-block;
-    color: black;
-    font-size: 1rem;
-    transition: 0.5s;
-    margin-left: 6rem;
+    padding: 1rem 4rem;
+    transition-property: background-color; 
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-out; 
+    text-align: center;
 }
 
-/* further positioning for login button */
-.log-in { 
-    margin-left: 9.6rem;
-    margin-top: 5.5rem;
+.button:active, .button:hover, .button:focus {
+	color: #FFFFFF;
+	background-color: #788F7B;
 }
 
-/* hover state - button for sign-up and login */
-.log-in:active, .create-account:active, .log-in:hover, .create-account:hover, .log-in:focus, .create-account:focus {
-    color: #FFFFFF;
-    background-color: #5da2d5;
-}
 /* change input textbox size */
 input[type = "text"]{
     width:200px;
     height:30px;
 }
 
-/* container box for login */
-.form-container { 
-    width: 35rem;
-    height: 50rem;
-    background-color: lightgrey;
-    padding-left: 3.3rem;
-    padding-right: 3rem;
-    padding-top: 6rem;
-    padding-bottom: 2rem;
-    margin-left: 35vw;
+.form-container {  
+    background: white;
+    position: relative;
+    width: 40rem;
+    padding: 8rem 6rem;
+    box-shadow: 13px 13px #ECEEF0;
+    float: right;
 }
 
-/* text box size for password*/
-input[type = "password"]{
-    width:409px;
-    height:30px;
-}
-
-/* text box size for username */
-input[type = "email"]{
-    width:409px;
-    height:30px;
+/* change size of text input field */
+input[type="email"], input[type="password"]{
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 /* padding for input boxes  */
@@ -62,8 +63,18 @@ input[type = "email"]{
     padding-top: 1rem;
 }
 
-/* margin for "or" text */
-.or { 
-    margin-left: 13.6rem;
-    
+.lighter-text {
+    font-weight: 300;
+}
+
+.alignment-container {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+
+}
+
+/* padding for "or" */
+.or-padding { 
+    padding-bottom: 2rem;
 }

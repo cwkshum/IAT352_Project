@@ -2,7 +2,7 @@
 <html lang="en">
     
     <head>
-        <title>Form Processing</title> 
+        <title>Sign up</title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,7 +11,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
-        <link rel="stylesheet" type="text/css" href="css/signup_form.css"> 
+        <link rel="stylesheet" type="text/css" href="css/welcome_post.css"> 
+
 
     </head>
 
@@ -62,8 +63,6 @@
                     echo $fname;
                     $all_fields = false;
                 }
-
-
 
              
                 // if last name isn't empty, post
@@ -185,53 +184,61 @@
             } 
         ?>
 
-        <?php
-            //Check existing user ids 
-            $id_query = "SELECT customer_id FROM members ORDER BY customer_id DESC LIMIT 1";
-            $id_result = mysqli_query($connection, $id_query) or die(mysql_error());
-            //if no users have been registered, start from a 0000 id, else taking the largest user id and increment it by 1 to create a new user id 
-            $num_results = mysqli_num_rows($id_result); 
-            $rows = mysqli_fetch_assoc($id_result);
 
-            if ($num_results == 0) {
-                $id = 00001;
-            } else {
-                $id = $rows['customer_id'];
-                $id += 1; 
-            }
 
-            //Checking is user existing in the database or not
-            $query = "SELECT * FROM members WHERE email = '$email' and password = '".md5($password)."'";
-            $result = mysqli_query($connection, $query) or die(mysql_error());
-                
-            $rows = mysqli_num_rows($result);
+        <div class="page-background">
+            <div class='message-container'>
 
-            if ($rows == 1) {
-                echo "<h3>It appears this email has already been registered.</h3>";
-            } else {
-                echo $email;
-                echo "<br>";
-                echo $first_name;
-                echo "<br>";
-                echo $last_name;
-                echo "<br>";
-                echo $dob;
-                echo "<br>";
-                
-                // $query = "INSERT into members (email, password, first_name, last_name, dob, customer_id) VALUES ('$email', '".md5($password)."', '$first_name', '$last_name', '$dob', $id)";
-                if (!$input_error) {
-                    $query = "INSERT into members (email, password, first_name, last_name, dob, customer_id) VALUES ('$email', '".md5($password)."', '$first_name', '$last_name', '$dob', $id)";
-                    echo $query;
-                   
-                    $result = mysqli_query($connection, $query);
-                    
-                    if($result) {
-                        echo "<h3>Thank you for registering!</h3>
-                        <br/>Click here to <a href='login.php'>Login</a>";
+                <?php
+                    //Check existing user ids 
+                    $id_query = "SELECT customer_id FROM members ORDER BY customer_id DESC LIMIT 1";
+                    $id_result = mysqli_query($connection, $id_query) or die(mysql_error());
+                    //if no users have been registered, start from a 0000 id, else taking the largest user id and increment it by 1 to create a new user id 
+                    $num_results = mysqli_num_rows($id_result); 
+                    $rows = mysqli_fetch_assoc($id_result);
+
+                    if ($num_results == 0) {
+                        $id = 00001;
+                    } else {
+                        $id = $rows['customer_id'];
+                        $id += 1; 
                     }
-                }
-            }
-        ?>
+
+                    //Checking is user existing in the database or not
+                    $query = "SELECT * FROM members WHERE email = '$email' and password = '".md5($password)."'";
+                    $result = mysqli_query($connection, $query) or die(mysql_error());
+                        
+                    $rows = mysqli_num_rows($result);
+
+                    if ($rows == 1) {
+                        
+                        echo "<h1>Oops!</h1>";
+                        echo "<h2 class='message'>It appears this email has already been registered.</h2>";
+                        
+                        echo "<div class='center-content'>";
+                            echo "<a href='signup_form.php' class='button'>SIGN UP</a>";
+                            echo "<h4 class='container-item'>OR</h4>";
+                            echo "<a href='login.php' class='button'>LOG IN</a>";
+                        echo "</div>";
+
+                        
+                    } else {
+                        if (!$input_error) {
+                            $query = "INSERT into members (email, password, first_name, last_name, dob, customer_id) VALUES ('$email', '".md5($password)."', '$first_name', '$last_name', '$dob', $id)";
+                            $result = mysqli_query($connection, $query);
+                            
+                            if($result) {
+                                echo "<h1 class='center-content success-message'>Welcome, " . $first_name . "!</h1>";
+                                echo "<div class='center-content'>";
+                                    echo "<h2 class='message'>Thank you for registering.</h2>";
+                                    echo "<a href='login.php' class='button'>LOG IN</a>";
+                                echo "</div>";
+                            }
+                        }
+                    }
+                ?>
+            </div>
+        </div>
         
     </body>
 </html>

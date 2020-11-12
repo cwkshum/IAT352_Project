@@ -1,15 +1,17 @@
 /* header image styling */
 .hero-image {
-    margin: 0;
+    margin: 0 auto;
     width: 100%;
 }
 
 .small-header {
-    width: auto;
-    height: auto;
-    background-image: url("../img/hero1.jpg");
+    width: 100%;
+    padding: 3rem;
+    background-image: url("../img/products.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
   
 .small-header-image {
@@ -23,6 +25,10 @@
     max-height: 224px;
 }
 
+h1 {
+    margin-bottom: 2rem;
+}
+
   /* flexbox container for filter list */
 .filter-flexbox-container { 
     display: flex; 
@@ -30,10 +36,8 @@
 	flex-wrap: nowrap; 
 	justify-content: flex-start; 
 	align-items: flex-start; 
-	padding-right: 1rem;
-    padding-left: 3rem;
-    max-width: 14rem;
-    background: #0001;
+    padding: 1.7rem 4rem;
+    border-right: 1.5px solid #ECEEF0;
     position: absolute;
 }
 
@@ -41,6 +45,7 @@
 .filter-flex-item { 
     padding-bottom: 10rem;
 }
+
 
 /* list styling */
 ul { 
@@ -55,16 +60,36 @@ li{
     margin-bottom: 1rem;
 }
 
+h4 {
+    padding-top: 2rem;
+}
+
+
+
 /* Color Filter Buttons */
 .color-container { 
     max-width: 10rem;
     padding-bottom: 1rem;
 }
 
-button{
-    padding: 0.6rem;
-    margin: 0.3rem;
-    border: 1px solid grey;
+.button { 
+    background: #C0CFC2;
+    color: white;
+    font-size: 20px;
+    border-radius: 1rem;
+    border: none;
+    padding: 1rem 1rem;
+    transition-property: background-color; 
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-out; 
+    text-align: center;
+    font-size: 16px;
+    margin-left:0;
+}
+
+.button:active, .button:hover, .button:focus {
+	color: #FFFFFF;
+	background-color: #788F7B;
 }
 
 .black-button{
@@ -73,6 +98,7 @@ button{
 
 .white-button{
     background-color: white;
+    border: 0.8px solid #9A9A9A;
 }
 
 .red-button{
@@ -91,34 +117,44 @@ button{
     display: grid;
 }
 
-/* grid gutters for content units */ 
+/* grid gutters for filter */ 
 .grid.add-gutters { 
-    grid-column-gap: 0rem;
-    grid-row-gap: 2rem; 
+    grid-column-gap: 0.2rem;
+    grid-row-gap: 1.8rem; 
 }
 
-/* grid layout for content units */ 
-.grid.four-column { 
-    margin-left: 16%;
-    margin-right: 19%;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+/* grid gutters for content units */ 
+.grid.units-add-gutters { 
+    grid-column-gap: 1.8rem;
+    grid-row-gap: 5rem; 
+}
+
+/* grid layout for content units/colour filters */ 
+.grid.three-column { 
+    /* margin-left: 16%; */
+    /* margin-right: 19%; */
+    grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: auto;
     grid-auto-flow: row;    
 }
 
 /* captions for unit pictures: price, name */
 .content-unit-text {
-    padding-top: 0;
+    padding-top: 2rem;
     text-align: left; 
     line-height: 1.5rem;  
+    margin-bottom: -2rem;
 }
 
-/* grid layout for size filter layout */ 
-.grid.three-column { 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: auto;
-    grid-auto-flow: row;
+.product-name {
+    font-weight: 700;
+    font-size: 18px;
 }
+
+.price {
+    line-height: 5rem;
+}
+
 
 /* spacing and alignment for size filters */
 .size-filter-spacing {
@@ -174,13 +210,15 @@ button{
   
   /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
-    background-color: #ccc;
+    /* background-color: #ccc; */
+    border: 2px solid black;
+    /* box-shadow: 0px 0px 10px 1px #ccc; */
   }
   
   /* When the checkbox is checked, add a blue background */
   .container input:checked ~ .checkmark {
     /* background-color: #2196F3; */
-    border: 2px solid black
+    border: 2px solid black;
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */
@@ -211,6 +249,29 @@ button{
   .checkbox-line-spacing { 
      padding-top: 0.15rem;
      padding-bottom: 0.15rem;
+  }
+
+  /* container for individual units */
+  .unit-container {
+    background: white;
+    border: 1.5px solid #ECEEF0;
+    width: 18rem;
+    padding: 0.8rem 0.5rem;
+    box-shadow: 13px 13px #ECEEF0;
+    transition: 0.3s;
+  }
+
+  .unit-container:hover {
+    border: 1.5px solid #C0CFC2;
+    box-shadow: 13px 13px #C0CFC2;
+  }
+
+  /* container for all content */
+  .content-container {
+      /* margin-right: 6rem;
+      margin-left: 6rem; */
+      margin: 4rem 6rem;
+      margin-left: 23rem;
   }
 
 

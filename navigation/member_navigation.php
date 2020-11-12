@@ -9,7 +9,7 @@
 
         <?php
             echo '<div class="nav-logo">';   
-                echo '<a href="' . $exitFolder . 'index.php">shoe addiction</a>';
+                echo '<a href="' . $exitFolder . 'memberhome.php">shoe addiction</a>';
             echo '</div>';
 
             echo '<div class = "nav-link-section">';

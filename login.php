@@ -22,37 +22,34 @@
             $inFolder = false;  
             include("public_sessionActiveCheck.php"); 
         ?>
-
-        <div class="form-container">
-            <h2> LOG-IN </h2>
-           
-            <form action="login_post.php" method="post">
-                <div class="padding">
-                    <!-- input for email address -->
-                    <label for="email">Email Address:</label><br>
-                    <input type="email" id="email" name="email" required><br>
-                </div>
-
-                <div class="padding">
-                    <!-- input for password -->
-                    <label for="password">Password:</label><br>
-                    <input type="password" id="password" name="password" required><br>
-                </div>
-
-                <!-- "Forgot password?" Text  -->
-                <div class="forgot-password-padding">
-                    <a href="">Forgot Password?</a><br>
-                </div>
+        <div class="page-background">
+            <div class="form-container">
+                <h2> LOG-IN </h2>
             
-                <!-- login button -->
-                <input class="log-in" name="submit" type="submit" value="LOG IN">
+                <form action="login_post.php" method="post">
+                    <div class="padding">
+                        <!-- input for email address -->
+                        <label for="email" class="lighter-text">Email Address:</label><br>
+                        <input type="email" id="email" name="email" required><br>
+                    </div>
 
-                <h4 class ="or"> OR </h4>
+                    <div class="padding">
+                        <!-- input for password -->
+                        <label for="password" class="lighter-text">Password:</label><br>
+                        <input type="password" id="password" name="password" required><br>
+                    </div>
+                
+                    <div class="alignment-container">
+                        <!-- login button -->
+                        <input class="button" name="submit" type="submit" value="LOG IN">
 
-                <!-- "Create an Account" button -->
-                <a href="signup_form.php" class="create-account">CREATE AN ACCOUNT</a>
+                        <h4 class="or-padding"> OR </h4>
 
-            </form>
+                        <!-- "Create an Account" button -->
+                        <a href="signup_form.php" class="button">CREATE AN ACCOUNT</a>
+                    </div>
+                </form>
+            </div>
         </div>
 
     </body>

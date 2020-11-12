@@ -1,0 +1,56 @@
+.message-container {
+    background: white;
+    position: relative;
+    width: 50rem;
+    height: 30rem;
+    padding: 4rem 11.6rem;
+    box-shadow: 13px 13px #ECEEF0;
+    margin: 0 auto;
+}
+
+.message { 
+    font-weight: 300;
+    padding-bottom: 3rem;
+    font-size: 20px;
+}
+
+.page-background{
+    width: 100%;
+    padding: 10rem;
+    background-image: url("../img/welcomepost.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+}
+
+.button { 
+    background: #C0CFC2;
+    color: white;
+    font-size: 20px;
+    border-radius: 1rem;
+    border: none;
+    padding: 1rem 4rem;
+    transition-property: background-color; 
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-out; 
+}
+
+.button:active, .button:hover, .button:focus {
+	color: #FFFFFF;
+	background-color: #788F7B;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.container-item { 
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.success-message { 
+    padding-top: 4rem;
+}

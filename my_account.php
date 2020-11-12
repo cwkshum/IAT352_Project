@@ -64,7 +64,7 @@
             <h3>Date of Birth</h3>
             <p><?php echo $dob ?></p>
 
-            <a class="edit" href="edit_account.php">Edit</a>
+            <a class="button" href="edit_account.php">Edit</a>
 
             
         </div> 

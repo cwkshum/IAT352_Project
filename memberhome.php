@@ -6,89 +6,74 @@
 <!DOCTYPE html>
 <html lang="en">
     
-    <head>
-        <title>Home | Member</title> 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Home | Member</title> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- javascript file linked -->
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- javascript file linked -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-        <!-- Import Bootstrap: https://www.w3schools.com/bootstrap/bootstrap_get_started.asp -->
-        <!-- Latest compiled and minified CSS -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-        <!-- jQuery library -->
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <!-- Latest compiled JavaScript -->
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/main.css"> 
+    <link rel="stylesheet" type="text/css" href="css/memberhome.css"> 
 
-        <link rel="stylesheet" type="text/css" href="css/main.css"> 
-        <link rel="stylesheet" type="text/css" href="css/memberhome.css"> 
-        <!-- <script src="js/main.js"></script> -->
+  </head>
 
-    </head>
+  <body>
 
-    <body>
+    <!-- Navigation -->
+    <?php 
+      if(isset($_SESSION["email"])) {
+        include ('navigation/member_navigation.php'); 
+      }
+    ?>
+    <div class="slideshow-container">
 
-        <!-- Navigation -->
-        <?php 
-            if(isset($_SESSION["email"])) {
-                include ('navigation/member_navigation.php'); 
-            }
-        ?>
-          <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="img/mainheader1.png" style="width:100%">
+        <div class="product-info-container">
+          <h2 class="product-name">Adidas Superstar</h2>
+          <a href='products/AdidasSuperstar20.php' class='shop-now'>Shop Item</a> 
+        </div>  
+      </div>
 
-<div class="mySlides fade">
-  <img src="img/mainheader1.png" style="width:100%">
-  <div class="product-info-container">
-    <h2 class="product-name">Adidas Superstar</h2>
-    <a href='AdidasSuperstar20.php' class='shop-now'>Shop Item</a> 
+      <div class="mySlides fade">
+        <img src="img/mainheader2.png" style="width:100%">
+        <div class="product-info-container">
+          <h2 class="product-name">Nike Air Force</h2>
+          <a href='products/NikeAirForce1Low.php' class='shop-now'>Shop Item</a> 
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="img/mainheader3.png" style="width:100%">
+        <div class="product-info-container">
+          <h2 class="product-name">Jordan Retro 13</h2>
+          <a href='products/JordanRetro13.php' class='shop-now'>Shop Item</a> 
+        </div>
+      </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
-</div>
+  <br>
 
-<div class="mySlides fade">
-  <img src="img/mainheader2.png" style="width:100%">
-  <div class="product-info-container">
-    <h2 class="product-name">Nike Air Force</h2>
-    <a href='NikeAirForce1Low.php' class='shop-now'>Shop Item</a> 
+  <div class="indicator-dots">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
   </div>
-</div>
 
-<div class="mySlides fade">
-  <img src="img/mainheader3.png" style="width:100%">
-<div class="product-info-container">
-    <h2 class="product-name">Jordan Retro 13</h2>
-    <a href='JordanRetro13.php' class='shop-now'>Shop Item</a> 
-  </div>
-</div>
-
-<!-- <div class="mySlides fade">4 / 3</div>
-  <img src="img/mainheader4.png" style="width:100%">
-  <div class="text">Caption Four</div>
-</div> -->
-
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<div class="indicator-dots">
-<span class="dot" onclick="currentSlide(1)"></span> 
-<span class="dot" onclick="currentSlide(2)"></span> 
-<span class="dot" onclick="currentSlide(3)"></span> 
-<!-- <span class="dot" onclick="currentSlide(4)"></span>  -->
-</div>
-
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
         
 
-        <!-- "RECENTLY VIEWED" Carousel -->
-         <!-- https://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
-         <h2>YOUR FAVOURITES</h2>
+  <!-- "RECENTLY VIEWED" Carousel -->
+  <!-- https://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
+  <h2>YOUR FAVOURITES</h2>
 
          <div class="card_group ">
-       <a href="about.html"><div class="homepage_card">
+        <a href="about.html"><div class="homepage_card">
           <img  src="img/NikeAirMax97.png" alt="Building" class="subsection_heading" style="width:100%" height="380">
           <h3>NIKE AIR MAX 97</h3>
           <p class="pricesize"> $170 </p>

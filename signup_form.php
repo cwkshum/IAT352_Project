@@ -23,74 +23,71 @@
             include("public_sessionActiveCheck.php"); 
         ?>
 
-        <div class="form-container">
-            <h2>SIGN UP</h2> 
-            <!-- sign up form -->
-            <form action="welcome_post.php" method="post">
-                <div class="grid add-gutters two-column">
-                    <div class="padding">
-                        <!-- first name input -->
-                        <label for="first_name">FIRST NAME*</label><br>
-                        <input type="text" id="first_name" name="first_name" required>
+        <div class="page-background">
+            <div class="form-container">
+                <h2>SIGN UP</h2> 
+                <!-- sign up form -->
+                <form action="welcome_post.php" method="post">
+                    <div class="grid add-gutters two-column">
+                        <div class="padding">
+                            <!-- first name input -->
+                            <label for="first_name" class="lighter-text">First Name*</label><br>
+                            <input type="text" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="box-margin padding">
+                            <!-- last name input -->
+                            <label for="last_name" class="lighter-text">Last Name*</label><br>
+                            <input type="text" id="last_name" name="last_name" required>
+                        </div>
                     </div>
-                    <div class="box-margin padding">
-                        <!-- last name input -->
-                        <label for="last_name">LAST NAME*</label><br>
-                        <input type="text" id="last_name" name="last_name" required>
+
+                    <div class="padding"> 
+                        <!-- email address input -->
+                        <label for="email" class="lighter-text">Email Address*</label><br>
+                        <input type="email" id="email" name="email" required><br>
                     </div>
-                </div>
 
-                <div class="padding"> 
-                    <!-- email address input -->
-                    <label for="email">EMAIL ADDRESS*</label><br>
-                    <input type="email" id="email" name="email" required><br>
-                </div>
+                    <div class="padding"> 
+                        <!-- password input -->
+                        <label for="password" class="lighter-text">Password*</label><br>
+                        <input type="password" id="password" name="password" required><br> <!--type changed to password from text-->
+                    </div>
 
-                <div class="padding"> 
-                    <!-- password input -->
-                    <label for="password">PASSWORD*</label><br>
-                    <input type="password" id="password" name="password" required><br> <!--type changed to password from text-->
-                </div>
+                    <div class="padding"> 
+                        <!-- confirm password input -->
+                        <label for="confirm_password" class="lighter-text">Confirm Password*</label><br>
+                        <input type="password" id="confirm_password" name="confirm_password" required><br>
+                    </div>
 
-                <div class="padding"> 
-                    <!-- confirm password input -->
-                    <label for="confirm_password">CONFIRM PASSWORD*</label><br>
-                    <input type="password" id="confirm_password" name="confirm_password" required><br>
-                </div>
+                    <div class="padding"> 
+                        <!-- date of birth input -->
+                        <label for="month" class="lighter-text">Date of Birth (mm/dd/yyyy)*</label><br>
+                        <div class="grid add-gutters three-column">
+                            <!-- input for month of birth -->
+                            <input type="number" id="month" name="month" min="1" max="12" required>
+                            
+                            <!-- input for date of birth -->
+                            <input type="number" id="date" name="date" min="1" max="31" required>
+                            
+                            <!-- input for year of birth -->
+                            <input type="number" id="year" name="year" min="1940" max="2020" required>
+                        </div>
+                    </div>
 
-                <div class="padding"> 
-                    <!-- date of birth input -->
-                    <label for="month">DATE OF BIRTH (MM/DD/YYYY)*</label><br>
-                    <div class="grid add-gutters five-column">
-                        <!-- input for month of birth -->
-                        <input type="number" id="month" name="month" min="1" max="12" required>
+                    <div class="alignment-container">
+                        <!-- submit button -->
+                        <input class="button" type="submit" name="submit" value="SUBMIT">
+
+                        <!-- "have an account?" text -->
+                        <p class="account-padding lighter-text">Have an account?</p> 
+
+                        <!-- login button -->
+                        <a href="login.php" class="button">LOG IN</a> 
+                    </div>
                     
-                        <!-- input for date of birth -->
-                        <input type="number" id="date" name="date" min="1" max="31" required>
-                
-                        <!-- input for year of birth -->
-                        <input type="number" id="year" name="year" min="1940" max="2020" required>
-                    </div>
-                </div>
-
-                <div class="grid two-column">
-                    <!-- "agree to emails" checkbox -->
-                    <input type="checkbox" class="check-box" id="agree" name="agree-to-terms" value="accept">
-                    <!-- email notifications text -->
-                    <p class="agreement-margin">I agree to receive emails or similar electronic account messages about events and promotions from (INSERT WEBSITE NAME). You can withdraw your consent at any time. Please refer to our Privacy Policy or Contact Us.</p>
-                </div>
-            
-                <!-- submit button -->
-                <input class="submit-button" type="submit" name="submit" value="SUBMIT">
-
-                <!-- "have an account?" text -->
-                <p class="account-margin">Have an account?</p> 
-
-                <!-- login button -->
-                <a href="login.php" class="log-in">LOG IN</a> 
-            </form>
+                </form>
+            </div>
         </div>
-
         
     </body>
 </html>

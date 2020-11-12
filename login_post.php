@@ -24,7 +24,7 @@
     </head>
 
     <body>
-    
+
         <!-- Navigation -->
         <?php  
             include("public_sessionActiveCheck.php"); 
@@ -81,14 +81,12 @@
         ?>
 
         <?php
-            //Checking is user existing in the database or not
+            //Checking if the user exists in the database or not
             $query = "SELECT * FROM members WHERE email = '$email' and password = '".md5($password)."'";
             $result = mysqli_query($connection, $query) or die(mysql_error());
             $rows = mysqli_num_rows($result);
             echo $query;
             if ($rows === 1) {
-                // echo $rows; 
-                // echo $email;
                 $_SESSION['email'] = $email;
                 $_SESSION['in_progress'] = true; 
                 // Redirect user to index.php

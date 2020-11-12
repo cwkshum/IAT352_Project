@@ -15,7 +15,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #5DA2D5;
+	color: #788F7B;
 }
 
 h4{
@@ -31,13 +31,13 @@ h4{
 	flex-direction: row;
 	flex-wrap: wrap;
 	background: #ffffff;
-	padding: 2rem 2.5rem;
+	padding: 1.5rem 2.5rem;
 }
 
 /* Logo in Navigation */
 .nav-logo{
   margin-left: 0;
-  margin-top: 1rem;
+  margin-top: 0.4rem;
 	font-size: 28px;
   font-weight: 700;
 }
@@ -46,26 +46,30 @@ h4{
   color: #788F7B;
 }
 
+.nav-logo a:hover{
+  color: #C0CFC2;
+}
+
 /* Navigation Links */
 .nav-link-section{
 	display: inline;
 	flex: 3;
 	text-align: right;
-  padding-top: 1.1rem;
-	font-size: 1.2rem;
+  padding-top: 0.8rem;
+	font-size: 1rem;
 }
 
 .nav-link{
-	color: #000000;
+	color: #4E4E4E;
   padding-bottom: 0.2rem;
-  margin-left: 2.5rem;
+  margin-left: 2rem;
   margin-right: 1.2rem;
   font-weight: 300;
 }
 
 .nav-link:hover, .nav-link:focus {
-  color: #788F7B;
-  border-bottom: 0.2rem solid #788F7B;
+  color: #C0CFC2;
+  border-bottom: 0.2rem solid #C0CFC2;
 }
 
 /* *********************************************** */

@@ -2,7 +2,7 @@
 <html lang="en">
     
     <head>
-        <title>Women Products</title> 
+        <title>Womens Products</title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,15 +27,16 @@
         ?> 
         
         <!-- hero image -->
-        <section class = "hero">
+        <header>
             <div class="small-header">
                 <img src="img/hero1.jpg" class="small-header-image">
             </div>
-        </section>
+        </header>
 
         <!-- filters --> 
         <div class="filter-flexbox-container"> 
             <form action="women_products.php" method="post" class="filter-flex-item">
+               
                 <h4>BRAND</h4> 
                 
                 <div class="checkbox-line-spacing">
@@ -68,48 +69,35 @@
                     <label for="UGG">UGG</label><br>
                 </div>
 
-               
-
-                <!-- <h4>GENDER</h4> 
-                <div class="checkbox-line-spacing">        
-                    <input type="checkbox" id="men" name="men" value="men" <?php if(isset($_POST['men'])) echo "checked='checked'"; ?>>
-                    <label for="men">Men<label><br>
-                </div>
-
-                <div class="checkbox-line-spacing">
-                    <input type="checkbox" id="women" name="women" value="women"<?php if(isset($_POST['women'])) echo "checked='checked'"; ?>>
-                    <label for="women">Women</label><br>
-                </div> -->
-
+            
                 <h4>COLOUR</h4> 
                 <div class="color-container grid three-column add-gutters">
 
-                <label class="container">
-                    <input type="checkbox" id="White" name="White" value ="White" <?php if(isset($_POST['White'])) echo "checked='checked'"; ?>>
-                    <span class="checkmark white-button"></span>
-                </label>
+                    <label class="container">
+                        <input type="checkbox" id="White" name="White" value ="White" <?php if(isset($_POST['White'])) echo "checked='checked'"; ?>>
+                        <span class="checkmark white-button"></span>
+                    </label>
 
-                <label class="container">
-                    <input type="checkbox" id="Beige" name="Beige" value ="Beige" <?php if(isset($_POST['Beige'])) echo "checked='checked'"; ?>>
-                    <span class="checkmark beige-button"></span>
-                </label>
+                    <label class="container">
+                        <input type="checkbox" id="Beige" name="Beige" value ="Beige" <?php if(isset($_POST['Beige'])) echo "checked='checked'"; ?>>
+                        <span class="checkmark beige-button"></span>
+                    </label>
 
-                <label class="container">
-                    <input type="checkbox" id="Green" name="Green" value ="Green" <?php if(isset($_POST['Green'])) echo "checked='checked'"; ?>>
-                    <span class="checkmark green-button"></span>
-                </label>
+                    <label class="container">
+                        <input type="checkbox" id="Green" name="Green" value ="Green" <?php if(isset($_POST['Green'])) echo "checked='checked'"; ?>>
+                        <span class="checkmark green-button"></span>
+                    </label>
 
-                <label class="container">
-                    <input type="checkbox" id="Black" name="Black" value ="Black" <?php if(isset($_POST['Black'])) echo "checked='checked'"; ?>>
-                    <span class="checkmark black-button"></span>
-                </label>
+                    <label class="container">
+                        <input type="checkbox" id="Black" name="Black" value ="Black" <?php if(isset($_POST['Black'])) echo "checked='checked'"; ?>>
+                        <span class="checkmark black-button"></span>
+                    </label>
 
-                <label class="container">
-                    <input type="checkbox" id="Red" name="Red" value ="Red" <?php if(isset($_POST['Red'])) echo "checked='checked'"; ?>>
-                    <span class="checkmark red-button"></span>
-                </label>
+                    <label class="container">
+                        <input type="checkbox" id="Red" name="Red" value ="Red" <?php if(isset($_POST['Red'])) echo "checked='checked'"; ?>>
+                        <span class="checkmark red-button"></span>
+                    </label>
                 </div>
-
 
                 <h4>SIZE</h4>
                 <?php
@@ -118,18 +106,18 @@
                         $shoeSize = $i;
 
                         echo '<div>';
-                            echo '<input type="checkbox" id="shoeSize" name="'. $shoeSize .'" value="'. $shoeSize .'" ';
+                            echo '<input type="checkbox" id="shoeSize" name="'. $shoeSize .'"value=" '. $shoeSize .'" ';
                             if(isset($_POST[$shoeSize])){
                                 echo 'checked="checked"';
                             } 
                             echo ">";
-                            echo '<label for="shoeSize">'.$shoeSize.'</label>'; 
+                            echo '<label for="shoeSize">'. ' ' .$shoeSize.'</label>'; 
                         echo '</div>';
                     }
                     echo "</ul>";
                 ?> 
-                <input type="submit" name="submit" value="Filter Products">
-                <input type="reset" name="reset" value="Clear Filters">
+
+                <input type="submit" name="submit" value="Filter Products" class="button">
             </form>
 
         </div> 
@@ -146,9 +134,6 @@
                 $Timberland = "";
                 $PUMA = "";
                 $UGG = "";
-                
-                // $men = "";
-                // $women = "";
                 
                 $white = "";
                 $beige = "";
@@ -234,43 +219,17 @@
                     $whereQuery .= " (" . $whereBrandQuery . ") ";
                 } 
 
-                //gender
-                // if(!empty($_POST["men"])){
-                //     $men = $_POST["men"];
-				// 	if(!empty($whereQuery)) {
-                //         $whereGenderQuery .= "products.gender = "."'".$men. "'";
-                //     } 
-                // }
-
-
-                // if(!empty($_POST["women"])) {
-				// 	$women = $_POST["women"];
-                    
-				// 	if(!empty($whereQuery) && empty($whereGenderQuery)) {
-                //         $whereGenderQuery .= "products.gender = "."'".$women. "'";
-                //     } else if(!empty($whereGenderQuery)){
-                //         $whereGenderQuery .= " OR products.gender = "."'".$women. "'";
-                //     } 
-                // }
-                
-                // if (!empty($whereGenderQuery)) {
-                //     $whereQuery .= " AND (" . $whereGenderQuery . ") ";
-                // } 
-
                 //colour
                 if(!empty($_POST["White"])) {
                     $white = $_POST["White"];
 
-                    // if(!empty($whereQuery) || empty($whereQuery)) {
-                        $whereColourQuery .= "products.colour = "."'".$white. "'";
-                    // } 
+                    $whereColourQuery .= "products.colour = "."'".$white. "'";
                 }
                 
 
                 if(!empty($_POST["Beige"])) {
                     $beige = $_POST["Beige"];
 
-					// if(!empty($whereQuery) && empty($whereColourQuery)) {
                     if(empty($whereColourQuery)) {
                         $whereColourQuery .= "products.colour = "."'".$beige. "'";
                     } else if(!empty($whereColourQuery)){
@@ -336,11 +295,6 @@
                     }    
                 }
 
-                //if there are multiple size filters selected, find either or all options depending on what is available 
-                // if (!empty($whereSizeQuery)) {
-                //     $whereQuery .= " AND (" . $whereSizeQuery . ") ";
-                // } 
-
                 if (!empty($whereSizeQuery) && !empty($whereQuery)) {
                     $whereQuery .= " AND (" . $whereSizeQuery . ") ";
                 } else if (!empty($whereSizeQuery) && empty($whereQuery)) {
@@ -353,45 +307,49 @@
                 
                 $filterQuery = "SELECT products.name, products.gender, products.price FROM products WHERE " . $whereQuery . " AND  products.gender = 'Women'"; 
             }
-            // $filter_results = mysqli_query($connection, $filterQuery);
-            // echo $filterQuery;
-            // if (!$filter_results) {
-            //     echo $filterQuery;
-            //     die("Sorry! There seem to be no matching results.");
-            // } 
         
         ?>
         
+        <div class="content-container"> 
        
-        <div class="grid add-gutters four-column">
-       
-        <?php
-            if ($filterSelected) {
-                $contentQuery = $filterQuery. " GROUP BY products.name"; 
-            } else {
-                $contentQuery = "SELECT p.name, p.price, p.gender FROM products p WHERE p.gender = 'Women' GROUP BY p.name"; 
-            }
+            <h1>Womens Shoes</h1>
+            <div class="grid units-add-gutters three-column">
+            
+                <?php
+                    if ($filterSelected) {
+                        $contentQuery = $filterQuery. " GROUP BY products.name"; 
+                    } else {
+                        $contentQuery = "SELECT p.name, p.price, p.gender FROM products p WHERE p.gender = 'Women' GROUP BY p.name"; 
+                    }
 
-            // echo $contentQuery;
-            $contentResults = mysqli_query($connection, $contentQuery);
+                    $contentResults = mysqli_query($connection, $contentQuery);
 
-            $numResults = mysqli_num_rows($contentResults); 
-            for ($i = 0; $i < $numResults; $i++) {
-                $row = mysqli_fetch_assoc($contentResults);
-                $productName = $row['name'];
-                $productPrice = $row['price']; 
-                $gender = $row['gender'];
+                    $numResults = mysqli_num_rows($contentResults); 
+                    for ($i = 0; $i < $numResults; $i++) {
+                        $row = mysqli_fetch_assoc($contentResults);
+                        $productName = $row['name'];
+                        $productPrice = $row['price']; 
+                        $gender = $row['gender'];
 
-                $stripped = str_replace(' ', '', $productName);
+                        $stripped = str_replace(' ', '', $productName);
 
-                echo '<figure>';
-                    echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
-                    echo '<figcaption class="content-unit-text">'. $productName .'<br>'. $gender .'<br>$'. $productPrice .'</figcaption>';
-                echo '</figure>';
+                        // display the content units
+                        echo '<div class="unit-container">';
+                            echo '<figure>';
+                                echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                                echo '<figcaption class="content-unit-text"> <span class="product-name">'. $productName .'</span><br>'. $gender .'<br> <span class="price">$'. $productPrice .'</span></figcaption>';
+                            echo '</figure>';
+                        echo '</div>';
+                        
+                    }
+
+                    //display a message if there aren't any products matching the filters
+                    if ($numResults == 0) {
+                        echo "Uh oh! It appears we don't have any matching products.";
+                    }
+                ?>
                 
-            }
-        ?>
-        
+            </div>
         </div>
         
         <?php
