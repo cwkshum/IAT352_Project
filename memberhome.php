@@ -25,7 +25,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/memberhome.css"> 
-        <script src="js/main.js"></script>
+        <!-- <script src="js/main.js"></script> -->
 
     </head>
 
@@ -37,243 +37,104 @@
                 include ('navigation/member_navigation.php'); 
             }
         ?>
+          <div class="slideshow-container">
 
-        <h2>RECENTLY ADDED</h2>
-    <div class="slideshow-container">
-     <div class="slideshow-inner">
+<div class="mySlides fade">
+  <img src="img/mainheader1.png" style="width:100%">
+  <div class="product-info-container">
+    <h2 class="product-name">Adidas Superstar</h2>
+    <a href='AdidasSuperstar20.php' class='shop-now'>Shop Item</a> 
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <img src="img/mainheader2.png" style="width:100%">
+  <div class="product-info-container">
+    <h2 class="product-name">Nike Air Force</h2>
+    <a href='NikeAirForce1Low.php' class='shop-now'>Shop Item</a> 
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <img src="img/mainheader3.png" style="width:100%">
+<div class="product-info-container">
+    <h2 class="product-name">Jordan Retro 13</h2>
+    <a href='JordanRetro13.php' class='shop-now'>Shop Item</a> 
+  </div>
+</div>
+
+<!-- <div class="mySlides fade">4 / 3</div>
+  <img src="img/mainheader4.png" style="width:100%">
+  <div class="text">Caption Four</div>
+</div> -->
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div class="indicator-dots">
+<span class="dot" onclick="currentSlide(1)"></span> 
+<span class="dot" onclick="currentSlide(2)"></span> 
+<span class="dot" onclick="currentSlide(3)"></span> 
+<!-- <span class="dot" onclick="currentSlide(4)"></span>  -->
+</div>
+
+<script src="js/main.js"></script>
         
-        <div class="mySlides fade cropped">
-        <img  src='img/NikeAirForce1Low.png' style='width: 100%;' alt="sally lightfoot crab"/>
-        </div>
-    
-        <div class="mySlides fade cropped">
-        <img  src='img/NikeAirMax97.png' style='width: 100%;' alt="fighting nazca boobies"/>
-        </div>
-    
-        <div class="mySlides fade cropped">
-        <img  src='img/PUMADefyMidBuckle.png' style='width: 100%;' alt="otovalo waterfall"/>
-        </div>
-    
-        <div class="mySlides fade cropped">       
-        <img  src='img/ReebokQuestionMid.png' style='width: 100%;' alt="pelican"/>
-        </div>
-
-      </div>
-
-      <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
-      <a class="next" onclick='plusSlides(1)'>&#10095;</a>
-    </div>
-    
-    <br/>
-
-    <div style='text-align: center;'>
-      <span class="dot" onclick='currentSlide(1)'></span>
-      <span class="dot" onclick='currentSlide(2)'></span>
-      <span class="dot" onclick='currentSlide(3)'></span>
-      <span class="dot" onclick='currentSlide(4)'></span>
-    
-      <a href="contentdetails.php" class="shop-now">SHOP THIS ITEM</a>
-    </div>
-
-
 
         <!-- "RECENTLY VIEWED" Carousel -->
          <!-- https://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
-         <h2 class="recently-viewed-margin">RECENTLY VIEWED</h2>
+         <h2>YOUR FAVOURITES</h2>
 
-        <!-- <div id="recently-viewed" class="carousel slide" data-ride="carousel"> -->
-            <!-- Indicators -->
-            <!-- <ol class="carousel-indicators">
-                <li data-target="#recently-viewed" data-slide-to="0" class="active"></li>
-                <li data-target="#recently-viewed" data-slide-to="1"></li>
-                <li data-target="#recently-viewed" data-slide-to="2"></li>
-                <li data-target="#recently-viewed" data-slide-to="3"></li>
-                <li data-target="#recently-viewed" data-slide-to="4"></li>
-            </ol> -->
+         <div class="card_group ">
+       <a href="about.html"><div class="homepage_card">
+          <img  src="img/NikeAirMax97.png" alt="Building" class="subsection_heading" style="width:100%" height="380">
+          <h3>NIKE AIR MAX 97</h3>
+          <p class="pricesize"> $170 </p>
+         
+        </div> </a>
 
-            <!-- Wrapper for slides -->
-            <div class="slideshow-container">
-            <div class="slideshow-inner">
-                
-            <div class="mySlides fade cropped">
-            <img  src='img/NikeAirForce1Low.png' style='width: 100%;' alt="sally lightfoot crab"/>
-            </div>
-    
-            <div class="mySlides fade cropped">
-            <img  src='img/NikeAirMax97.png' style='width: 100%;' alt="fighting nazca boobies"/>
-            </div>
-    
-            <div class="mySlides fade cropped">
-            <img  src='img/PUMADefyMidBuckle.png' style='width: 100%;' alt="otovalo waterfall"/>
-            </div>
-    
-            <div class="mySlides fade cropped">
-            <img  src='img/ReebokQuestionMid.png' style='width: 100%;' alt="pelican"/>
-            </div>
-      
-         </div>
-      
-      <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
-      <a class="next" onclick='plusSlides(1)'>&#10095;</a>
-    </div>
-  
-    <br/>
-  
-    <div style='text-align: center;'>
-      <span class="dot" onclick='currentSlide(1)'></span>
-      <span class="dot" onclick='currentSlide(2)'></span>
-      <span class="dot" onclick='currentSlide(3)'></span>
-      <span class="dot" onclick='currentSlide(4)'></span>
+        <a href="product_page.html"><div class="homepage_card">
+          <img src="img/JordanRetro13.png" alt="Ham and Swiss Omelet" class="subsection_heading" style="width:100%">
+          <h3>JORDAN RETRO 13</h3>
+          <p class="pricesize"> $190 </p></p>
+        </div></a>
 
-      <a href="contentdetails.php" class="shop-now">SHOP THIS ITEM</a>
-    </div>
-    
+        <a href="about.html"><div class="homepage_card">
+          <img src="img/PUMADefyMidBuckle.png" alt="Entrees" class="subsection_heading" style="width:100%">
+          <h3>PUMA DEFY MID BUCKLE</h3>
+          <p class="pricesize"> $100 </p>  
+              </div></a>
+  </div>
 
+  <a class="seemore" href="https://www.footlocker.ca/en/" >See More</a>
+  <hr>
 
-            <!-- Left and right controls -->
-            <!-- <a class="left carousel-control" href="#recently-viewed" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#recently-viewed" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a> -->
+  <h2>YOUR CART</h2>
 
+<div class="card_group ">
+<a href="about.html"><div class="homepage_card">
+ <img  src="img/NikeAirMax97.png" alt="Building" class="subsection_heading" style="width:100%" height="380">
+ <h3>NIKE AIR MAX 97</h3>
+ <p class="pricesize"> $170 </p>
+</div> </a>
 
-         <!--"YOUR FAVOURITES" Carousel-->
-        <h2 class="favourites-margin">YOUR FAVOURITES</h2>
-        <div class="slideshow-container">
-    <div class="slideshow-inner">
-     
-    <div class="mySlides fade cropped">
-    <img  src='img/NikeAirForce1Low.png' style='width: 100%;' alt="sally lightfoot crab"/>
-    </div>
-    
-    <div class="mySlides fade cropped">
-    <img  src='img/NikeAirMax97.png' style='width: 100%;' alt="fighting nazca boobies"/>
-    </div>
-    
-    <div class="mySlides fade cropped">
-    <img  src='img/PUMADefyMidBuckle.png' style='width: 100%;' alt="otovalo waterfall"/>
-    </div>
-    
-    <div class="mySlides fade cropped">
-    <img  src='img/ReebokQuestionMid.png' style='width: 100%;' alt="pelican"/>
-    </div>
-      
-    </div>
-    
-    
-      <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
-      <a class="next" onclick='plusSlides(1)'>&#10095;</a>
-    </div>
-    <br/>
-    
-    
-    <div style='text-align: center;'>
-      <span class="dot" onclick='currentSlide(1)'></span>
-      <span class="dot" onclick='currentSlide(2)'></span>
-      <span class="dot" onclick='currentSlide(3)'></span>
-      <span class="dot" onclick='currentSlide(4)'></span>
-    </div>
-    
-    
+<a href="product_page.html"><div class="homepage_card">
+ <img src="img/JordanRetro13.png" alt="Ham and Swiss Omelet" class="subsection_heading" style="width:100%">
+ <h3>JORDAN RETRO 13</h3>
+ <p class="pricesize"> $190 </p>
+</p>
+</div></a>
+
+<a href="about.html"><div class="homepage_card">
+ <img src="img/PUMADefyMidBuckle.png" alt="Entrees" class="subsection_heading" style="width:100%">
+ <h3>PUMA DEFY MID BUCKLE</h3>
+ <p class="pricesize"> $100 </p>
+</div></a>
+</div>
+
 
     </body>
 </html>
-        <!-- <div id="favourites-carousel" class="carousel slide" data-ride="carousel"> -->
-            <!-- Indicators -->
-            <!-- <ol class="carousel-indicators">
-                <li data-target="#favourites-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#favourites-carousel" data-slide-to="1"></li>
-                <li data-target="#favourites-carousel" data-slide-to="2"></li>
-                <li data-target="#favourites-carousel" data-slide-to="3"></li>
-                <li data-target="#favourites-carousel" data-slide-to="4"></li>
-            </ol> -->
-
-            <!-- Wrapper for slides -->
-            <!-- <div class="carousel-inner">
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-1-edited.png" alt="Sneakers"></a>
-                </div>
-                
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-2-edited.png" alt="Sneakers"></a>
-                </div>
-
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-3-edited.png" alt="Sneakers"> </a>
-                </div>
-
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-4-edited.png" alt="Sneakers"> </a>
-                </div>
-
-                <div class="item active">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-5-edited.png" alt="Sneakers"> </a>
-                </div>
-            </div> -->
-
-            <!-- Left and right controls -->
-            <!-- <a class="left carousel-control" href="#favourites-carousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#favourites-carousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div> -->
-
-      
-       <!-- "Shop this item" button -->
    
-    
-   
-
-
-        <!-- "RECENTLY ADDED" Carousel -->
-        <!-- https://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
-        <!-- <div id="recently-added" class="carousel slide" data-ride="carousel"> -->
-            <!-- Indicators -->
-            <!-- <ol class="carousel-indicators">
-                <li data-target="#recently-added" data-slide-to="0" class="active"></li>
-                <li data-target="#recently-added" data-slide-to="1"></li>
-                <li data-target="#recently-added" data-slide-to="2"></li>
-                <li data-target="#recently-added" data-slide-to="3"></li>
-                <li data-target="#recently-added" data-slide-to="4"></li>
-            </ol> -->
-
-            <!-- Wrapper for slides -->
-            <!-- <div class="carousel-inner">
-                <div class="item active">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-1-edited.png" alt="Sneakers"></a>
-                </div>
-                
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-2-edited.png" alt="Sneakers"></a>
-                </div>
-
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-3-edited.png" alt="Sneakers"> </a>
-                </div>
-
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-4-edited.png" alt="Sneakers"> </a>
-                </div>
-
-                <div class="item">
-                    <a href="contentdetails.php" ><img src="img/carousel-image-5-edited.png" alt="Sneakers"> </a>
-                </div>
-            </div> -->
-
-            <!-- Left and right controls -->
-            <!-- <a class="left carousel-control" href="#recently-added" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#recently-added" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a> -->
