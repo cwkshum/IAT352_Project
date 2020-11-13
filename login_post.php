@@ -85,20 +85,26 @@
             $query = "SELECT * FROM members WHERE email = '$email' and password = '".md5($password)."'";
             $result = mysqli_query($connection, $query) or die(mysql_error());
             $rows = mysqli_num_rows($result);
-            echo $query;
             if ($rows === 1) {
                 $_SESSION['email'] = $email;
                 $_SESSION['in_progress'] = true; 
                 // Redirect user to index.php
                 header("Location: memberhome.php");
+
             } else {
-                echo $rows; 
-                echo $email;
-                echo $password;
-                echo "<h3>Email/password is incorrect, please try again.</h3>
-                <br/>Click here to <a href='login.php'>Login</a>";
-                echo "<p>Not registered yet? <a href='signup_form.php'>Sign up here</a></p>";
+                // error message display 
+                echo '<div class="page-background">';
+                    echo '<div class="message-container">';
+                        echo "<h1 class='center-content'>Oops!</h1>";
+                        echo "<div class='center-content'>";
+                            echo "<h3 class='message'>Email/password is incorrect, please try again.</h3>";
+                            echo "<a href='login.php' class='button'>LOG IN</a>";
+                            echo "<p class='signup-message'>Not registered yet? <a href='signup_form.php' class='signup-link'>Sign up here</a></p>";
+                        echo "</div>";
+                    echo '</div>';
+                echo '</div>';
             }
+            
         ?>
         
     </body>

@@ -78,3 +78,57 @@ input[type="email"], input[type="password"]{
 .or-padding { 
     padding-bottom: 2rem;
 }
+
+.center-content {
+    text-align: center;
+}
+
+/* container for error message */
+.message-container {
+    background: white;
+    position: relative;
+    width: 50rem;
+    height: auto;
+    padding: 4rem 11.6rem;
+    box-shadow: 13px 13px #ECEEF0;
+    margin: 0 auto;
+}
+
+/* container for error message content */
+.container-item { 
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* error message styling */
+.message { 
+    font-weight: 300;
+    padding-bottom: 3rem;
+    font-size: 20px;
+}
+
+/* "Not registered yet?" Styling */
+.signup-message {
+    font-weight: 300;
+    padding-top: 1rem;
+}
+
+.signup-link {
+    color: #788F7B;
+}
+
+.signup-link:hover, .signup-link:focus {
+    color: #C0CFC2;
+}
+
+/* background image */
+.page-background{
+    width: 100%;
+    padding: 10rem;
+    background-image: url("../img/welcomepost.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+}
