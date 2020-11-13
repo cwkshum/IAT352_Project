@@ -94,7 +94,7 @@
 
             } else {
                 // error message display 
-                echo '<div class="page-background">';
+                echo '<div class="error-page-background">';
                     echo '<div class="message-container">';
                         echo "<h1 class='center-content'>Oops!</h1>";
                         echo "<div class='center-content'>";

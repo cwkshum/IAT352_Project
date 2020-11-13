@@ -1,4 +1,4 @@
-/* background image */
+/* background image for Login Page*/
 .page-background{
     width: 100%;
     padding-top: 0;
@@ -6,6 +6,18 @@
     padding-bottom: 0.5rem;
     padding-right: 0.5rem;
     background-image: url("../img/form2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+}
+
+/* background image for Login Post*/
+.error-page-background{
+    width: 100%;
+    padding: 10rem;
+    background-image: url("../img/welcomepost.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

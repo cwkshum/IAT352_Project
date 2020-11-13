@@ -41,10 +41,10 @@
                 <!-- Filter Selection for Brands -->
                 <h4>BRAND</h4> 
                 
-                <div class="checkbox-line-spacing">
+                <!-- <div class="checkbox-line-spacing">
                     <input type="checkbox" id="Adidas" name="Adidas" value="Adidas" <?php if(isset($_POST['Adidas'])) echo "checked='checked'"; ?>>
                     <label for="Adidas">Adidas</label><br>
-                </div>
+                </div> -->
 
                 <div class="checkbox-line-spacing">
                     <input type="checkbox" id="Nike" name="Nike" value="Nike" <?php if(isset($_POST['Nike'])) echo "checked='checked'"; ?>>
@@ -133,7 +133,7 @@
 
             // checks to see if form has been submitted 
             if (isset($_POST["submit"])){
-                $Adidas = "";
+               // $Adidas = "";
                 $Nike = "";
                 $Jordan = "";
                 $Timberland = "";
@@ -155,11 +155,11 @@
                 $whereQuery = "";
                                 
                 // Filter Request Handling for Brands
-				if(!empty($_POST["Adidas"])) {
-                    $Adidas = $_POST["Adidas"];
-                    // adds where statement to the query 
-                    $whereBrandQuery .= "products.brand = "."'". $Adidas. "'";
-                }
+				// if(!empty($_POST["Adidas"])) {
+                //     $Adidas = $_POST["Adidas"];
+                //     // adds where statement to the query 
+                //     $whereBrandQuery .= "products.brand = "."'". $Adidas. "'";
+                // }
 
 
                 if(!empty($_POST["Nike"])) {
