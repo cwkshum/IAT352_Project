@@ -1,4 +1,4 @@
-/* image */
+/* background image */
 .page-background{
     width: 100%;
     padding-top: 0;
@@ -13,6 +13,8 @@
     position: absolute;
 }
 
+
+/* -------- button styling -------- */
 .button { 
     background: #C0CFC2;
     color: white;
@@ -31,12 +33,12 @@
 	background-color: #788F7B;
 }
 
-/* change input textbox size */
-input[type = "text"]{
-    width:200px;
-    height:30px;
-}
+/* ----------------------------------- */
 
+
+
+
+/* container for log-in form */
 .form-container {  
     background: white;
     border: 1.5px solid #ECEEF0;
@@ -45,6 +47,12 @@ input[type = "text"]{
     padding: 8rem 6rem;
     box-shadow: 13px 13px #ECEEF0;
     float: right;
+}
+
+/* change input textbox size */
+input[type = "text"]{
+    width:200px;
+    height:30px;
 }
 
 /* change size of text input field */
@@ -64,24 +72,21 @@ input[type="email"], input[type="password"]{
     padding-top: 1rem;
 }
 
+/* lighter font weight */
 .lighter-text {
     font-weight: 300;
 }
 
+/* center content in this container */
 .alignment-container {
     text-align: center;
     padding-top: 3rem;
     padding-bottom: 5rem;
-
 }
 
 /* padding for "or" */
 .or-padding { 
     padding-bottom: 2rem;
-}
-
-.center-content {
-    text-align: center;
 }
 
 /* container for error message */
@@ -114,6 +119,8 @@ input[type="email"], input[type="password"]{
     padding-top: 1rem;
 }
 
+
+/* styling for "Sign up here" */
 .signup-link {
     color: #788F7B;
 }
@@ -121,15 +128,5 @@ input[type="email"], input[type="password"]{
 .signup-link:hover, .signup-link:focus {
     color: #C0CFC2;
 }
+/* ----------------------------- */
 
-/* background image */
-.page-background{
-    width: 100%;
-    padding: 10rem;
-    background-image: url("../img/welcomepost.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    position: absolute;
-}

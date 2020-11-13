@@ -1,6 +1,7 @@
 <?php 
-    include("auth_sessionNotActiveCheck.php"); 
-    $inFolder = false;
+  // checks if user is logged in
+  include("auth_sessionNotActiveCheck.php"); 
+  $inFolder = false;
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +12,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- javascript file linked -->
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -28,113 +28,124 @@
         include ('navigation/member_navigation.php'); 
       }
     ?>
+
+    <!-- Carousel Display -->
     <div class="slideshow-container">
 
+      <!-- First Carousel Image Slide -->
       <div class="mySlides fade">
+        <!-- Image -->
         <img src="img/mainheader1.png" style="width:100%">
+        <!-- Product Name and Link -->
         <div class="product-info-container">
           <h2 class="carousel-product-name">Adidas Superstar</h2>
           <a href='products/AdidasSuperstar20.php' class='shop-now'>Shop Item</a> 
         </div>  
       </div>
 
+      <!-- Second Carousel Image Slide -->
       <div class="mySlides fade">
+        <!-- Image -->
         <img src="img/mainheader2.png" style="width:100%">
+        <!-- Product Name and Link -->
         <div class="product-info-container">
           <h2 class="carousel-product-name">Nike Air Force</h2>
           <a href='products/NikeAirForce1Low.php' class='shop-now'>Shop Item</a> 
         </div>
       </div>
 
+      <!-- Third Carousel Image Slide -->
       <div class="mySlides fade">
+        <!-- Image -->
         <img src="img/mainheader3.png" style="width:100%">
+        <!-- Product Name and Link -->
         <div class="product-info-container">
           <h2 class="carousel-product-name">Jordan Retro 13</h2>
           <a href='products/JordanRetro13.php' class='shop-now'>Shop Item</a> 
         </div>
       </div>
 
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
-
-  <div class="indicator-dots">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-  </div>
-
-  <script src="js/main.js"></script>
-        
-
-  <!-- "RECENTLY VIEWED" Carousel -->
-  <!-- https://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
-  
-  <!-- placeholder for favourites -->
-  <div class="product-container">
-    <div class="title-container">
-      <h2>YOUR CART</h2><a class="seemore" href="my_account.php" >See More</a>
+      <!-- Carousel Control Arrows -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
+    <br>
 
-      <div class="grid three-column add-gutters">
-        <div class="unit-container">
-            <figure>
-                <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
-                <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
-            </figure>
-        </div>
-
-        <div class="unit-container">
-            <figure>
-                <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
-                <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
-            </figure>
-        </div>
-
-        <div class="unit-container">
-            <figure>
-                <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
-                <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
-            </figure>
-        </div>
+    <!-- Carousel Indicator Dots -->
+    <div class="indicator-dots">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+    
+    <!-- Linked Javascript File for Carousel Display -->
+    <script src="js/main.js"></script>
+          
+  
+    <!-- Favourites Display Section -->
+    <div class="product-container">
+      <div class="title-container">
+        <h2>YOUR FAVOURITES</h2><a class="seemore" href="my_account.php" >See More</a>
       </div>
-  </div>
-  <hr>
-  
-
-
-  <!-- place holder for cart -->
-  <div class="product-container">
-    <div class="title-container">
-    <h2>YOUR CART</h2><a class="seemore" href="cart.php" >See More</a>
-    </div>
-
+      <!-- placeholder for favourites -->
       <div class="grid three-column add-gutters">
         <div class="unit-container">
-            <figure>
-                <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
-                <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
-            </figure>
+          <figure>
+            <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
+            <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
+          </figure>
         </div>
 
         <div class="unit-container">
-            <figure>
-                <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
-                <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
-            </figure>
+          <figure>
+            <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
+            <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
+          </figure>
         </div>
 
         <div class="unit-container">
-            <figure>
-                <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
-                <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
-            </figure>
+          <figure>
+            <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
+            <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
+          </figure>
         </div>
       </div>
     </div>
     <hr>
+  
 
-    </body>
+
+    <!-- Cart Display Section -->
+    <div class="product-container">
+      <div class="title-container">
+        <h2>YOUR CART</h2><a class="seemore" href="cart.php" >See More</a>
+      </div>
+
+      <!-- place holder for cart -->
+      <div class="grid three-column add-gutters">
+        <div class="unit-container">
+          <figure>
+            <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
+            <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="unit-container">
+          <figure>
+            <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
+            <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="unit-container">
+          <figure>
+            <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
+            <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    
+  </body>
 </html>
    

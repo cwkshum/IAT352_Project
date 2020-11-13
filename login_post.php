@@ -1,4 +1,5 @@
 <?php 
+    // checks to see if user has logged in
     include("auth_sessionActiveCheck.php"); 
     $inFolder = false;
     //if a session has already started ignore it and continue on - do not display the notice
@@ -14,7 +15,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- javascript file linked -->
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -41,6 +41,7 @@
 
             require('db.php'); //connection to db code
             
+            // form handling
 			if (isset($_POST["submit"])){
 
                 // if email isn't empty, post
@@ -87,7 +88,7 @@
             $rows = mysqli_num_rows($result);
             if ($rows === 1) {
                 $_SESSION['email'] = $email;
-                $_SESSION['in_progress'] = true; 
+                
                 // Redirect user to index.php
                 header("Location: memberhome.php");
 

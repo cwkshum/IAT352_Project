@@ -1,3 +1,4 @@
+/* ------ grid styling ----------- */
 .grid {
     display: grid;
 }
@@ -21,6 +22,18 @@
     grid-template-rows: auto;
     grid-auto-flow: row;
 }
+/* ------------------------------- */
+
+
+/* sign up form container */
+.form-container {  
+    background: white;
+    position: relative;
+    width: 40rem;
+    padding: 4rem 6rem;
+    box-shadow: 13px 13px #ECEEF0;
+    float: right;
+}
 
 /* gutter for input boxes  */
 .box-margin { 
@@ -32,15 +45,6 @@
 .padding { 
     padding-top: 1rem;
     padding-bottom: 1rem;
-}
-
-.form-container {  
-    background: white;
-    position: relative;
-    width: 40rem;
-    padding: 4rem 6rem;
-    box-shadow: 13px 13px #ECEEF0;
-    float: right;
 }
 
 /* change size of text input field */
@@ -57,6 +61,7 @@ input[type = "number"]{
     margin-top: 0.5rem;
 }
 
+/* ------ button styling ------- */
 .button { 
     background: #C0CFC2;
     color: white;
@@ -74,12 +79,8 @@ input[type = "number"]{
 	color: #FFFFFF;
 	background-color: #788F7B;
 }
+/* ----------------------------------- */
 
-/* hover state - button for sign-up and login */
-.log-in:active, .submit-button:active, .log-in:hover, .submit-button:hover, .log-in:focus, .submit-button:focus {
-    color: #FFFFFF;
-    background-color: #5da2d5;
-}
 
 /* positioning for checkbox field */ 
 .check-box {
@@ -107,10 +108,12 @@ input[type = "number"]{
     position: absolute;
 }
 
+/* lighter font weight */
 .lighter-text {
     font-weight: 300;
 }
 
+/* container for items that need to be center aligned */
 .alignment-container {
     text-align: center;
     padding-top: 2rem;

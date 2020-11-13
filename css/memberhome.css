@@ -1,3 +1,4 @@
+/* ----------- grid styling --------------- */
 .grid {
   display: grid;
 }
@@ -14,42 +15,11 @@
   grid-template-rows: auto;
   grid-auto-flow: row;  
 }
+/* ------------------------------------------ */
 
-/* carousel styling */
-.carousel{
-  margin-top: 3rem;
-  position: relative;
-}
- 
-.carousel .item{
-  height: 68rem;  
-} 
 
-.carousel-slide { 
-  width:700px;
-  height: 300px;
-  margin:20px auto;
-  text-align: center;
-  padding:20px;
-} 
 
-/* centering carousel image */
-.carousel-inner > .item > a > img {
-  margin: 0 auto;
-} 
-
- /*changing colours of the carousel indicators */
- .carousel-indicators li{
-  background: rgba(100, 100, 100, 0.3);
-}
-
-.carousel-indicators .active {
-  background-color: #5DA2D5;
-  margin-top: 4rem;
-  height: 1.2rem; 
-  width: 1.2rem; 
-} 
-
+/* ------header image information styling ---- */
 /* container for product name and shop now button */
 .product-info-container {
   position: absolute;
@@ -60,7 +30,18 @@
   margin-top: -34rem;
 }
 
-/* shop now button styling */
+/* product name for carousel header images */
+.carousel-product-name { 
+  margin-left: 0;
+  margin-bottom: 5rem;
+  max-width: 23rem;
+  font-size: 45px;
+}
+/* ----------------------------------------- */
+
+
+
+/* -------- shop now button styling --------- */
 .shop-now {
   background: #C0CFC2;
   color: white;
@@ -74,29 +55,20 @@
   transition-timing-function: ease-out;
 }
 
-.carousel-product-name { 
-  margin-left: 0;
-  margin-bottom: 5rem;
-  max-width: 23rem;
-  font-size: 45px;
-}
-
 .shop-now:active, .shop-now:hover, .shop-now:focus {
 	color: #FFFFFF;
-	background-color: #5da2d5;
+	background-color: #788F7B;
 }
+/* --------------------------------------------- */
 
-/* h2 {
-  margin-left: 10rem;
-  margin-bottom: -2rem;
-  padding-bottom: 0;
-} */
 
 a:hover, a:focus {
   color: white;
   text-decoration: none;
 }
 
+
+/* --------------- carousel styling --------------- */
 .mySlides {display: none}
 
 img {vertical-align: middle;}
@@ -119,7 +91,6 @@ img {vertical-align: middle;}
   color: #A3A0A0;
   font-weight: 300;
   font-size: 70px;
-  /* transition: 0.6s ease; */
   border-radius: 0 6px 6px 0;
   user-select: none;
 }
@@ -133,6 +104,7 @@ img {vertical-align: middle;}
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: #C0CFC2;
+  color: white;
 }
 
 .indicator-dots{
@@ -184,6 +156,7 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .prev, .next{font-size: 11px}
 }
+/* ------------------------------------------- */
 
 
 .subsection_heading{
@@ -195,6 +168,9 @@ p.pricesize{
   font-weight: bold;
 }
 
+
+
+/* --------- "See more" button styling --------- */
  a.seemore {
   margin-top: 1.7rem;
   margin-left: 1rem;
@@ -204,6 +180,9 @@ p.pricesize{
 a:hover, a:focus {
   color: #C0CFC2;
 }
+/* ---------------------------------------------- */
+
+
 
 /* container for favourites/cart + see more buttom */
 .title-container {
@@ -211,20 +190,21 @@ a:hover, a:focus {
   flex-direction: row;
 }
 
+/* decorative line to separate favourites and cart section */
 hr {
   width:87%;
   margin-top: 3rem;
   border-top: 1px solid #ECEEF0;
-
-/* 
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0; */
 }
 
+/* container for member customization categories: favourites, cart */
+.product-container {
+  margin: 1rem 2rem;
+  padding: 1rem 5rem;
+}
+
+
+/* ---------- styling for individual content units ------ */
 /* container for individual units */
 .unit-container {
   background: white;
@@ -260,9 +240,5 @@ figure {
 .price {
   line-height: 2rem;
 } 
+/* ------------------------------------------------ */
 
-/* container for member customization categories: favourites, cart */
-.product-container {
-  margin: 1rem 2rem;
-  padding: 1rem 5rem;
-}

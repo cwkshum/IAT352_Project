@@ -1,4 +1,5 @@
 <?php 
+    // checks to see if the user is logged in 
     include("auth_sessionNotActiveCheck.php"); 
     $inFolder = false;
 ?>
@@ -13,6 +14,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/my_account.css"> 
+
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -23,7 +25,7 @@
         require("db.php");
 	?>
     
-    <body>
+    <body> 
 
         <!-- Navigation -->
         <?php 
@@ -34,6 +36,7 @@
 
         <?php
             if (isset($_SESSION['email'])) {
+                // Retrieve the member's account information from the database
                 $query = "SELECT email, first_name, last_name, dob, password FROM members WHERE email ='" . $_SESSION['email'] . "'"; 
                 
                 $result = mysqli_query($connection, $query);
@@ -51,19 +54,25 @@
             }
         ?>
 
+        <!-- Section that displays the member's account infromation -->
         <div class="account-container"> 
             <h1>My Account</h1>
+            <!-- name display -->
             <h2>Hello, <?php echo $firstName." ". $lastName ?>!</h2>
             
+            <!-- email display -->
             <h3>Email Address</h3>
             <p><?php echo $email ?></p>
             
+            <!-- hidden password display -->
             <h3>Password</h3>
             <p>*******</p>
             
+            <!-- date of birth display -->
             <h3>Date of Birth</h3>
             <p><?php echo $dob ?></p>
 
+            <!-- edit account information -->
             <div class="edit">
                 <a class="button" href="edit_account.php">Edit</a>
             </div>
@@ -71,41 +80,42 @@
             
         </div> 
 
+        <!-- Display Favourites Section -->
         <div class="favourites-container"> 
-        <h2>My Favourites</h2>
+            <h2>My Favourites</h2>
 
-        <!-- favourite place holders -->
-        <div class="grid two-column add-gutters">
+            <!-- favourite place holders -->
+            <div class="grid two-column add-gutters">
 
-            <div class="unit-container">
-                <figure>
-                    <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
-                    <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
-                </figure>
-            </div>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
+                    </figure>
+                </div>
 
-            <div class="unit-container">
-                <figure>
-                    <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
-                    <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
-                </figure>
-            </div>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
+                    </figure>
+                </div>
 
-            <div class="unit-container">
-                <figure>
-                    <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
-                    <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
-                </figure>
-            </div>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
+                    </figure>
+                </div>
 
-            <div class="unit-container">
-                <figure>
-                    <a href="products/UGGClassicMini.php"> <img class="product-image" src="img/UGGClassicMini.png"> </a>
-                    <figcaption class="content-unit-text"><span class="product-name">UGG Classic Mini</span><br><span class="price">$150</span></figcaption>
-                </figure>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/UGGClassicMini.php"> <img class="product-image" src="img/UGGClassicMini.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">UGG Classic Mini</span><br><span class="price">$150</span></figcaption>
+                    </figure>
+                </div>
             </div>
         </div>
-        
 
     <?php
         // Release the returned data

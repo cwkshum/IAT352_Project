@@ -2,6 +2,8 @@ body {
   margin: 0;
 }
 
+
+/* -------- grid styling ------------- */
 .grid {
   display: grid;
 }
@@ -18,7 +20,10 @@ body {
   grid-template-rows: auto;
   grid-auto-flow: row;  
 }
+/* -------------------------------------- */
 
+
+/* container for account information */
 .account-container{
   width: 40%;
   top: 6rem;
@@ -32,13 +37,15 @@ body {
 
 }
 
+/* container for favourited products */
 .favourites-container{
   margin-left: 44%;
   padding: 0rem 3rem 2rem;
   padding-top: 4.5rem;
 }
 
-/* edit button */
+
+/* ---- edit button styling ------*/
 .button { 
   background: #C0CFC2;
   color: white;
@@ -59,15 +66,11 @@ body {
   background-color: #788F7B;
 }
 
+/* edit button spacing */
 .edit {
   margin-top: 3rem;
 }
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-}
+/* ---------------------------------- */
 
 .row:after {
   content: "";
@@ -75,45 +78,41 @@ body {
   clear: both;
 }
 
-.card_group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-bottom: 20px;
+
+/*  --------- styling for individual content units ------- */
+/* container for individual units */
+.unit-container {
+  background: white;
+  border: 1.5px solid #ECEEF0;
+  width: 18rem;
+  padding: 0.8rem 0.5rem;
+  box-shadow: 13px 13px #ECEEF0;
+  transition: 0.3s;
 }
 
-  /* container for individual units */
-  .unit-container {
-    background: white;
-    border: 1.5px solid #ECEEF0;
-    width: 18rem;
-    padding: 0.8rem 0.5rem;
-    box-shadow: 13px 13px #ECEEF0;
-    transition: 0.3s;
-  }
+figure {
+  margin-left: 1.5rem;
+}
 
-  figure {
-    margin-left: 1.5rem;
-  }
+.unit-container:hover {
+  border: 1.5px solid #C0CFC2;
+  box-shadow: 13px 13px #C0CFC2;
+}
 
-  .unit-container:hover {
-    border: 1.5px solid #C0CFC2;
-    box-shadow: 13px 13px #C0CFC2;
-  }
+/* image constraint for product */
+.product-image { 
+  max-width: 224px;
+  max-height: 224px;
+} 
 
-  /* image constraint for product */
-  .product-image { 
-    max-width: 224px;
-    max-height: 224px;
-  } 
+/* font weight for product name */
+.product-name {
+  font-weight: 700;
+  font-size: 18px;
+}
 
-  /* font weight for product name */
-  .product-name {
-    font-weight: 700;
-    font-size: 18px;
-  }
-
-  /* line spacing for price */
-  .price {
-    line-height: 2rem;
-  } 
+/* line spacing for price */
+.price {
+  line-height: 2rem;
+} 
+/* ------------------------------------- */

@@ -1,4 +1,5 @@
 <?php 
+    // checks to see if the user is logged in
     include("auth_sessionNotActiveCheck.php"); 
     $inFolder = false;
 ?>
@@ -13,6 +14,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/cart.css"> 
+
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -32,10 +34,11 @@
             }
         ?>
 
-        <div class=""> 
+        <div> 
             <h1>My Cart</h1>
         </div> 
-
+        
+        <!-- Cart Item Display Section -->
         <div class="grid add-gutters four-column">
             <?php 
             
@@ -47,6 +50,7 @@
                     $idNumber = mysqli_fetch_assoc($idResult);
                     $cust_id = $idNumber["customer_id"];
                     
+                    // Retrieve the products that the member has added to their cart from the database
                     $query = "SELECT product_brand, product_name, product_size, product_price FROM cart WHERE customer_id = " .$cust_id;
 
                     $result = mysqli_query($connection, $query);
@@ -60,6 +64,7 @@
 
                         $stripped = str_replace(' ', '', $productName);
 
+                        // display the products that the member has added to their cart
                         echo '<figure>';
                             echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
                             echo '<figcaption class="content-unit-text">'. $productName .'<br>$'. $productPrice . '<br>Size: '. $productSize .'</figcaption>';
@@ -68,8 +73,6 @@
                 }
             ?> 
         </div>
-
-        
 
     <?php
         // Release the returned data

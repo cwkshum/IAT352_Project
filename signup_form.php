@@ -6,7 +6,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- javascript file linked -->
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -24,9 +23,10 @@
         ?>
 
         <div class="page-background">
+
+            <!-- sign up form -->
             <div class="form-container">
                 <h2>SIGN UP</h2> 
-                <!-- sign up form -->
                 <form action="welcome_post.php" method="post">
                     <div class="grid add-gutters two-column">
                         <div class="padding">
@@ -50,7 +50,7 @@
                     <div class="padding"> 
                         <!-- password input -->
                         <label for="password" class="lighter-text">Password*</label><br>
-                        <input type="password" id="password" name="password" required><br> <!--type changed to password from text-->
+                        <input type="password" id="password" name="password" required><br> 
                     </div>
 
                     <div class="padding"> 
@@ -84,7 +84,6 @@
                         <!-- login button -->
                         <a href="login.php" class="button">LOG IN</a> 
                     </div>
-                    
                 </form>
             </div>
         </div>

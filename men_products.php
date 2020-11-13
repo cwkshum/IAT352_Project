@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/content.css"> 
+
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -36,6 +37,8 @@
         <!-- filters --> 
         <div class="filter-flexbox-container"> 
             <form action="men_products.php" method="post" class="filter-flex-item">
+
+                <!-- Filter Selection for Brands -->
                 <h4>BRAND</h4> 
                 
                 <div class="checkbox-line-spacing">
@@ -53,21 +56,23 @@
                     <label for="Jordan">Jordan</label><br>
                 </div>
 
-                <div class="checkbox-line-spacing">
-                    <input type="checkbox" id="PUMA" name="PUMA" value="PUMA" <?php if(isset($_POST['PUMA'])) echo "checked='checked'"; ?>>
+                <!-- <div class="checkbox-line-spacing">
+                    <input type="checkbox" id="PUMA" name="PUMA" value="PUMA" <//?php if(isset($_POST['PUMA'])) echo "checked='checked'"; ?>>
                     <label for="PUMA">PUMA</label><br>
-                </div>
+                </div> -->
+
+                <div class="checkbox-line-spacing">
+                    <input type="checkbox" id="Reebok" name="Reebok" value="Reebok" <?php if(isset($_POST['Reebok'])) echo "checked='checked'"; ?>>
+                    <label for="Reebok">Reebok</label><br>
+                </div> 
+
 
                 <div class="checkbox-line-spacing">
                     <input type="checkbox" id="Timberland" name="Timberland" value="Timberland" <?php if(isset($_POST['Timberland'])) echo "checked='checked'"; ?>>
                     <label for="Timberland">Timberland</label><br>
                 </div>
                 
-                <div class="checkbox-line-spacing">
-                    <input type="checkbox" id="UGG" name="UGG" value="UGG" <?php if(isset($_POST['UGG'])) echo "checked='checked'"; ?>>
-                    <label for="UGG">UGG</label><br>
-                </div>
-
+                <!-- Filter Selection for Colours -->
                 <h4>COLOUR</h4> 
                 <div class="color-container grid three-column add-gutters">
 
@@ -97,7 +102,7 @@
                 </label>
                 </div>
 
-
+                <!-- Filter Selection for Size -->
                 <h4>SIZE</h4>
                 <?php
                     echo '<ul class="grid three-column filter-add-gutters size-filter-spacing">';
@@ -115,6 +120,8 @@
                     }
                     echo "</ul>";
                 ?> 
+
+                <!-- Submit Filter Selection Request -->
                 <input type="submit" name="submit" value="Filter Products" class="button">
             </form>
 
@@ -130,8 +137,8 @@
                 $Nike = "";
                 $Jordan = "";
                 $Timberland = "";
-                $PUMA = "";
-                $UGG = "";
+                //$PUMA = "";
+                $Reebok = "";
                 
                 $white = "";
                 $beige = "";
@@ -147,7 +154,7 @@
                 $whereSizeQuery = "";
                 $whereQuery = "";
                                 
-                //brands
+                // Filter Request Handling for Brands
 				if(!empty($_POST["Adidas"])) {
                     $Adidas = $_POST["Adidas"];
                     // adds where statement to the query 
@@ -190,26 +197,26 @@
                 }
 
 
-                if(!empty($_POST["PUMA"])) {
-					$PUMA = $_POST["PUMA"];
+                // if(!empty($_POST["PUMA"])) {
+				// 	$PUMA = $_POST["PUMA"];
                     
-                    // adds where statement to the query 
-                    if(!empty($whereBrandQuery)) {
-                        $whereBrandQuery .= " OR products.brand = "."'".$PUMA. "'";
-                    } else {
-                        $whereBrandQuery .= "products.brand = "."'".$PUMA. "'";
-                    }
-                }
+                //     // adds where statement to the query 
+                //     if(!empty($whereBrandQuery)) {
+                //         $whereBrandQuery .= " OR products.brand = "."'".$PUMA. "'";
+                //     } else {
+                //         $whereBrandQuery .= "products.brand = "."'".$PUMA. "'";
+                //     }
+                // }
                 
 
-                if(!empty($_POST["UGG"])) {
-					$UGG = $_POST["UGG"];
+                if(!empty($_POST["Reebok"])) {
+					$Reebok = $_POST["Reebok"];
                    
                     // adds where statement to the query 
 					if(!empty($whereBrandQuery)) {
-                        $whereBrandQuery .= " OR products.brand = "."'".$UGG. "'";
+                        $whereBrandQuery .= " OR products.brand = "."'".$Reebok. "'";
                     } else {
-                        $whereBrandQuery .= "products.brand = "."'".$UGG. "'";
+                        $whereBrandQuery .= "products.brand = "."'".$Reebok. "'";
                     }
                 }
 
@@ -217,7 +224,7 @@
                     $whereQuery .= " (" . $whereBrandQuery . ") ";
                 } 
 
-                //colour
+                // Filter Request Handling for Colours
                 if(!empty($_POST["White"])) {
                     $white = $_POST["White"];
 
@@ -276,7 +283,7 @@
                 }
                     
 
-                //shoe size
+                // Filter Request Handling for Shoe Size
                 //loop through the database to find all sizes the store offers
                 for ($i = 5; $i < 19; $i++) { 
                     $shoeSize = $i;
@@ -298,16 +305,19 @@
                 } else if (!empty($whereSizeQuery) && empty($whereQuery)) {
                     $whereQuery .= " (" . $whereSizeQuery . ") ";
                 }
-          
+                
+                // Indicates that products have been filtered
                 if (!empty($whereQuery)) {
                     $filterSelected = true;
                 }
                 
+                // Filter Request Query
                 $filterQuery = "SELECT products.name, products.gender, products.price FROM products WHERE " . $whereQuery . " AND  products.gender = 'Men'"; 
             }
         
         ?>
         
+        <!-- Products Display Section -->
         <div class="content-container"> 
        
             <h1>Mens Shoes</h1>
@@ -315,8 +325,10 @@
             
                 <?php
                     if ($filterSelected) {
+                        // display filter request
                         $contentQuery = $filterQuery. " GROUP BY products.name"; 
                     } else {
+                        // display all the products
                         $contentQuery = "SELECT p.name, p.price, p.gender FROM products p WHERE p.gender = 'Men' GROUP BY p.name"; 
                     }
 

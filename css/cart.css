@@ -19,6 +19,9 @@
     text-align: left; 
     line-height: 1.5rem;  
 }
+
+/* size constraint for product images to fit 
+into the content unit container */
 .product-image { 
     max-width: 224px;
     max-height: 224px;

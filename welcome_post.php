@@ -6,7 +6,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- javascript file linked -->
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -42,7 +41,7 @@
             $all_fields = false; 
             $input_error = false; 
 
-            
+            // Form handling
 			if (isset($_POST["submit"])){
 
                 // if name isn't empty, post
@@ -187,8 +186,8 @@
 
 
         <div class="page-background">
+            <!-- Display Information -->
             <div class='message-container'>
-
                 <?php
                     //Check existing user ids 
                     $id_query = "SELECT customer_id FROM members ORDER BY customer_id DESC LIMIT 1";
@@ -197,6 +196,7 @@
                     $num_results = mysqli_num_rows($id_result); 
                     $rows = mysqli_fetch_assoc($id_result);
 
+                    // Assign customer id
                     if ($num_results == 0) {
                         $id = 00001;
                     } else {
@@ -211,26 +211,28 @@
                     $rows = mysqli_num_rows($result);
 
                     if ($rows == 1) {
-                        
+                        // Display Error Message
                         echo "<h1>Oops!</h1>";
                         echo "<h2 class='message'>It appears this email has already been registered.</h2>";
                         
+                        // Sign up and Log in links
                         echo "<div class='center-content'>";
                             echo "<a href='signup_form.php' class='button'>SIGN UP</a>";
                             echo "<h4 class='container-item'>OR</h4>";
                             echo "<a href='login.php' class='button'>LOG IN</a>";
                         echo "</div>";
-
-                        
                     } else {
                         if (!$input_error) {
+                            // Input user's account information into the database
                             $query = "INSERT into members (email, password, first_name, last_name, dob, customer_id) VALUES ('$email', '".md5($password)."', '$first_name', '$last_name', '$dob', $id)";
                             $result = mysqli_query($connection, $query);
                             
                             if($result) {
+                                // Show success message
                                 echo "<h1 class='center-content success-message'>Welcome, " . $first_name . "!</h1>";
                                 echo "<div class='center-content'>";
                                     echo "<h2 class='message'>Thank you for registering.</h2>";
+                                    // Log in link
                                     echo "<a href='login.php' class='button'>LOG IN</a>";
                                 echo "</div>";
                             }

@@ -1,3 +1,4 @@
+/* container for message displayed after log in */
 .message-container {
     background: white;
     position: relative;
@@ -8,12 +9,14 @@
     margin: 0 auto;
 }
 
+/* message styling  */
 .message { 
     font-weight: 300;
     padding-bottom: 3rem;
     font-size: 20px;
 }
 
+/* background image */
 .page-background{
     width: 100%;
     padding: 10rem;
@@ -25,6 +28,8 @@
     position: absolute;
 }
 
+
+/* ---------- button styling ---------- */
 .button { 
     background: #C0CFC2;
     color: white;
@@ -41,16 +46,20 @@
 	color: #FFFFFF;
 	background-color: #788F7B;
 }
+/* ------------------------------------- */
 
+/* for items that need to be centered */
 .center-content {
     text-align: center;
 }
 
+/* positioning for items within the message container */
 .container-item { 
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
+/* styling for "Success" message */
 .success-message { 
     padding-top: 4rem;
 }
