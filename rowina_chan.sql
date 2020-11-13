@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2020 at 06:00 AM
+-- Generation Time: Nov 13, 2020 at 06:02 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -29,6 +29,7 @@ USE `rowina_chan`;
 -- Table structure for table `cart`
 --
 -- Creation: Nov 13, 2020 at 04:52 AM
+-- Last update: Nov 13, 2020 at 05:02 AM
 --
 
 DROP TABLE IF EXISTS `cart`;
@@ -52,28 +53,6 @@ CREATE TABLE IF NOT EXISTS `cart` (
 --   `product_id`
 --       `products` -> `product_id`
 --
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `product_name`, `product_brand`, `product_price`, `product_size`) VALUES
-(1, 7, 4103947, 'Adidas Superstar 20', 'Adidas ', 100, 6),
-(3, 7, 4103897, 'Timberland Premium Waterproof Boots', 'Timberland', 200, 7),
-(4, 7, 4103938, 'Nike Air Max 97', 'Nike', 170, 11),
-(5, 7, 4103930, 'UGG Classic Mini', 'Ugg', 150, 6),
-(6, 7, 4103947, 'Adidas Superstar 20', 'Adidas ', 100, 9),
-(7, 7, 4103873, 'Nike Air Force 1 Low', 'Nike', 120, 10),
-(8, 7, 4103890, 'PUMA Defy Mid Buckle', 'PUMA', 100, 8),
-(10, 7, 4103930, 'UGG Classic Mini', 'Ugg', 150, 8),
-(11, 7, 4103917, 'Jordan Retro 13', 'Jordan', 190, 13),
-(12, 7, 4103873, 'Nike Air Force 1 Low', 'Nike', 120, 11),
-(13, 7, 4103897, 'Timberland Premium Waterproof Boots', 'Timberland', 200, 17),
-(14, 7, 4103938, 'Nike Air Max 97', 'Nike', 170, 14),
-(15, 7, 4103947, 'Adidas Superstar 20', 'Adidas ', 100, 10),
-(16, 11, 4103873, 'Nike Air Force 1 Low', 'Nike', 120, 6),
-(17, 13, 4103930, 'UGG Classic Mini', 'Ugg', 150, 5),
-(18, 13, 4103917, 'Jordan Retro 13', 'Jordan', 190, 12);
 
 -- --------------------------------------------------------
 
@@ -109,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `favourites` (
 -- Table structure for table `members`
 --
 -- Creation: Nov 13, 2020 at 04:52 AM
--- Last update: Nov 13, 2020 at 04:58 AM
+-- Last update: Nov 13, 2020 at 05:02 AM
 --
 
 DROP TABLE IF EXISTS `members`;
@@ -126,15 +105,6 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 -- RELATIONSHIPS FOR TABLE `members`:
 --
-
---
--- Dumping data for table `members`
---
-
-INSERT INTO `members` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `dob`) VALUES
-(7, 'Rowina', 'Chan', 'rowinachan@gmail.com', '4bb7578591769f2172383be2f6ee7dc8', 'Jan-01-2000'),
-(11, 'Chamira', 'Perera', 'chamiraperera@gmail.com', 'b500959f5bf6af14795842e5d29300d2', 'Feb-02-2000'),
-(13, 'Carissa', 'Shum', 'carissashum@gmail.com', '32ab14191a6fac0c525b6b2f86cd0db8', 'Feb-02-2000');
 
 -- --------------------------------------------------------
 
