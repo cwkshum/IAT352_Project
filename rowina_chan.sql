@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2020 at 05:46 AM
+-- Generation Time: Nov 13, 2020 at 06:00 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -28,8 +28,7 @@ USE `rowina_chan`;
 --
 -- Table structure for table `cart`
 --
--- Creation: Nov 10, 2020 at 12:23 AM
--- Last update: Nov 13, 2020 at 04:06 AM
+-- Creation: Nov 13, 2020 at 04:52 AM
 --
 
 DROP TABLE IF EXISTS `cart`;
@@ -81,7 +80,7 @@ INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `product_name`, `pro
 --
 -- Table structure for table `favourites`
 --
--- Creation: Oct 30, 2020 at 11:02 PM
+-- Creation: Nov 13, 2020 at 04:52 AM
 --
 
 DROP TABLE IF EXISTS `favourites`;
@@ -109,8 +108,8 @@ CREATE TABLE IF NOT EXISTS `favourites` (
 --
 -- Table structure for table `members`
 --
--- Creation: Nov 01, 2020 at 09:23 PM
--- Last update: Nov 13, 2020 at 04:44 AM
+-- Creation: Nov 13, 2020 at 04:52 AM
+-- Last update: Nov 13, 2020 at 04:58 AM
 --
 
 DROP TABLE IF EXISTS `members`;
@@ -133,16 +132,17 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 INSERT INTO `members` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `dob`) VALUES
-(7, 'rowina', 'chan', 'rowinachan@gmail.com', '551fbd27d540c5d111716950d7623857', 'Jan-01-2000'),
-(11, 'chamira', 'perera', 'chamiraperera@gmail.com', '49f0bad299687c62334182178bfd75d8', 'Feb-02-2000'),
-(13, 'carissa', 'shum', 'carissashum@gmail.com', '4a8a08f09d37b73795649038408b5f33', 'Feb-02-2000');
+(7, 'Rowina', 'Chan', 'rowinachan@gmail.com', '4bb7578591769f2172383be2f6ee7dc8', 'Jan-01-2000'),
+(11, 'Chamira', 'Perera', 'chamiraperera@gmail.com', 'b500959f5bf6af14795842e5d29300d2', 'Feb-02-2000'),
+(13, 'Carissa', 'Shum', 'carissashum@gmail.com', '32ab14191a6fac0c525b6b2f86cd0db8', 'Feb-02-2000');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
 --
--- Creation: Oct 30, 2020 at 09:50 PM
+-- Creation: Nov 13, 2020 at 04:52 AM
+-- Last update: Nov 13, 2020 at 04:52 AM
 --
 
 DROP TABLE IF EXISTS `products`;
