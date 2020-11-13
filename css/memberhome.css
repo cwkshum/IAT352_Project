@@ -1,3 +1,20 @@
+.grid {
+  display: grid;
+}
+
+/* grid gutters for content units */ 
+.grid.add-gutters { 
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 5rem; 
+}
+
+/* grid layout for content units/colour filters */ 
+.grid.three-column { 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: auto;
+  grid-auto-flow: row;  
+}
+
 /* carousel styling */
 .carousel{
   margin-top: 3rem;
@@ -57,7 +74,7 @@
   transition-timing-function: ease-out;
 }
 
-.product-name { 
+.carousel-product-name { 
   margin-left: 0;
   margin-bottom: 5rem;
   max-width: 23rem;
@@ -69,11 +86,11 @@
 	background-color: #5da2d5;
 }
 
-h2 {
+/* h2 {
   margin-left: 10rem;
   margin-bottom: -2rem;
   padding-bottom: 0;
-}
+} */
 
 a:hover, a:focus {
   color: white;
@@ -169,33 +186,7 @@ img {vertical-align: middle;}
 }
 
 
-
-
-.card_group {
-  display: flex;
-   flex-wrap: wrap;
-   justify-content: space-around;
-   padding-bottom: 20px;
-}
-
-.homepage_card{
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
-   max-width: 400px;
-   box-sizing: border-box;
-   margin-left: inherit;
-   margin-right:10px;
-   margin-bottom: 50px;
-   margin-top: 40px;
-   display: inline-block;
-   text-align: center;
-   float: left;
-   padding: 10px;
-
-}
-
-
 .subsection_heading{
-
   margin-bottom: 15px;
 }
 
@@ -205,12 +196,73 @@ p.pricesize{
 }
 
  a.seemore {
-  text-align: center;
-  display: block;
-  margin: 0 auto;
+  margin-top: 1.7rem;
+  margin-left: 1rem;
+  color: #788F7B;
+}
+
+a:hover, a:focus {
+  color: #C0CFC2;
+}
+
+/* container for favourites/cart + see more buttom */
+.title-container {
+  display: flex;
+  flex-direction: row;
 }
 
 hr {
   width:87%;
-  margin:0 auto;
+  margin-top: 3rem;
+  border-top: 1px solid #ECEEF0;
+
+/* 
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; */
+}
+
+/* container for individual units */
+.unit-container {
+  background: white;
+  border: 1.5px solid #ECEEF0;
+  width: 18rem;
+  padding: 0.8rem 0.5rem;
+  box-shadow: 13px 13px #ECEEF0;
+  transition: 0.3s;
+}
+
+figure {
+  margin-left: 1.5rem;
+}
+
+.unit-container:hover {
+  border: 1.5px solid #C0CFC2;
+  box-shadow: 13px 13px #C0CFC2;
+}
+
+/* image constraint for product */
+.product-image { 
+  max-width: 224px;
+  max-height: 224px;
+} 
+
+/* font weight for product name */
+.product-name {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* line spacing for price */
+.price {
+  line-height: 2rem;
+} 
+
+/* container for member customization categories: favourites, cart */
+.product-container {
+  margin: 1rem 2rem;
+  padding: 1rem 5rem;
 }

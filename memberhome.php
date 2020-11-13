@@ -33,7 +33,7 @@
       <div class="mySlides fade">
         <img src="img/mainheader1.png" style="width:100%">
         <div class="product-info-container">
-          <h2 class="product-name">Adidas Superstar</h2>
+          <h2 class="carousel-product-name">Adidas Superstar</h2>
           <a href='products/AdidasSuperstar20.php' class='shop-now'>Shop Item</a> 
         </div>  
       </div>
@@ -41,7 +41,7 @@
       <div class="mySlides fade">
         <img src="img/mainheader2.png" style="width:100%">
         <div class="product-info-container">
-          <h2 class="product-name">Nike Air Force</h2>
+          <h2 class="carousel-product-name">Nike Air Force</h2>
           <a href='products/NikeAirForce1Low.php' class='shop-now'>Shop Item</a> 
         </div>
       </div>
@@ -49,7 +49,7 @@
       <div class="mySlides fade">
         <img src="img/mainheader3.png" style="width:100%">
         <div class="product-info-container">
-          <h2 class="product-name">Jordan Retro 13</h2>
+          <h2 class="carousel-product-name">Jordan Retro 13</h2>
           <a href='products/JordanRetro13.php' class='shop-now'>Shop Item</a> 
         </div>
       </div>
@@ -70,55 +70,70 @@
 
   <!-- "RECENTLY VIEWED" Carousel -->
   <!-- https://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
-  <h2>YOUR FAVOURITES</h2>
+  
+  <!-- placeholder for favourites -->
+  <div class="product-container">
+    <div class="title-container">
+      <h2>YOUR CART</h2><a class="seemore" href="my_account.php" >See More</a>
+    </div>
 
-         <div class="card_group ">
-        <a href="about.html"><div class="homepage_card">
-          <img  src="img/NikeAirMax97.png" alt="Building" class="subsection_heading" style="width:100%" height="380">
-          <h3>NIKE AIR MAX 97</h3>
-          <p class="pricesize"> $170 </p>
-         
-        </div> </a>
+      <div class="grid three-column add-gutters">
+        <div class="unit-container">
+            <figure>
+                <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
+                <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
+            </figure>
+        </div>
 
-        <a href="product_page.html"><div class="homepage_card">
-          <img src="img/JordanRetro13.png" alt="Ham and Swiss Omelet" class="subsection_heading" style="width:100%">
-          <h3>JORDAN RETRO 13</h3>
-          <p class="pricesize"> $190 </p></p>
-        </div></a>
+        <div class="unit-container">
+            <figure>
+                <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
+                <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
+            </figure>
+        </div>
 
-        <a href="about.html"><div class="homepage_card">
-          <img src="img/PUMADefyMidBuckle.png" alt="Entrees" class="subsection_heading" style="width:100%">
-          <h3>PUMA DEFY MID BUCKLE</h3>
-          <p class="pricesize"> $100 </p>  
-              </div></a>
+        <div class="unit-container">
+            <figure>
+                <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
+                <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
+            </figure>
+        </div>
+      </div>
   </div>
-
-  <a class="seemore" href="https://www.footlocker.ca/en/" >See More</a>
   <hr>
+  
 
-  <h2>YOUR CART</h2>
 
-<div class="card_group ">
-<a href="about.html"><div class="homepage_card">
- <img  src="img/NikeAirMax97.png" alt="Building" class="subsection_heading" style="width:100%" height="380">
- <h3>NIKE AIR MAX 97</h3>
- <p class="pricesize"> $170 </p>
-</div> </a>
+  <!-- place holder for cart -->
+  <div class="product-container">
+    <div class="title-container">
+    <h2>YOUR CART</h2><a class="seemore" href="cart.php" >See More</a>
+    </div>
 
-<a href="product_page.html"><div class="homepage_card">
- <img src="img/JordanRetro13.png" alt="Ham and Swiss Omelet" class="subsection_heading" style="width:100%">
- <h3>JORDAN RETRO 13</h3>
- <p class="pricesize"> $190 </p>
-</p>
-</div></a>
+      <div class="grid three-column add-gutters">
+        <div class="unit-container">
+            <figure>
+                <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
+                <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
+            </figure>
+        </div>
 
-<a href="about.html"><div class="homepage_card">
- <img src="img/PUMADefyMidBuckle.png" alt="Entrees" class="subsection_heading" style="width:100%">
- <h3>PUMA DEFY MID BUCKLE</h3>
- <p class="pricesize"> $100 </p>
-</div></a>
-</div>
+        <div class="unit-container">
+            <figure>
+                <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
+                <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
+            </figure>
+        </div>
 
+        <div class="unit-container">
+            <figure>
+                <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
+                <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
+            </figure>
+        </div>
+      </div>
+    </div>
+    <hr>
 
     </body>
 </html>

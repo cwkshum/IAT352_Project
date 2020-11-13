@@ -39,6 +39,7 @@ input[type = "text"]{
 
 .form-container {  
     background: white;
+    border: 1.5px solid #ECEEF0;
     position: relative;
     width: 40rem;
     padding: 8rem 6rem;

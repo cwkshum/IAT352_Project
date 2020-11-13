@@ -73,7 +73,12 @@
                     <input type="password" id="password" name="password" placeholder="******">
                 </div>
 
-                <input class="submit-button" type="submit" name="submit" value="Save">
+
+                <div class="save">
+                    <input class="button" type="submit" name="submit" value="Save">
+                </div>
+
+            
             </form>
 
         </div> 
@@ -171,42 +176,43 @@
 
             }
         ?> 
+        
+        <div class="favourites-container"> 
+            <h2>My Favourites</h2>
 
-<div class="favourites-container"> 
-        <h2>My Favourites</h2>
+            <!-- favourite place holders -->
+            <div class="grid two-column add-gutters">
 
-<div class="card_group ">
-<a href="about.html"><div class="homepage_card">
- <img  src="img/NikeAirMax97.png" alt="Building" class="subsection_heading" style="width:100%" height="380">
- <h3>NIKE AIR MAX 97</h3>
- <p class="pricesize"> $170 </p>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
+                    </figure>
+                </div>
 
-</div> </a>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
+                    </figure>
+                </div>
 
-<a href="product_page.html"><div class="homepage_card">
- <img src="img/JordanRetro13.png" alt="Ham and Swiss Omelet" class="subsection_heading" style="width:100%">
- <h3>JORDAN RETRO 13</h3>
- <p class="pricesize"> $190 </p></p>
-</div></a>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
+                    </figure>
+                </div>
 
-<a href="about.html"><div class="homepage_card">
- <img src="img/PUMADefyMidBuckle.png" alt="Entrees" class="subsection_heading" style="width:100%">
- <h3>PUMA DEFY MID BUCKLE</h3>
- <p class="pricesize"> $100 </p>  
-     </div></a>
+                <div class="unit-container">
+                    <figure>
+                        <a href="products/UGGClassicMini.php"> <img class="product-image" src="img/UGGClassicMini.png"> </a>
+                        <figcaption class="content-unit-text"><span class="product-name">UGG Classic Mini</span><br><span class="price">$150</span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
 
-<a href="about.html"><div class="homepage_card">
- <img src="img/UGGClassicMini.png" alt="Entrees" class="subsection_heading" style="width:100%">
- <h3>UGG Classic Mini</h3>
- <p class="pricesize"> $150 </p>  
-     </div></a>
-</div>
-        </div> 
-
-            <?php 
-                // echo $editQuery 
-            ?>
-        </div> 
 
         
 

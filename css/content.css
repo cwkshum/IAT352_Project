@@ -29,6 +29,10 @@ h1 {
     margin-bottom: 2rem;
 }
 
+figure {
+    margin-left: 1.5rem;
+}
+
   /* flexbox container for filter list */
 .filter-flexbox-container { 
     display: flex; 
@@ -273,5 +277,7 @@ h4 {
       margin: 4rem 6rem;
       margin-left: 23rem;
   }
+
+  
 
 
