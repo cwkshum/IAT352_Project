@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2020 at 05:23 AM
+-- Generation Time: Nov 13, 2020 at 05:46 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `favourites` (
 -- Table structure for table `members`
 --
 -- Creation: Nov 01, 2020 at 09:23 PM
--- Last update: Nov 13, 2020 at 04:20 AM
+-- Last update: Nov 13, 2020 at 04:44 AM
 --
 
 DROP TABLE IF EXISTS `members`;
@@ -133,18 +133,9 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 INSERT INTO `members` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `dob`) VALUES
-(6, 'car', 'car', 'car@gmail.com', 'e6d96502596d7e7887b76646c5f615d9', 'Feb-02-2000'),
-(7, 'rowina', 'rowina', 'rowina@gmail.com', '551fbd27d540c5d111716950d7623857', 'Jan-01-2000'),
-(8, 'cs', 'cs', 'cs@gmail.com', '95cc64dd2825f9df13ec4ad683ecf339', 'Feb-02-2000'),
-(9, 'row', 'row', 'row@gmail.com', 'd257f106de7571b6758c7d9fef79dba9', 'Mar-03-2000'),
-(10, 'chamira', 'chamira', 'chamira@gmail.com', 'b500959f5bf6af14795842e5d29300d2', 'Jan-01-2000'),
-(11, 'sad', 'sad', 'sad@gmail.com', '49f0bad299687c62334182178bfd75d8', 'Feb-02-2000'),
-(12, 'shum', 'shum', 'shum@gmail.com', 'f164a1ee50299942fac6bf5d1b132964', 'Aug-08-2000'),
-(13, 'c', 'c', 'c@gmail.com', '4a8a08f09d37b73795649038408b5f33', 'Feb-02-2000'),
-(14, 'carshu', 'carshu', 'carshu@gmail.com', '9c2f2e1a3d05327f72a2faf9201839f0', 'Sep-09-2000'),
-(15, 'gross', 'gross', 'ew@gmail.com', '58d949771b2a49016259a9fb4fa7499e', 'Sep-09-2000'),
-(16, 'sigh', 'ugh', 'sigh@gmail.com', '9ec5fcfb9b5ed3ee55e1df9644a08dfb', 'Sep-09-2000'),
-(17, 'help', 'help', 'help@gmail.com', '657f8b8da628ef83cf69101b6817150a', 'Jul-07-2000');
+(7, 'rowina', 'chan', 'rowinachan@gmail.com', '551fbd27d540c5d111716950d7623857', 'Jan-01-2000'),
+(11, 'chamira', 'perera', 'chamiraperera@gmail.com', '49f0bad299687c62334182178bfd75d8', 'Feb-02-2000'),
+(13, 'carissa', 'shum', 'carissashum@gmail.com', '4a8a08f09d37b73795649038408b5f33', 'Feb-02-2000');
 
 -- --------------------------------------------------------
 
