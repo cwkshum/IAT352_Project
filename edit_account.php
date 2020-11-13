@@ -162,7 +162,7 @@
                 $rows = mysqli_num_rows($result);
 
                 
-                
+                //if an email hasn't been previously registered, or there aren't input errors, update the member information
                 if(!$input_error && $rows == 0){
                     $editQuery = "UPDATE members SET ". $updateQuery . " WHERE email = '" .$_SESSION['email'] ."'"; 
                     $editResult = mysqli_query($connection, $editQuery);
@@ -170,9 +170,18 @@
                     $_SESSION['email'] = $newEmail;
                     
                     header("Location: my_account.php");
-                } else if ($rows == 1) {
+                
+                //if the user is changing information but keeping their old email, do not get them an "this email has already been registered error" 
+                } else if ($rows == 1 && $_SESSION['email'] == $email) {
+                    $editQuery = "UPDATE members SET ". $updateQuery . " WHERE email = '" .$_SESSION['email'] ."'"; 
+                    $editResult = mysqli_query($connection, $editQuery);
+                    header("Location: my_account.php");
+
+        
+                //if their new updated email has already been registered, output an error 
+                } else if ($rows == 1 && $_SESSION['email'] != $email) {
                     echo "<h3>It appears this email has already been registered.</h3>";
-                } 
+                }
 
             }
         ?> 
