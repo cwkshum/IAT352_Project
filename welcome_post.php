@@ -40,6 +40,7 @@
             $submission = false;
             $all_fields = false; 
             $input_error = false; 
+            $password_error = false;
 
             // Form handling
 			if (isset($_POST["submit"])){
@@ -51,7 +52,6 @@
                     // check if name only contains letters and whitespace
                     if (!preg_match("/^[a-zA-Z ]+$/", $_POST["first_name"])) {
                         $nameError = "Only letters and white space allowed";
-                        echo $nameError; 
                         $input_error = true; 
                     } else { 
                         $first_name = $_POST["first_name"];
@@ -71,7 +71,6 @@
                     // check if name only contains letters and whitespace
                     if (!preg_match("/^[a-zA-Z ]+$/", $_POST["last_name"])) {
                         $nameError = "Only letters and white space allowed";
-                        echo $nameError; 
                         $input_error = true; 
                     } else {
                         $last_name = $_POST["last_name"];
@@ -89,10 +88,8 @@
                     // check if e-mail address syntax is valid
                     if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                         $email_error = "Invalid email format";
-                        echo $email_error;
                         $input_error = true; 
                     } else { 
-                        // $email = $_POST["email"];
                         $all_fields = true;
                         //removes backslashes
                         $email = stripslashes($_POST['email']);
@@ -164,7 +161,8 @@
                     // check if passwords match
                     if ($cpassword != $password) {
                         $cpassword = "Passwords do not match. <br />";  
-                        echo $cpassword;
+                        $password_error = true;
+                        $input_error = true;
                         $all_fields = false;
                     } else {
                         $password = stripslashes($_POST['password']);
@@ -236,6 +234,28 @@
                                     echo "<a href='login.php' class='button'>LOG IN</a>";
                                 echo "</div>";
                             }
+                        } else if($password_error){
+                            // Display Error Message
+                            echo "<h1>Oops!</h1>";
+                            echo "<h2 class='message'>Passwords entered did not match.</h2>";
+                        
+                            // Sign up and Log in links
+                            echo "<div class='center-content'>";
+                                echo "<a href='signup_form.php' class='button'>SIGN UP</a>";
+                                echo "<h4 class='container-item'>OR</h4>";
+                                echo "<a href='login.php' class='button'>LOG IN</a>";
+                            echo "</div>";
+                        }else{
+                            // Display Error Message
+                            echo "<h1>Oops!</h1>";
+                            echo "<h2 class='message'>Please valid characters when signing up.</h2>";
+                        
+                            // Sign up and Log in links
+                            echo "<div class='center-content'>";
+                                echo "<a href='signup_form.php' class='button'>SIGN UP</a>";
+                                echo "<h4 class='container-item'>OR</h4>";
+                                echo "<a href='login.php' class='button'>LOG IN</a>";
+                            echo "</div>";
                         }
                     }
                 ?>
