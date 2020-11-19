@@ -4,17 +4,18 @@
 }
 
 .grid.add-gutters { 
-    grid-column-gap: 12rem; 
+    grid-column-gap: 8rem; 
     grid-row-gap: 2rem;
 }
 
 .grid.two-column { 
-    margin-left: 14rem;
+    margin-left: 11rem;
     margin-right: 10rem;
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: auto; 
     grid-auto-flow: row; 
-    padding-top: 12%;
+    padding-top: 10%;
+    padding-bottom: 5%;
 }
 /* ---------------------- */
 
@@ -28,7 +29,7 @@ img {
 /* button styling */
 button { 
     padding: 0.9rem;
-    margin: 0.3rem;
+    margin: 0.3rem 0;
     border: 1px solid grey;
     transition: 0.3s;
 }
@@ -48,56 +49,63 @@ button {
 
 
 /* add to cart button styling */
-.cart-button{
-    background: lightgrey;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    padding: 0.8rem;
-    margin-right: 0.5rem;
-    margin-top: 2rem;
+.cart-button, .favourites-button{
+    background: #C0CFC2;
+    color: white;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 1.5rem 2rem;
+    margin-right: 1rem;
+    transition-property: background-color; 
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-out;
 }
 
-.cart-button:hover, .favourites-button:hover{
-    background: #5DA2D5;
-    color: white;
-    border: 1px solid #5DA2D5;
+.cart-button:hover, .cart-button:focus, .favourites-button:hover, .favourites-button:focus{
+    color: #FFFFFF;
+    background-color: #788F7B;
 }
 /* ----------------------------- */
 
-
-
-
-/* add to favourites button styling */
-.favourites-button{
-    background: lightgrey;
-    border-radius: 5px;
-    padding: 0.8rem;
-    margin-top: 2rem;
-}
-
 /* box shadow for product image */
 .box-shadow {
-    border: 0px;
     padding: 0px; 
-    box-shadow: 30px 30px 70px rgb(120,120,120, 0.3);
+
+    border: 1.7px solid #ECEEF0;
+    box-shadow: 13px 13px #ECEEF0;
 }
 
 h1 { 
-    margin-top: -3rem;
+    margin-top: -4.8rem;
+    margin-bottom: -1rem;
     padding-bottom: 0rem;
+    font-size: 30px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 2.5rem;
 }
 
 h3 {
-    line-height: 1.5rem;
+    line-height: 0.25rem;
     padding-bottom: 0.5rem;
     padding-top: 0rem;
-    font-weight: 400;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+h4 {
+    font-weight: 700;
 }
 
 p {
     margin-top: -0.10rem;
     max-width: 30rem;
     line-height: 1.5rem;
+    font-weight: 300;
 }
 
 .price { 
@@ -113,6 +121,15 @@ p {
     font-weight: 700;
 }
 
+/* ----- message styling -----  */
+.message {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 17px;
+}
+/* ---------------------------- */
+
+
 /* Custom Check Box Styling: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
 /* Custom Check Box Styling: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
 /* Customize the label (the container) */
@@ -120,11 +137,11 @@ p {
     display: inline-block;
     position: relative;
     /* padding-left: 35px; */
-    padding: 0 0.5rem;
+    padding: 0.5rem 1rem;
     margin-right: 2rem;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -148,18 +165,15 @@ p {
     left: 0;
     height: 100%;
     width: 100%;
-    /* background-color: black; */
   }
   
-  /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
-    background-color: #ccc;
+    border: 1px solid #788F7B;
   }
   
   /* When the checkbox is checked, add a blue background */
   .container input:checked ~ .checkmark {
-    /* background-color: #2196F3; */
-    border: 2px solid black
+    border: 2px solid #788F7B;
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */

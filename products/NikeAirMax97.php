@@ -90,11 +90,11 @@
 
                         //display gender 
                         $productGender = $displayGender; 
-                        echo "<h3>".$displayGender."</h3>"; 
+                        echo "<h2>".$displayGender."</h2>"; 
 
                         // display product price
                         $productPrice = $row["price"]; 
-                        echo "<h2 class='price'>$".$productPrice."</h2>";
+                        echo "<h3 class='price'>$".$productPrice."</h3>";
                         
                         // diplay product description
                         echo "<h4>Description</h4>";
@@ -146,13 +146,6 @@
                     }
                 ?> 
 
-                <!--  "Add to cart" and "Add to Favourites" Button -->
-                <div class="spacing">
-                        <input class="cart-button" type="submit" name="cart" value="Add to Cart">
-                        <input class="favourites-button" type="submit" name="favourites" value="Add to Favourites">
-                    </form>
-                </div>
-
                 <?php 
                     // check if a session is in progress, otherwise visitors will be redirected to a sign-up page when they wish to add items to their cart 
                     if (isset($_SESSION['email'])) {
@@ -183,15 +176,15 @@
                             // echo $query;
                             $addResult = mysqli_query($connection, $addToCartQuery);
                             
-                            //when the item has been succesfully added to their cart show them a message
-                            if($addResult) {
-                                echo "<h3>The item has been added to your cart!</h3>";
+                             //when the item has been succesfully added to their cart show them a message
+                             if($addResult) {
+                                echo "<p class='message'>The item has been added to your cart!</p>";
                             } else { 
-                                echo "<h3> Unable to add item to cart. </h3>";
+                                echo "<p class='message'> Unable to add item to cart. <p>";
                             }
                         
                         } else if(isset($_POST["cart"]) && !$sizeSelected){
-                            echo "<h3>Please select a size. </h3>";
+                            echo "<p class='message'>Please select a size. </p>";
                         } else if (isset($_POST["favourites"])){
                             //customization for PA3 
                             echo "add to favourites";
@@ -200,6 +193,13 @@
                     }
 
                 ?> 
+
+                <!-- Cart and Favourites Button -->
+                <div class="spacing">
+                        <input class="cart-button" type="submit" name="cart" value="Add to Cart">
+                        <input class="favourites-button" type="submit" name="favourites" value="Add to Favourites">
+                    </form>
+                </div>
 
             </section>
         </div>

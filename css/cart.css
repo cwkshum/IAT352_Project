@@ -1,18 +1,38 @@
-/* grid gutters for content units */ 
+a{
+    color: #788F7B;
+    transition: color 0.5s;
+}
+
+a:hover, a:focus{
+    color: #000000;
+}
+
+header h1{
+    margin-top: 3rem;
+    margin-left: 3.5rem;
+}
+
+/* ---------- grid styling ------------ */
+.grid {
+    display: grid;
+}
+
+/* grid gutters for content units and checkout box */ 
 .grid.add-gutters { 
-    grid-column-gap: 0rem;
+    grid-column-gap: 10rem;
     grid-row-gap: 2rem; 
 }
 
-/* grid layout for content units */ 
-.grid.four-column { 
-    margin-left: 16%;
-    margin-right: 19%;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+/* grid layout for content units and checkout box */ 
+.grid.two-column {
+    grid-template-columns: 55rem 27rem; 
     grid-template-rows: auto;
     grid-auto-flow: row;    
 }
+/* ------------------------------------------- */
 
+
+/* ---------- content unit styling ----------- */
 /* captions for unit pictures: price, name */
 .content-unit-text {
     padding-top: 0;
@@ -20,9 +40,118 @@
     line-height: 1.5rem;  
 }
 
+
+.product-image-container{
+    flex: 1;
+}
+
 /* size constraint for product images to fit 
 into the content unit container */
 .product-image { 
     max-width: 224px;
     max-height: 224px;
+
+    border: 1.5px solid #ECEEF0;
+    box-shadow: 13px 13px #ECEEF0;
+    transition: 0.3s;
 }
+
+.product-image:hover {
+    border: 1.5px solid #C0CFC2;
+    box-shadow: 13px 13px #C0CFC2;
+}
+
+/* container for name, price, size */
+.info-container {
+    margin-left: 3rem;
+    flex: 1;
+}
+
+/* styling for product name in content unit */
+.product-name {
+    font-weight: 700;
+    font-size: 23px;
+}
+
+/* spacing for price in content unit */
+.price {
+    line-height: 2rem;
+    font-weight: 300;
+    font-size: 18px;
+
+}
+
+/* spacing for size in content unit */
+.size {
+    line-height: 5rem;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+/* flexbox for content unit container */
+.item-container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 3rem 0 2rem 3rem;
+    max-width: 55rem;
+    padding-bottom: 2rem;
+    padding-right: 0;
+    border-bottom: 0.75px solid #9A9A9A;
+}
+
+/* ----------------------------------------- */
+
+/* --------- Cart Options button styling --------- */
+.cart-options{
+    flex: 1;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.cart-options-links {
+    border: none;
+    font-size: 18px;
+    color: #788F7B;
+    background: #ffffff;
+    transition: color 0.5s;
+}
+  
+.cart-options-links:hover, .cart-options-links:focus {
+    color: #000000;
+}
+/* ---------------------------------------------- */
+
+/* container for checkout */
+.checkout-info{
+    background: white;
+    position: relative;
+    padding: 4rem 6rem;
+    border: 1.5px solid #ECEEF0;
+    box-shadow: 13px 13px #ECEEF0;
+    margin-right: 0.5rem;
+    max-height: 28rem;
+}
+
+/* -------- Check Outr button styling --------- */
+.checkout{
+    margin-top: 6rem;
+}
+
+.checkout-button{
+    background: #C0CFC2;
+    color: white;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 1.5rem 4rem;
+    transition-property: background-color; 
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-out;
+}
+  
+.checkout-button:active, .checkout-button:hover, .checkout-button:focus {
+    color: #FFFFFF;
+    background-color: #788F7B;
+}
+  /* --------------------------------------------- */

@@ -34,12 +34,13 @@
             }
         ?>
 
-        <div> 
+        <header> 
             <h1>My Cart</h1>
-        </div> 
+        </header> 
         
         <!-- Cart Item Display Section -->
-        <div class="grid add-gutters four-column">
+        <div class="grid add-gutters two-column">
+            <div>
             <?php 
             
                 if (isset($_SESSION['email'])) {
@@ -63,15 +64,49 @@
                         $productSize = $rows['product_size'];
 
                         $stripped = str_replace(' ', '', $productName);
-
-                        // display the products that the member has added to their cart
-                        echo '<figure>';
-                            echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
-                            echo '<figcaption class="content-unit-text">'. $productName .'<br>$'. $productPrice . '<br>Size: '. $productSize .'</figcaption>';
-                        echo '</figure>';
+                        
+                        // Display Products in Cart
+                        echo '<div class="item-container">';
+                            // Product Image
+                            echo '<div class="product-image-container">';
+                                echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                            echo '</div>';
+                            // Product Information
+                            echo '<div class="info-container">';
+                                echo '<span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br> <span class="size">Size: '. $productSize . '</span>';
+                            echo '</div>';
+                            // Cart Options
+                            echo '<div class="cart-options">';
+                                echo '<button class="cart-options-links">Add to Favourites</button> | <button class="cart-options-links">Remove</button>';
+                            echo '</div>';
+                        echo "</div>";
                     }
                 }
             ?> 
+            </div>
+
+            <div class="checkout-info">
+                <?php 
+                    // display the number of items in their cart 
+                    echo '<h3>Items: ' . $numResults . '</h3>';
+                   
+                    // query for retreiving the total price for products
+                    $totalQuery = "SELECT SUM(product_price) FROM cart WHERE customer_id = " .$cust_id;
+
+                    $priceResult= mysqli_query($connection, $totalQuery);
+                    $fetchTotal = mysqli_fetch_assoc($priceResult);
+                    $total = $fetchTotal["SUM(product_price)"];
+                    
+                    // display the total
+                    echo '<h3>Total: $' . $total . '</h3>';
+                ?> 
+                <!-- Favourites Link -->
+                <a href="my_account.php">View Favourites</a>
+                <!-- Checkout Button -->
+                <div class="checkout">
+                    <a href="" class="checkout-button">Check&nbsp;Out</a>
+                </div>
+            </div>
         </div>
 
     <?php
