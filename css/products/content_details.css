@@ -9,8 +9,8 @@
 }
 
 .grid.two-column { 
-    margin-left: 11rem;
-    margin-right: 10rem;
+    margin-left: 9%;
+    margin-right: 8%;
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: auto; 
     grid-auto-flow: row; 
