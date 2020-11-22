@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 13, 2020 at 06:02 AM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 21, 2020 at 03:36 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- PHP Version: 7.3.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +28,6 @@ USE `rowina_chan`;
 --
 -- Table structure for table `cart`
 --
--- Creation: Nov 13, 2020 at 04:52 AM
--- Last update: Nov 13, 2020 at 05:02 AM
---
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
@@ -47,19 +44,16 @@ CREATE TABLE IF NOT EXISTS `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- RELATIONSHIPS FOR TABLE `cart`:
---   `customer_id`
---       `members` -> `customer_id`
---   `product_id`
---       `products` -> `product_id`
+-- Dumping data for table `cart`
 --
+
+INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `product_name`, `product_brand`, `product_price`, `product_size`) VALUES
+(1, 1, 4103917, 'Jordan Retro 13', 'Jordan', 190, 6);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `favourites`
---
--- Creation: Nov 13, 2020 at 04:52 AM
 --
 
 DROP TABLE IF EXISTS `favourites`;
@@ -74,21 +68,10 @@ CREATE TABLE IF NOT EXISTS `favourites` (
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- RELATIONSHIPS FOR TABLE `favourites`:
---   `customer_id`
---       `members` -> `customer_id`
---   `product_id`
---       `products` -> `product_id`
---
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `members`
---
--- Creation: Nov 13, 2020 at 04:52 AM
--- Last update: Nov 13, 2020 at 05:02 AM
 --
 
 DROP TABLE IF EXISTS `members`;
@@ -103,16 +86,16 @@ CREATE TABLE IF NOT EXISTS `members` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- RELATIONSHIPS FOR TABLE `members`:
+-- Dumping data for table `members`
 --
+
+INSERT INTO `members` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `dob`) VALUES
+(1, 'chim', 'Perera', 'chamiraperera97@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', 'Feb-01-1997');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
---
--- Creation: Nov 13, 2020 at 04:52 AM
--- Last update: Nov 13, 2020 at 04:52 AM
 --
 
 DROP TABLE IF EXISTS `products`;
@@ -127,10 +110,6 @@ CREATE TABLE IF NOT EXISTS `products` (
   `description` varchar(350) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONSHIPS FOR TABLE `products`:
---
 
 --
 -- Dumping data for table `products`
@@ -224,7 +203,67 @@ INSERT INTO `products` (`product_id`, `name`, `price`, `brand`, `colour`, `size`
 (4103958, 'Reebok Question Mid', 150, 'Reebok', 'Red', 12, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.'),
 (4103959, 'Reebok Question Mid', 150, 'Reebok', 'Red', 13, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.'),
 (4103960, 'Reebok Question Mid', 150, 'Reebok', 'Red', 14, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.'),
-(4103961, 'Reebok Question Mid', 150, 'Reebok', 'Red', 15, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.');
+(4103961, 'Reebok Question Mid', 150, 'Reebok', 'Red', 15, 'Men', 'With Reebok Questions on his feet, Allen Iverson broke records on court using a style all his own. These men\'s mid-top shoes honour the man, the myth and the dream. Underneath the solid-colour textile lies graphics inspired by Halloween. Tear away the top layer of the upper completely, or just a panel here are there, the look is yours to customise.'),
+(4103962, 'Adidas Originals Ultraboost', 175, 'Adidas ', 'Black', 7, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103963, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 8, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103964, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 9, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103965, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 10, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103966, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 11, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103967, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 12, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103968, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 13, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103969, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 14, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103970, 'Adidas Originals Ultraboost', 175, 'Adidas', 'Black', 15, 'Men', 'Run in comfort in this cushioned, flexible shoe. Boost cushioning supplies comfort. Upper is engineered for flexibility, breathability, and a smooth fit. FORMOTION® adapts to the ground for a smooth stride.'),
+(4103971, 'Reebok Club C 85', 95, 'Reebok', 'White', 8, 'Men', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103972, 'Reebok Club C 85', 95, 'Reebok', 'White', 9, 'Men', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103973, 'Reebok Club C 85', 95, 'Reebok', 'White', 10, 'Men', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103974, 'Reebok Club C 85', 95, 'Reebok', 'White', 11, 'Men', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic.Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103975, 'Reebok Club C 85', 95, 'Reebok', 'White', 12, 'Men', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103976, 'Reebok Club C 85', 95, 'Reebok', 'White', 13, 'Men', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103977, 'Reebok Club C 85', 95, 'Reebok', 'White', 6, 'Women', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103978, 'Reebok Club C 85', 95, 'Reebok', 'White', 7, 'Women', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103979, 'Reebok Club C 85', 95, 'Reebok', 'White', 8, 'Women', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103980, 'Reebok Club C 85', 95, 'Reebok', 'White', 9, 'Women', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103981, 'Reebok Club C 85', 95, 'Reebok', 'White', 10, 'Women', 'These Reebok courtside shoes have a definite nod to throwback style, but with advanced design features for a new, polished modern classic. Soft leather upper for support and comfort. Low-cut design for freedom of motion at the ankle.'),
+(4103982, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 6, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103983, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 7, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103984, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 8, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103985, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 9, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103986, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 10, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103987, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 11, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103988, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 12, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103989, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 13, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103990, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 14, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103991, 'Nike LeBron XVII Low', 215, 'Nike', 'Black', 15, 'Men', 'Fine-tuned for LeBron\'s ferocious game, the LeBron 17 Low gives the King another sensation to add to his arsenal. The combined cushioning platform provides a balanced mix of impact absorption and responsiveness'),
+(4103992, 'Jordan Max 200', 130, 'Jordan', 'White', 7, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4103993, 'Jordan Max 200', 130, 'Jordan', 'White', 8, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4103994, 'Jordan Max 200', 130, 'Jordan', 'White', 9, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4103995, 'Jordan Max 200', 130, 'Jordan', 'White', 10, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4103996, 'Jordan Max 200', 130, 'Jordan', 'White', 11, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4103997, 'Jordan Max 200', 130, 'Jordan', 'White', 12, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4103998, 'Jordan Max 200', 130, 'Jordan', 'White', 13, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4103999, 'Jordan Max 200', 130, 'Jordan', 'White', 14, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4104000, 'Jordan Max 200', 130, 'Jordan', 'White', 15, 'Men', 'The Jordan Air Max 200 brings a new level of Air to Jordan for all-day comfort. With design elements inspired by the Air Jordan 4 the Max 200 Air unit shows off more Air for more bounce in your step. A flexible cage connects to the lace loops to help secure your foot with added stability.'),
+(4104001, 'Nike Air Force 1', 120, 'Nike', 'Black', 5, 'Women', 'Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon™ midsole with heel Air-Sole® unit provides added shock absorption. Solid gum rubber outsole supplies durable traction'),
+(4104002, 'Nike Air Force 1', 120, 'Nike', 'Black', 6, 'Women', 'Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon™ midsole with heel Air-Sole® unit provides added shock absorption. Solid gum rubber outsole supplies durable traction'),
+(4104003, 'Nike Air Force 1', 120, 'Nike', 'Black', 7, 'Women', 'Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon™ midsole with heel Air-Sole® unit provides added shock absorption. Solid gum rubber outsole supplies durable traction'),
+(4104004, 'Nike Air Force 1', 120, 'Nike', 'Black', 8, 'Women', 'Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon™ midsole with heel Air-Sole® unit provides added shock absorption. Solid gum rubber outsole supplies durable traction'),
+(4104005, 'Nike Air Force 1', 120, 'Nike', 'Black', 9, 'Women', 'Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon™ midsole with heel Air-Sole® unit provides added shock absorption. Solid gum rubber outsole supplies durable traction'),
+(4104006, 'Nike Air Force 1', 120, 'Nike', 'Black', 10, 'Women', 'Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon™ midsole with heel Air-Sole® unit provides added shock absorption. Solid gum rubber outsole supplies durable traction'),
+(4104007, 'Nike Air Force 1', 120, 'Nike', 'Black', 11, 'Women', 'Genuine leather upper with a padded ankle collar provides a comfortable fit. Full-length Phylon™ midsole with heel Air-Sole® unit provides added shock absorption. Solid gum rubber outsole supplies durable traction'),
+(4104008, 'Adidas Originals NMD R1', 120, 'Adidas ', 'Beige', 6, 'Women', 'The adidas Originals NMD R1 merges the street style you need with the technical details you want for a truly progressive design. Both streamlined and modern, the NMD takes after the \'80s racing heritage. '),
+(4104009, 'Adidas Originals NMD R1', 120, 'Adidas', 'Beige', 7, 'Women', 'The adidas Originals NMD R1 merges the street style you need with the technical details you want for a truly progressive design. Both streamlined and modern, the NMD takes after the \'80s racing heritage. '),
+(4104010, 'Adidas Originals NMD R1', 120, 'Adidas', 'Beige', 8, 'Women', 'The adidas Originals NMD R1 merges the street style you need with the technical details you want for a truly progressive design. Both streamlined and modern, the NMD takes after the \'80s racing heritage. '),
+(4104011, 'Adidas Originals NMD R1', 120, 'Adidas', 'Beige', 9, 'Women', 'The adidas Originals NMD R1 merges the street style you need with the technical details you want for a truly progressive design. Both streamlined and modern, the NMD takes after the \'80s racing heritage. '),
+(4104012, 'Adidas Originals NMD R1', 120, 'Adidas', 'Beige', 10, 'Women', 'The adidas Originals NMD R1 merges the street style you need with the technical details you want for a truly progressive design. Both streamlined and modern, the NMD takes after the \'80s racing heritage.'),
+(4104013, 'Adidas Originals Stan Smith', 77, 'Adidas ', 'White', 5, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104014, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 6, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104015, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 7, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104016, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 8, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104017, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 9, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104018, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 10, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104019, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 11, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104020, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 12, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. '),
+(4104021, 'Adidas Originals Stan Smith', 77, 'Adidas', 'White', 13, 'Women', 'Adidas Originals Stan Smith court-inspired shoes are as iconic as they are comfortable. The most noticeable aspect of these sneakers is the smooth leather with an all-over embossed pattern. ');
 
 --
 -- Constraints for dumped tables
