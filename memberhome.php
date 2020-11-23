@@ -2,6 +2,9 @@
   // checks if user is logged in
   include("auth_sessionNotActiveCheck.php"); 
   $inFolder = false;
+
+  //connect to db 
+  require("db.php");
 ?>
 
 <!DOCTYPE html>
@@ -81,71 +84,98 @@
     <!-- Linked Javascript File for Carousel Display -->
     <script src="js/main.js"></script>
           
-  
     <!-- Favourites Display Section -->
     <div class="product-container">
       <div class="title-container">
-        <h2>YOUR FAVOURITES</h2><a class="seemore" href="my_account.php" >See More</a>
+        <h2>MY FAVOURITES</h2><a class="seemore" href="my_account.php" >See More</a>
       </div>
+     
       <!-- placeholder for favourites -->
-      <div class="grid three-column add-gutters">
-        <div class="unit-container">
-          <figure>
-            <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
-            <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
-          </figure>
-        </div>
+      <div class="grid four-column add-gutters">
+       
+        <?php
+          //identify the customer id 
+          $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+          $idResult = mysqli_query($connection, $idQuery); 
+          $idNumber = mysqli_fetch_assoc($idResult);
+          $cust_id = $idNumber["customer_id"];
+          
+          // Retrieve the products that the member has added to their cart from the database
+          $query = "SELECT product_brand, product_name, product_price FROM favourites WHERE customer_id = " .$cust_id . " LIMIT 4";
 
-        <div class="unit-container">
-          <figure>
-            <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
-            <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
-          </figure>
-        </div>
+          $result = mysqli_query($connection, $query);
+          $numResults = mysqli_num_rows($result);
+          for ($i = 0; $i < $numResults; $i++) {
+            $rows = mysqli_fetch_assoc($result); 
+            $productName = $rows['product_name'];
+            $productBrand = $rows['product_brand'];
+            $productPrice = $rows['product_price'];
 
-        <div class="unit-container">
-          <figure>
-            <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
-            <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
-          </figure>
-        </div>
+
+            $stripped = str_replace(' ', '', $productName);
+            
+            // Display Products in Cart
+            echo '<div class="unit-container">';
+                // Product Image
+                echo '<figure>';
+                    echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                    echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span>';
+                echo '</figure>';
+            echo '</div>';
+          } 
+        ?>
       </div>
     </div>
-    <hr>
-  
 
+    <hr>
 
     <!-- Cart Display Section -->
     <div class="product-container">
       <div class="title-container">
-        <h2>YOUR CART</h2><a class="seemore" href="cart.php" >See More</a>
+        <h2>MY CART</h2><a class="seemore" href="cart.php" >See More</a>
       </div>
 
       <!-- place holder for cart -->
-      <div class="grid three-column add-gutters">
-        <div class="unit-container">
-          <figure>
-            <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
-            <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
-          </figure>
-        </div>
+      <div class="grid four-column add-gutters">
+        <?php
+          //identify the customer id 
+          $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+          $idResult = mysqli_query($connection, $idQuery); 
+          $idNumber = mysqli_fetch_assoc($idResult);
+          $cust_id = $idNumber["customer_id"];
+          
+          // Retrieve the products that the member has added to their cart from the database
+          $query = "SELECT product_brand, product_name, product_size, product_price FROM cart WHERE customer_id = " .$cust_id . " LIMIT 4";
 
-        <div class="unit-container">
-          <figure>
-            <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
-            <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
-          </figure>
-        </div>
+          $result = mysqli_query($connection, $query);
+          $numResults = mysqli_num_rows($result);
+          for ($i = 0; $i < $numResults; $i++) {
+            $rows = mysqli_fetch_assoc($result); 
+            $productName = $rows['product_name'];
+            $productPrice = $rows['product_price']; 
+            $productBrand = $rows['product_brand'];
+            $productSize = $rows['product_size'];
 
-        <div class="unit-container">
-          <figure>
-            <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
-            <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
-          </figure>
-        </div>
+            $stripped = str_replace(' ', '', $productName);
+            
+            // Display Products in Cart
+            echo '<div class="unit-container">';
+              // Product Image
+              echo '<figure class="cart-container">';
+                echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br> <span class="size">Size: '. $productSize . '</span></figcaption>';
+              echo '</figure>';
+            echo "</div>";
+          }
+
+          // Release the returned data
+          mysqli_free_result($result);
+
+          // Close the database connection
+          mysqli_close($connection); 
+        ?>
       </div>
     </div>
-    
   </body>
 </html>
    

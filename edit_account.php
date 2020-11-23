@@ -192,36 +192,46 @@
         <div class="favourites-container"> 
             <h2>My Favourites</h2>
 
-            <!-- favourite place holders -->
             <div class="grid two-column add-gutters">
+                <?php
+                    if (isset($_SESSION['email'])) {
 
-                <div class="unit-container">
-                    <figure>
-                        <a href="products/NikeAirMax97.php"> <img class="product-image" src="img/NikeAirMax97.png"> </a>
-                        <figcaption class="content-unit-text"><span class="product-name">Nike Air Max 97</span><br><span class="price">$170</span></figcaption>
-                    </figure>
-                </div>
+                        //identify the customer id 
+                        $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+                        $idResult = mysqli_query($connection, $idQuery); 
+                        $idNumber = mysqli_fetch_assoc($idResult);
+                        $cust_id = $idNumber["customer_id"];
+                        
+                        // Retrieve the products that the member has added to their cart from the database
+                        $query = "SELECT product_brand, product_name, product_price FROM favourites WHERE customer_id = " .$cust_id;
 
-                <div class="unit-container">
-                    <figure>
-                        <a href="products/JordanRetro13.php"> <img class="product-image" src="img/JordanRetro13.png"> </a>
-                        <figcaption class="content-unit-text"><span class="product-name">Jordan Retro 13</span><br><span class="price">$190</span></figcaption>
-                    </figure>
-                </div>
+                        $result = mysqli_query($connection, $query);
+                        $numResults = mysqli_num_rows($result);
+                        for ($i = 0; $i < $numResults; $i++) {
+                            $rows = mysqli_fetch_assoc($result); 
+                            $productName = $rows['product_name'];
+                            $productBrand = $rows['product_brand'];
+                            $productPrice = $rows['product_price'];
 
-                <div class="unit-container">
-                    <figure>
-                        <a href="products/PUMADefyMidBuckle.php"> <img class="product-image" src="img/PUMADefyMidBuckle.png"> </a>
-                        <figcaption class="content-unit-text"><span class="product-name">PUMA Defy Mid Buckle</span><br><span class="price">$100</span></figcaption>
-                    </figure>
-                </div>
 
-                <div class="unit-container">
-                    <figure>
-                        <a href="products/UGGClassicMini.php"> <img class="product-image" src="img/UGGClassicMini.png"> </a>
-                        <figcaption class="content-unit-text"><span class="product-name">UGG Classic Mini</span><br><span class="price">$150</span></figcaption>
-                    </figure>
-                </div>
+                            $stripped = str_replace(' ', '', $productName);
+                            
+                            // Display Products in Cart
+                            echo '<div class="unit-container">';
+                                // Product Image
+                                echo '<figure>';
+                                    echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                                    echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br>
+                                    <span class="price">Remove from Favourites</span></figcaption>';
+                                echo '</figure>';
+                            echo '</div>';
+                        }
+
+                        if ($numResults == 0) {
+                            echo "<p>You currently have nothing in your favourites.</p>";
+                        }
+                    }
+                ?>
             </div>
         </div>
 

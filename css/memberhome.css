@@ -5,13 +5,13 @@
 
 /* grid gutters for content units */ 
 .grid.add-gutters { 
-  grid-column-gap: 1.5rem;
+  grid-column-gap: 3rem;
   grid-row-gap: 5rem; 
 }
 
 /* grid layout for content units/colour filters */ 
-.grid.three-column { 
-  grid-template-columns: 1fr 1fr 1fr; 
+.grid.four-column { 
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
   grid-template-rows: auto;
   grid-auto-flow: row;  
 }
@@ -192,14 +192,15 @@ a:hover, a:focus {
 
 /* decorative line to separate favourites and cart section */
 hr {
-  width:87%;
+  width: 91%;
   margin-top: 3rem;
   border-top: 1px solid #ECEEF0;
 }
 
 /* container for member customization categories: favourites, cart */
 .product-container {
-  margin: 1rem 2rem;
+  margin: 1rem -1rem;
+  margin-right: 1rem;
   padding: 1rem 5rem;
 }
 
@@ -217,6 +218,11 @@ hr {
 
 figure {
   margin-left: 1.5rem;
+  padding-bottom: 0rem;
+}
+
+.cart-container{
+  margin-bottom: -1rem;
 }
 
 .unit-container:hover {
@@ -232,13 +238,19 @@ figure {
 
 /* font weight for product name */
 .product-name {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 18px;
 }
 
 /* line spacing for price */
 .price {
   line-height: 2rem;
+  font-weight: 300;
 } 
+
+.size {
+  font-weight: 300;
+  line-height: 5rem;
+}
 /* ------------------------------------------------ */
 

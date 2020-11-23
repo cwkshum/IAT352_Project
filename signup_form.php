@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/signup_form.css"> 
 
+        
+
     </head>
 
     <body>
@@ -45,18 +47,23 @@
                         <!-- email address input -->
                         <label for="email" class="lighter-text">Email Address*</label><br>
                         <input type="email" id="email" name="email" required><br>
+                        <span style="color:red" id="msg" ></span>
+
                     </div>
 
                     <div class="padding"> 
                         <!-- password input -->
-                        <label for="password" class="lighter-text">Password*</label><br>
-                        <input type="password" id="password" name="password" required><br> 
+                        <label class="lighter-text">Password* 
+                        <input name="password" id="password" type="password" onkeyup='passwordcheck();' required/>
+                        </label>
                     </div>
 
                     <div class="padding"> 
                         <!-- confirm password input -->
-                        <label for="confirm_password" class="lighter-text">Confirm Password*</label><br>
-                        <input type="password" id="confirm_password" name="confirm_password" required><br>
+                        <label class="lighter-text">Confirm Password*
+                        <input type="password" name="confirm_password" id="confirm_password"  onkeyup='passwordcheck();' required/> 
+                        <span id='message'></span>
+                        </label>
                     </div>
 
                     <div class="padding"> 
@@ -87,6 +94,22 @@
                 </form>
             </div>
         </div>
+       
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="js/checkemail.js"></script>
+
+        <script>
+            var passwordcheck = function() {
+                if (document.getElementById('password').value ==
+                    document.getElementById('confirm_password').value) {
+                    document.getElementById('message').style.color = 'green';
+                    document.getElementById('message').innerHTML = 'Passwords Matching';
+                } else {
+                        document.getElementById('message').style.color = 'red';
+                    document.getElementById('message').innerHTML = 'Passwords Not Matching';
+                }
+            }
+        </script>
         
     </body>
 </html>

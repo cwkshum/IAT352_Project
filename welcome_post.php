@@ -20,7 +20,9 @@
         <!-- navigation -->
         <?php 
             $inFolder = false;  
-            include("public_sessionActiveCheck.php"); 
+            // include("public_sessionActiveCheck.php"); 
+            include("auth_sessionActiveCheck.php"); 
+
         ?>
 
         <?php
@@ -203,14 +205,14 @@
                     }
 
                     //Checking is user existing in the database or not
-                    $query = "SELECT * FROM members WHERE email = '$email' and password = '".md5($password)."'";
+                    $query = "SELECT * FROM members WHERE email = '$email'";
                     $result = mysqli_query($connection, $query) or die(mysql_error());
                         
                     $rows = mysqli_num_rows($result);
 
                     if ($rows == 1) {
                         // Display Error Message
-                        echo "<h1>Oops!</h1>";
+                        echo "<h1>Oops!</h1>"; 
                         echo "<h2 class='message'>It appears this email has already been registered.</h2>";
                         
                         // Sign up and Log in links
@@ -226,13 +228,22 @@
                             $result = mysqli_query($connection, $query);
                             
                             if($result) {
-                                // Show success message
-                                echo "<h1 class='center-content success-message'>Welcome, " . $first_name . "!</h1>";
-                                echo "<div class='center-content'>";
-                                    echo "<h2 class='message'>Thank you for registering.</h2>";
-                                    // Log in link
-                                    echo "<a href='login.php' class='button'>LOG IN</a>";
-                                echo "</div>";
+                                
+                                $_SESSION['email'] = $email;
+                                
+                                //identify the customer id 
+                                $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+                                $idResult = mysqli_query($connection, $idQuery); 
+                                $idNumber = mysqli_fetch_assoc($idResult);
+                                $cust_id = $idNumber["customer_id"];
+
+                                $query = "INSERT into customization (customer_id, toggle_favourites, toggle_cart) VALUES ($id, false, true)";
+                                $result = mysqli_query($connection, $query);
+
+                                header("Location: my_account.php");
+                                
+
+
                             }
                         } else if($password_error){
                             // Display Error Message
@@ -261,6 +272,15 @@
                 ?>
             </div>
         </div>
+
+        <?php
+            // Release the returned data
+            mysqli_free_result($result);
+
+            // Close the database connection
+            mysqli_close($connection);
+
+        ?>
         
     </body>
 </html>

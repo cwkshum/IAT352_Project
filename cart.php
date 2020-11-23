@@ -81,6 +81,12 @@
                             echo '</div>';
                         echo "</div>";
                     }
+
+                    if ($numResults == 0) {
+                        echo '<div class="item-container">';
+                            echo "<p>You currently have nothing in your cart.</p>";
+                        echo "</div>";
+                    }
                 }
             ?> 
             </div>

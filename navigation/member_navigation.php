@@ -5,6 +5,8 @@
     }
 ?> 
 
+
+
 <nav class="main-nav">
 
         <?php
@@ -19,6 +21,7 @@
                 echo '<a href="' . $exitFolder . 'my_account.php" class="nav-link">My Account</a>';
                 echo '<a href="' . $exitFolder . 'cart.php" class="nav-link">Cart</a>';
                 echo '<a href="' . $exitFolder . 'logout.php" class="nav-link">Log Out</a>';
+
             echo '</div>';
         ?> 
 </nav> 

@@ -197,28 +197,6 @@ figure {
     background-color: darkgreen;
 }
 
-/* styling for "Submit Filter" Button */
-.button { 
-    background: #C0CFC2;
-    color: white;
-    font-size: 20px;
-    border-radius: 1rem;
-    border: none;
-    padding: 1rem 1rem;
-    transition-property: background-color; 
-    transition-duration: 0.5s; 
-    transition-timing-function: ease-out; 
-    text-align: center;
-    font-size: 16px;
-    margin-left:0;
-}
-
-.button:active, .button:hover, .button:focus {
-	color: #FFFFFF;
-	background-color: #788F7B;
-}
-
-/* --------------------------------- */
 /* ---------------------------------- */
 
 
