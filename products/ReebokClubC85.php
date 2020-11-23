@@ -2,13 +2,13 @@
 <html lang="en">
     
     <head>
-        <title>Nike Air Force 1 Low</title> 
+        <title>Reebok Club C 85 </title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" type="text/css" href="../css/main.css"> 
         <link rel="stylesheet" type="text/css" href="../css/products/content_details.css"> 
-        <link rel="stylesheet" type="text/css" href="../css/products/nike_air_force_1.css"> 
+        <link rel="stylesheet" type="text/css" href="../css/products/reebok_club_c_85.css"> 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -39,11 +39,11 @@
         <!-- Fetch product name, price, description, and color from db -->
         <?php
             // Query to retrieve product information for page
-            $query = "SELECT products.name, products.price, products.description, products.colour, products.product_id, products.brand FROM products WHERE products.name = 'Nike Air Force 1 Low'"; 
+            $query = "SELECT products.name, products.price, products.description, products.colour, products.product_id, products.brand FROM products WHERE products.name = 'Reebok Club C 85'"; 
             $result = mysqli_query($connection, $query); 
 
             //identify which gender category this shoe is
-            $genderQuery = "SELECT products.gender FROM products WHERE products.name = 'Nike Air Force 1 Low'"; 
+            $genderQuery = "SELECT products.gender FROM products WHERE products.name = 'Reebok Club C 85'"; 
             $genderResult = mysqli_query($connection, $genderQuery);
         ?>
 
@@ -51,7 +51,7 @@
             
             <!-- shoe image -->
             <section>
-                <img src="../img/NikeAirForce1Low.png" class="scale-img box-shadow">
+                <img src="../img/ReebokClubC85.png" class="scale-img box-shadow">
             </section>
             
             <!-- item details -->
@@ -116,10 +116,10 @@
                
                 <?php
                     //parse a new query to return all sizes that shoe is offered in 
-                    $sizeQuery = "SELECT products.size FROM products WHERE products.name = 'Nike Air Force 1 Low'"; 
+                    $sizeQuery = "SELECT products.size FROM products WHERE products.name = 'Reebok Club C 85'"; 
                 
                     $sizeList = mysqli_query($connection, $sizeQuery); 
-                    echo '<form action="NikeAirForce1Low.php" method="post">';
+                    echo '<form action="ReebokClubC85.php" method="post">';
                     //iterate through how many sizes there are and display them as buttons/options for the customer 
                     $num_sizes = mysqli_num_rows($sizeList);
                     for ($i = 0; $i < $num_sizes; $i++) {
@@ -156,10 +156,23 @@
                         $idNumber = mysqli_fetch_assoc($idResult);
                         $cust_id = $idNumber["customer_id"];
 
+                        //Create a cart id 
+                        $cart_id_query = "SELECT cart_id FROM cart ORDER BY cart_id DESC LIMIT 1";
+                        $cart_id_result = mysqli_query($connection, $cart_id_query) or die(mysql_error());
+                        //if there are no products added to the cart, start from a 0000 id, else taking the largest cart id and increment it by 1 to create a new cart id 
+                        $num_results = mysqli_num_rows($cart_id_result); 
+                        $rows = mysqli_fetch_assoc($cart_id_result);
+                        if ($num_results == 0) {
+                            $cart_id = 00001;
+                        } else {
+                            $cart_id = $rows['cart_id'];
+                            $cart_id += 1; 
+                        }
+
                         if (isset($_POST["cart"]) && $sizeSelected){
 
                             //insert product information into the member cart 
-                            $addToCartQuery = "INSERT into cart (product_id, product_name, product_brand, product_price, product_size, customer_id) VALUES ($product_id, '$productName', '$productBrand', $productPrice, $productSize, $cust_id)";
+                            $addToCartQuery = "INSERT into cart (cart_id, product_id, product_name, product_brand, product_price, product_size, customer_id) VALUES ($cart_id, $product_id, '$productName', '$productBrand', $productPrice, $productSize, $cust_id)";
                             // echo $query;
                             $addResult = mysqli_query($connection, $addToCartQuery);
                             
@@ -172,39 +185,12 @@
                         
                         } else if(isset($_POST["cart"]) && !$sizeSelected){
                             echo "<p class='message'>Please select a size. </p>";
-                        } 
-
-                        if (isset($_POST["favourites"])){
-
-                            //Check if this item has already been added to favourites
-                            $favQuery = "SELECT product_name FROM favourites WHERE product_name ='" . $productName. "'";
-                            $favResult = mysqli_query($connection, $favQuery) or die(mysql_error());
-            
-                            $num_results = mysqli_num_rows($favResult); 
-                            $rows = mysqli_fetch_assoc($favResult);
-                            
-                            // if the item has not been added, proceed
-                            if($num_results == 0){
-                                //insert product information into favourites
-                                $addToFavouriteQuery = "INSERT into favourites (product_id, product_name, product_brand, product_price, customer_id) VALUES ($product_id, '$productName', '$productBrand', $productPrice, $cust_id)";
-    
-                                // echo $query;
-                                $addResult = mysqli_query($connection, $addToFavouriteQuery);
-    
-                                
-                                //when the item has been succesfully added to their favourites show them a message
-                                if($addResult) {
-                                    echo "<p class='message'>The item has been added to your favourites!</p>";
-                                } 
-                            } else { 
-                                echo "<p class='message'> Item is already in your favourites. <p>"; 
-                            }
-                        
+                        } else if (isset($_POST["favourites"])){
+                            //customization for PA3 
+                            echo "add to favourites";
                         }
 
                     }
-
-                    
 
                 ?> 
 

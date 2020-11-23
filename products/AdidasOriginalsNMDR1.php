@@ -2,13 +2,13 @@
 <html lang="en">
     
     <head>
-        <title>Nike Air Force 1 Low</title> 
+        <title>Adidas Originals NMD R1 </title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" type="text/css" href="../css/main.css"> 
         <link rel="stylesheet" type="text/css" href="../css/products/content_details.css"> 
-        <link rel="stylesheet" type="text/css" href="../css/products/nike_air_force_1.css"> 
+        <link rel="stylesheet" type="text/css" href="../css/products/adidas_originals_nmd_r1.css"> 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -39,11 +39,11 @@
         <!-- Fetch product name, price, description, and color from db -->
         <?php
             // Query to retrieve product information for page
-            $query = "SELECT products.name, products.price, products.description, products.colour, products.product_id, products.brand FROM products WHERE products.name = 'Nike Air Force 1 Low'"; 
+            $query = "SELECT products.name, products.price, products.description, products.colour, products.product_id, products.brand FROM products WHERE products.name = 'Adidas Originals NMD R1'"; 
             $result = mysqli_query($connection, $query); 
 
             //identify which gender category this shoe is
-            $genderQuery = "SELECT products.gender FROM products WHERE products.name = 'Nike Air Force 1 Low'"; 
+            $genderQuery = "SELECT products.gender FROM products WHERE products.name = 'Adidas Originals NMD R1'"; 
             $genderResult = mysqli_query($connection, $genderQuery);
         ?>
 
@@ -51,7 +51,7 @@
             
             <!-- shoe image -->
             <section>
-                <img src="../img/NikeAirForce1Low.png" class="scale-img box-shadow">
+                <img src="../img/AdidasOriginalsNMDR1.png" class="scale-img box-shadow">
             </section>
             
             <!-- item details -->
@@ -116,10 +116,10 @@
                
                 <?php
                     //parse a new query to return all sizes that shoe is offered in 
-                    $sizeQuery = "SELECT products.size FROM products WHERE products.name = 'Nike Air Force 1 Low'"; 
+                    $sizeQuery = "SELECT products.size FROM products WHERE products.name = 'Adidas Originals NMD R1'"; 
                 
                     $sizeList = mysqli_query($connection, $sizeQuery); 
-                    echo '<form action="NikeAirForce1Low.php" method="post">';
+                    echo '<form action="AdidasOriginalsNMDR1.php" method="post">';
                     //iterate through how many sizes there are and display them as buttons/options for the customer 
                     $num_sizes = mysqli_num_rows($sizeList);
                     for ($i = 0; $i < $num_sizes; $i++) {
