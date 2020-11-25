@@ -17,7 +17,8 @@
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
+        
+        
     </head>
 
     <?php
@@ -62,31 +63,47 @@
             
             <!-- email display -->
             <h3>Email Address</h3>
-            <p><?php echo $email ?></p>
+            <p class="account-info"><?php echo $email ?></p>
             
             <!-- hidden password display -->
             <h3>Password</h3>
-            <p>*******</p>
+            <p class="account-info">*******</p>
             
             <!-- date of birth display -->
             <h3>Date of Birth</h3>
-            <p><?php echo $dob ?></p>
+            <p class="account-info"><?php echo $dob ?></p>
 
             <!-- edit account information -->
             <div class="edit">
                 <a class="button" href="edit_account.php">Edit</a>
             </div>
 
+            <br>
             <hr> 
-            <div>
-                <h3>Home Page Preferences</h3>
 
-                <input type="checkbox" id="toggle_favourites" name="toggle_favourites" value="false" class="favourites common_selector" <?php if(isset($_POST['toggle_favourites'])) echo "checked='checked'"; ?>>
+            <div>
+            <?php
+                //identify the customer id 
+                $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+                $idResult = mysqli_query($connection, $idQuery); 
+                $idNumber = mysqli_fetch_assoc($idResult);
+                $cust_id = $idNumber["customer_id"];
+
+                $query = "SELECT toggle_favourites, toggle_cart FROM customization WHERE customer_id = " . $cust_id; 
+                $result = mysqli_query($connection, $query);
+                $rows = mysqli_fetch_assoc($result);
+                $toggleFavourites = $rows["toggle_favourites"]; 
+                $toggleCart = $rows["toggle_cart"];
+            ?>
+                <h3 class="home-preferences">Home Page Preferences</h3>
+
+                <input type="checkbox" id="toggle_favourites" name="toggle_favourites" value="false" class="favourites common_selector" 
+                <?php if($toggleFavourites) echo "checked='checked'";?>>
                 <label for="toggle_favourites">Show Favourites</label><br>
 
-                <input type="checkbox" id="toggle_cart" name="toggle_cart" value="false" class="cart common_selector" <?php if(isset($_POST['toggle_cart'])) echo "checked='checked'"; ?>>
+                <input type="checkbox" id="toggle_cart" name="toggle_cart" value="false" class="cart common_selector" 
+                <?php if($toggleCart) echo "checked='checked'";?>>
                 <label for="toggle_cart">Show Cart</label><br>
-
             </div> 
 
             <?php
@@ -94,17 +111,13 @@
 
                 }
             ?>
-
-            <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-            <script src="js/customization.js"></script>  
-            
         </div> 
 
         <!-- Display Favourites Section -->
         <div class="favourites-container"> 
             <h2>My Favourites</h2>
           
-            <div class="grid two-column add-gutters">
+            <div id="favourites_display" class="grid two-column add-gutters">
                 <?php
                     if (isset($_SESSION['email'])) {
 
@@ -134,7 +147,7 @@
                                 echo '<figure>';
                                     echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
                                     echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br>
-                                    <span class="price">Remove from Favourites</span></figcaption>';
+                                    <button id="remove_favourites" value="' .$productName. '" class="remove">Remove from Favourites</button></figcaption>';
                                 echo '</figure>';
                             echo '</div>';
                         } 
@@ -146,6 +159,10 @@
                 ?>
             </div>
         </div>
+
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="js/customization.js"></script>  
+        <script src="js/remove_favourites.js"></script>  
 
         <?php
             // Release the returned data

@@ -83,99 +83,131 @@
     
     <!-- Linked Javascript File for Carousel Display -->
     <script src="js/main.js"></script>
+
+    <?php
+
+      //identify the customer id 
+      $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+      $idResult = mysqli_query($connection, $idQuery); 
+      $idNumber = mysqli_fetch_assoc($idResult);
+      $cust_id = $idNumber["customer_id"];
+    
+      $query = "SELECT toggle_favourites, toggle_cart from customization WHERE customer_id = $cust_id";
+      $toggleResult = mysqli_query($connection, $query); 
+      // $num_results = mysqli_num_rows($toggleResult); 
+      $rows = mysqli_fetch_assoc($toggleResult);
+      $toggleFavourites = $rows['toggle_favourites'];
+      $toggleCart = $rows['toggle_cart'];
+
+      //start of PHP if-statement on line 150
+      if($toggleFavourites){
+    ?>
           
-    <!-- Favourites Display Section -->
-    <div class="product-container">
-      <div class="title-container">
-        <h2>MY FAVOURITES</h2><a class="seemore" href="my_account.php" >See More</a>
-      </div>
-     
-      <!-- placeholder for favourites -->
-      <div class="grid four-column add-gutters">
-       
-        <?php
-          //identify the customer id 
-          $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
-          $idResult = mysqli_query($connection, $idQuery); 
-          $idNumber = mysqli_fetch_assoc($idResult);
-          $cust_id = $idNumber["customer_id"];
+        <!-- Favourites Display Section -->
+        <div class="product-container">
+          <div class="title-container">
+            <h2>MY FAVOURITES</h2><a class="seemore" href="my_account.php">See More</a>
+          </div>
+        
+          <!-- placeholder for favourites -->
+          <div class="grid four-column add-gutters">
           
-          // Retrieve the products that the member has added to their cart from the database
-          $query = "SELECT product_brand, product_name, product_price FROM favourites WHERE customer_id = " .$cust_id . " LIMIT 4";
+            <?php
+              //identify the customer id 
+              $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+              $idResult = mysqli_query($connection, $idQuery); 
+              $idNumber = mysqli_fetch_assoc($idResult);
+              $cust_id = $idNumber["customer_id"];
+              
+              // Retrieve the products that the member has added to their cart from the database
+              $query = "SELECT product_brand, product_name, product_price FROM favourites WHERE customer_id = " .$cust_id . " LIMIT 4";
 
-          $result = mysqli_query($connection, $query);
-          $numResults = mysqli_num_rows($result);
-          for ($i = 0; $i < $numResults; $i++) {
-            $rows = mysqli_fetch_assoc($result); 
-            $productName = $rows['product_name'];
-            $productBrand = $rows['product_brand'];
-            $productPrice = $rows['product_price'];
+              $result = mysqli_query($connection, $query);
+              $numResults = mysqli_num_rows($result);
+              for ($i = 0; $i < $numResults; $i++) {
+                $rows = mysqli_fetch_assoc($result); 
+                $productName = $rows['product_name'];
+                $productBrand = $rows['product_brand'];
+                $productPrice = $rows['product_price'];
 
 
-            $stripped = str_replace(' ', '', $productName);
-            
-            // Display Products in Cart
-            echo '<div class="unit-container">';
-                // Product Image
-                echo '<figure>';
+                $stripped = str_replace(' ', '', $productName);
+                
+                // Display Products in Cart
+                echo '<div class="unit-container">';
+                    // Product Image
+                    echo '<figure>';
+                        echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                        echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span>';
+                    echo '</figure>';
+                echo '</div>';
+              } 
+            ?>
+          </div>
+        </div>
+    <?php
+      //end of PHP if-statement on line 102 
+      } 
+      
+      //add a divider if both customizations on toggled on 
+      if($toggleFavourites && $toggleCart){
+        echo "<hr>";
+      }
+
+      //start of PHP if-statemon on line 203
+      if($toggleCart){
+    ?>
+        <!-- Cart Display Section -->
+        <div class="product-container">
+          <div class="title-container">
+            <h2>MY CART</h2><a class="seemore" href="cart.php" >See More</a>
+          </div>
+
+          <!-- place holder for cart -->
+          <div class="grid four-column add-gutters">
+            <?php
+              //identify the customer id 
+              $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+              $idResult = mysqli_query($connection, $idQuery); 
+              $idNumber = mysqli_fetch_assoc($idResult);
+              $cust_id = $idNumber["customer_id"];
+              
+              // Retrieve the products that the member has added to their cart from the database
+              $query = "SELECT product_brand, product_name, product_size, product_price FROM cart WHERE customer_id = " .$cust_id . " LIMIT 4";
+
+              $result = mysqli_query($connection, $query);
+              $numResults = mysqli_num_rows($result);
+              for ($i = 0; $i < $numResults; $i++) {
+                $rows = mysqli_fetch_assoc($result); 
+                $productName = $rows['product_name'];
+                $productPrice = $rows['product_price']; 
+                $productBrand = $rows['product_brand'];
+                $productSize = $rows['product_size'];
+
+                $stripped = str_replace(' ', '', $productName);
+                
+                // Display Products in Cart
+                echo '<div class="unit-container">';
+                  // Product Image
+                  echo '<figure class="cart-container">';
                     echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
-                    echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span>';
-                echo '</figure>';
-            echo '</div>';
-          } 
-        ?>
-      </div>
-    </div>
+                    echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br> <span class="size">Size: '. $productSize . '</span></figcaption>';
+                  echo '</figure>';
+                echo "</div>";
+              }
+            ?>
+          </div>
+        </div>
+    <?php
+      //end of PHP if-statement on line 157
+      }
 
-    <hr>
+      // Release the returned data
+      mysqli_free_result($toggleResult);
 
-    <!-- Cart Display Section -->
-    <div class="product-container">
-      <div class="title-container">
-        <h2>MY CART</h2><a class="seemore" href="cart.php" >See More</a>
-      </div>
-
-      <!-- place holder for cart -->
-      <div class="grid four-column add-gutters">
-        <?php
-          //identify the customer id 
-          $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
-          $idResult = mysqli_query($connection, $idQuery); 
-          $idNumber = mysqli_fetch_assoc($idResult);
-          $cust_id = $idNumber["customer_id"];
-          
-          // Retrieve the products that the member has added to their cart from the database
-          $query = "SELECT product_brand, product_name, product_size, product_price FROM cart WHERE customer_id = " .$cust_id . " LIMIT 4";
-
-          $result = mysqli_query($connection, $query);
-          $numResults = mysqli_num_rows($result);
-          for ($i = 0; $i < $numResults; $i++) {
-            $rows = mysqli_fetch_assoc($result); 
-            $productName = $rows['product_name'];
-            $productPrice = $rows['product_price']; 
-            $productBrand = $rows['product_brand'];
-            $productSize = $rows['product_size'];
-
-            $stripped = str_replace(' ', '', $productName);
-            
-            // Display Products in Cart
-            echo '<div class="unit-container">';
-              // Product Image
-              echo '<figure class="cart-container">';
-                echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
-                echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br> <span class="size">Size: '. $productSize . '</span></figcaption>';
-              echo '</figure>';
-            echo "</div>";
-          }
-
-          // Release the returned data
-          mysqli_free_result($result);
-
-          // Close the database connection
-          mysqli_close($connection); 
-        ?>
-      </div>
-    </div>
+      // Close the database connection
+      mysqli_close($connection); 
+    ?>
   </body>
 </html>
    

@@ -11,8 +11,6 @@
 
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/welcome_post.css"> 
-
-
     </head>
 
     <body>
@@ -20,9 +18,7 @@
         <!-- navigation -->
         <?php 
             $inFolder = false;  
-            // include("public_sessionActiveCheck.php"); 
             include("auth_sessionActiveCheck.php"); 
-
         ?>
 
         <?php
@@ -182,8 +178,6 @@
                 }
             } 
         ?>
-
-
 
         <div class="page-background">
             <!-- Display Information -->

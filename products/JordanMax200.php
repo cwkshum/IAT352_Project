@@ -185,9 +185,34 @@
                         
                         } else if(isset($_POST["cart"]) && !$sizeSelected){
                             echo "<p class='message'>Please select a size. </p>";
-                        } else if (isset($_POST["favourites"])){
-                            //customization for PA3 
-                            echo "add to favourites";
+                        } 
+
+                        if (isset($_POST["favourites"])){
+
+                            //Check if this item has already been added to favourites
+                            $favQuery = "SELECT product_name FROM favourites WHERE product_name ='" . $productName. "'";
+                            $favResult = mysqli_query($connection, $favQuery) or die(mysql_error());
+            
+                            $num_results = mysqli_num_rows($favResult); 
+                            $rows = mysqli_fetch_assoc($favResult);
+                            
+                            // if the item has not been added, proceed
+                            if($num_results == 0){
+                                //insert product information into favourites
+                                $addToFavouriteQuery = "INSERT into favourites (product_id, product_name, product_brand, product_price, customer_id) VALUES ($product_id, '$productName', '$productBrand', $productPrice, $cust_id)";
+    
+                                // echo $query;
+                                $addResult = mysqli_query($connection, $addToFavouriteQuery);
+    
+                                
+                                //when the item has been succesfully added to their favourites show them a message
+                                if($addResult) {
+                                    echo "<p class='message'>The item has been added to your favourites!</p>";
+                                } 
+                            } else { 
+                                echo "<p class='message'> Item is already in your favourites. <p>"; 
+                            }
+                        
                         }
 
                     }

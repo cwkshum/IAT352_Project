@@ -12,9 +12,13 @@ $(document).ready(function(){
                     email:email
                 },
                 success: function(data){
-
+                    var result = $.parseJSON(data);
+                    var string ='';
+                    if (result == 1) {
+                        string += 'This email is already in use.';
+                    }
                     // Show response
-                    $("#msg").fadeIn().html(data);
+                    $("#msg").fadeIn().html(string);
                 }
             });
         }

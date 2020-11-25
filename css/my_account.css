@@ -2,6 +2,16 @@ body {
   margin: 0;
 }
 
+h3 { 
+  margin-top: 2.7rem;
+  margin-bottom: 0;
+}
+
+hr { 
+  margin-top: 2rem;
+  /* margin-right: 40%; */
+  /* margin: 2rem 20% 0; */
+}
 
 /* -------- grid styling ------------- */
 .grid {
@@ -34,7 +44,11 @@ body {
   height: 100%;
   bottom: 0;
   box-shadow: 13px 13px #ECEEF0;
+}
 
+/* account information styling */
+.account-info {
+  line-height: 0.5rem;
 }
 
 /* container for favourited products */
@@ -116,3 +130,31 @@ figure {
   line-height: 2rem;
 } 
 /* ------------------------------------- */
+
+
+/* styling for customization buttons */
+.home-preferences { 
+  margin-bottom: 0.7rem;
+}
+
+input{
+  margin-bottom: 0.6rem;
+}
+/* ------------------------------------ */
+
+/* ------ remove from favourites styling ----- */
+.remove {
+  border: none;
+  font-size: 17px;
+  color: #788F7B;
+  background: #ffffff;
+  transition: color 0.5s;
+  margin-top: 1rem;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.remove:hover, .remove:focus {
+  color: #000000;
+}
+/* ---------------------------------------------- */

@@ -8,9 +8,8 @@
 
     $numResults = mysqli_num_rows($result); 
 
-    if($numResults == 1){
-        echo 'This email is already in use';
-    } 
+    /* send a JSON encded array to client */
+    echo json_encode($numResults);
 
     // Release the returned data
     mysqli_free_result($result);
