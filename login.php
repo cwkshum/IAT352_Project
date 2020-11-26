@@ -49,9 +49,10 @@
                         <!-- "Create an Account" button -->
                         <a href="signup_form.php" class="button">CREATE AN ACCOUNT</a>
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
         </div>
-
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="js/checklogin.js"></script>
     </body>
 </html>

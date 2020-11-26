@@ -106,18 +106,14 @@
                 <label for="toggle_cart">Show Cart</label><br>
             </div> 
 
-            <?php
-                if(!empty($_POST["toggle_favourites"])){
-
-                }
-            ?>
         </div> 
 
         <!-- Display Favourites Section -->
         <div class="favourites-container"> 
             <h2>My Favourites</h2>
           
-            <div id="favourites_display" class="grid two-column add-gutters">
+            <div id="favourites_display">
+                <div class="grid two-column add-gutters">
                 <?php
                     if (isset($_SESSION['email'])) {
 
@@ -147,7 +143,7 @@
                                 echo '<figure>';
                                     echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
                                     echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br>
-                                    <button id="remove_favourites" value="' .$productName. '" class="remove">Remove from Favourites</button></figcaption>';
+                                    <button value="' .$productName. '" class="remove">Remove from Favourites</button></figcaption>';
                                 echo '</figure>';
                             echo '</div>';
                         } 
@@ -157,6 +153,7 @@
                         }
                     }
                 ?>
+                </div>
             </div>
         </div>
 
