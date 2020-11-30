@@ -27,7 +27,7 @@
             <div class="form-container">
                 <h2> LOG-IN </h2>
             
-                <form action="login_post.php" method="post">
+                <!-- <form action="login_post.php" method="post"> -->
                     <div class="padding">
                         <!-- input for email address -->
                         <label for="email" class="lighter-text">Email Address:</label><br>
@@ -39,11 +39,15 @@
                         <label for="password" class="lighter-text">Password:</label><br>
                         <input type="password" id="password" name="password" required><br>
                     </div>
+
+                    <tr><td><span id="login_msg"></span></td></tr>
+
                 
                     <div class="alignment-container">
                         <!-- login button -->
-                        <input class="button" name="submit" type="submit" value="LOG IN">
-
+                        <!-- <input id = "login_btn" class="button" name="submit" type="submit" value="LOG IN"> -->
+                        <button class="button login_btn" value="LOG IN">LOG IN</button>
+                        
                         <h4 class="or-padding"> OR </h4>
 
                         <!-- "Create an Account" button -->

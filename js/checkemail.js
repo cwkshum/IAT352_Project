@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     $("#email").blur(function(){
         var email = $(this).val();
+
         if(email == ""){
             $("#msg").fadeOut();
         }else{

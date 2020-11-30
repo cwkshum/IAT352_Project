@@ -142,3 +142,9 @@ input[type="email"], input[type="password"]{
 }
 /* ----------------------------- */
 
+#login_msg{
+    font-size: 15px;
+    font-family: Arial;
+    color: red;
+    font-weight: bold;
+}
