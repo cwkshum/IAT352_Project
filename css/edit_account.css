@@ -132,4 +132,20 @@ figure {
   line-height: 2rem;
 } 
 /* ----------------------------- */
-  
+
+/* ------ remove from favourites styling ----- */
+.remove {
+  border: none;
+  font-size: 17px;
+  color: #788F7B;
+  background: #ffffff;
+  transition: color 0.5s;
+  margin-top: 1rem;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.remove:hover, .remove:focus {
+  color: #000000;
+}
+/* ---------------------------------------------- */

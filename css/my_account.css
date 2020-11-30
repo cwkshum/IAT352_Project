@@ -143,7 +143,7 @@ input{
 /* ------------------------------------ */
 
 /* ------ remove from favourites styling ----- */
-.remove {
+.remove-favourites {
   border: none;
   font-size: 17px;
   color: #788F7B;
@@ -154,7 +154,7 @@ input{
   padding-left: 0;
 }
 
-.remove:hover, .remove:focus {
+.remove-favourites:hover, .remove:focus {
   color: #000000;
 }
 /* ---------------------------------------------- */

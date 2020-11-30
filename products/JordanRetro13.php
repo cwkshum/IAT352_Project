@@ -178,7 +178,7 @@
                         if (isset($_POST["favourites"])){
 
                             //Check if this item has already been added to favourites
-                            $favQuery = "SELECT product_name FROM favourites WHERE product_name ='" . $productName. "'";
+                            $favQuery = "SELECT product_name FROM favourites WHERE product_name ='" . $productName. "' AND customer_id = '" . $cust_id . "'";
                             $favResult = mysqli_query($connection, $favQuery) or die(mysql_error());
             
                             $num_results = mysqli_num_rows($favResult); 

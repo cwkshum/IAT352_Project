@@ -143,7 +143,7 @@
                                 echo '<figure>';
                                     echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
                                     echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br>
-                                    <button value="' .$productName. '" class="remove">Remove from Favourites</button></figcaption>';
+                                    <button value="' .$productName. '" class="remove-favourites">Remove from Favourites</button></figcaption>';
                                 echo '</figure>';
                             echo '</div>';
                         } 

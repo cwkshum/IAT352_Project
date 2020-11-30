@@ -1,5 +1,6 @@
 //execute product removal when the button has been clicked 
-$(document).on('click', '.remove', function(){ 
+$(document).on('click', '.remove-favourites', function(){
+ 
     var productName = $(this).attr("value");
 
     $.ajax({ 
@@ -9,9 +10,10 @@ $(document).on('click', '.remove', function(){
 
         success:function(data) {
         
+
             // parse the data sent from PHP script
             var result = $.parseJSON(data); 
-
+            
             /* from result create a string of data and append to the div */
             var string = '<div class="grid two-column add-gutters" >';
             
@@ -31,7 +33,7 @@ $(document).on('click', '.remove', function(){
                     string += "<figure>";
                         string += '<a href="products/'+ stripped +'.php"> <img class="product-image" src="img/'+ stripped +'.png"> </a>'; 
                         string += '<figcaption class="content-unit-text"><span class="product-name">'+ value['product_name'] + '</span> <br><span class="price">$'+ value['product_price'] +'</span> <br> \
-                        <button value="' + value['product_name'] + '" class="remove">Remove from Favourites</button></figcaption>';
+                        <button value="' + value['product_name'] + '" class="remove-favourites">Remove from Favourites</button></figcaption>';
                     string += "</figure>"; 
                 string += '</div>';  
 

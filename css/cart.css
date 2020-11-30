@@ -115,13 +115,28 @@ into the content unit container */
     border: none;
     font-size: 18px;
     color: #788F7B;
-    background: #ffffff;
-    transition: color 0.5s;
+    background: transparent;
+    transition: color 0.3s;
+    margin-left: -1rem;
+    display: inline;
 }
   
 .cart-options-links:hover, .cart-options-links:focus {
     color: #000000;
 }
+
+.line-spacing {
+    margin-left: -0.2rem; 
+    margin-right: 1rem;
+    font-size: 18px;
+    color: #9A9A9A;
+    display: inline;
+}
+
+/* .remove-cart{
+    border-left: 1px solid black;
+} */
+
 /* ---------------------------------------------- */
 
 /* container for checkout */

@@ -191,49 +191,54 @@
         <!-- Display Favourites Section -->
         <div class="favourites-container"> 
             <h2>My Favourites</h2>
+            <div id="favourites_display">
+                <div class="grid two-column add-gutters">
+                    <?php
+                        if (isset($_SESSION['email'])) {
 
-            <div class="grid two-column add-gutters">
-                <?php
-                    if (isset($_SESSION['email'])) {
-
-                        //identify the customer id 
-                        $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
-                        $idResult = mysqli_query($connection, $idQuery); 
-                        $idNumber = mysqli_fetch_assoc($idResult);
-                        $cust_id = $idNumber["customer_id"];
-                        
-                        // Retrieve the products that the member has added to their cart from the database
-                        $query = "SELECT product_brand, product_name, product_price FROM favourites WHERE customer_id = " .$cust_id;
-
-                        $result = mysqli_query($connection, $query);
-                        $numResults = mysqli_num_rows($result);
-                        for ($i = 0; $i < $numResults; $i++) {
-                            $rows = mysqli_fetch_assoc($result); 
-                            $productName = $rows['product_name'];
-                            $productBrand = $rows['product_brand'];
-                            $productPrice = $rows['product_price'];
-
-
-                            $stripped = str_replace(' ', '', $productName);
+                            //identify the customer id 
+                            $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+                            $idResult = mysqli_query($connection, $idQuery); 
+                            $idNumber = mysqli_fetch_assoc($idResult);
+                            $cust_id = $idNumber["customer_id"];
                             
-                            // Display Products in Cart
-                            echo '<div class="unit-container">';
-                                // Product Image
-                                echo '<figure>';
-                                    echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
-                                    echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br>
-                                    <span class="price">Remove from Favourites</span></figcaption>';
-                                echo '</figure>';
-                            echo '</div>';
-                        }
+                            // Retrieve the products that the member has added to their cart from the database
+                            $query = "SELECT product_brand, product_name, product_price FROM favourites WHERE customer_id = " .$cust_id;
 
-                        if ($numResults == 0) {
-                            echo "<p>You currently have nothing in your favourites.</p>";
+                            $result = mysqli_query($connection, $query);
+                            $numResults = mysqli_num_rows($result);
+                            for ($i = 0; $i < $numResults; $i++) {
+                                $rows = mysqli_fetch_assoc($result); 
+                                $productName = $rows['product_name'];
+                                $productBrand = $rows['product_brand'];
+                                $productPrice = $rows['product_price'];
+
+
+                                $stripped = str_replace(' ', '', $productName);
+                                
+                                // Display Products in Cart
+                                echo '<div class="unit-container">';
+                                    // Product Image
+                                    echo '<figure>';
+                                        echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                                        echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br>
+                                        <button value="' .$productName. '" class="remove">Remove from Favourites</button></figcaption>';
+                                    echo '</figure>';
+                                echo '</div>';
+                            }
+
+                            if ($numResults == 0) {
+                                echo "<p>You currently have nothing in your favourites.</p>";
+                            }
                         }
-                    }
-                ?>
+                    ?>
+                </div>
             </div>
         </div>
+        
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="js/customization.js"></script>  
+        <script src="js/remove_favourites.js"></script>  
 
     <?php
         // Release the returned data
