@@ -231,7 +231,7 @@
                                 $idNumber = mysqli_fetch_assoc($idResult);
                                 $cust_id = $idNumber["customer_id"];
 
-                                $query = "INSERT into customization (customer_id, toggle_favourites, toggle_cart) VALUES ($id, false, true)";
+                                $query = "INSERT into customization (customer_id, toggle_favourites, toggle_cart) VALUES ($id, false, false)";
                                 $result = mysqli_query($connection, $query);
 
                                 header("Location: my_account.php");
@@ -250,6 +250,7 @@
                                 echo "<h4 class='container-item'>OR</h4>";
                                 echo "<a href='login.php' class='button'>LOG IN</a>";
                             echo "</div>";
+
                         }else{
                             // Display Error Message
                             echo "<h1>Oops!</h1>";

@@ -20,6 +20,30 @@
 /* ---------------------- */
 
 
+/* ----- grid styling for sizes -----  */
+
+/* grid gutters for sizes */ 
+.grid.size-add-gutters { 
+    grid-column-gap: 0rem;
+    grid-row-gap: 1.8rem; 
+}
+
+
+/* grid layout for content units/colour filters */ 
+.grid.five-column { 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: auto;
+    grid-auto-flow: row; 
+}
+
+label {
+    min-width: 3.3rem; 
+    min-height: 3.3rem; 
+    text-align: center;
+}
+/* ------------------------------------- */
+
+
 img {
     margin-top: -5rem;
     width: 40rem;
@@ -43,6 +67,29 @@ button {
 .size-button:hover{
     background: white;
     border: 1px solid #5DA2D5;
+}
+
+/* button colours */
+
+.black-button{
+    background: black;
+}
+
+.white-button{
+    background-color: white;
+    border: 0.8px solid #9A9A9A;
+}
+
+.red-button{
+    background-color: red;
+}
+
+.beige-button{
+    background-color: #f8dc9a
+}
+
+.green-button{
+    background-color: darkgreen;
 }
 /* --------------------- */
 
@@ -121,6 +168,10 @@ p {
     font-weight: 700;
 }
 
+.lighter {
+    font-weight: 300;
+}
+
 /* ----- message styling -----  */
 .message {
     margin-top: 1rem;
@@ -136,8 +187,7 @@ p {
 .container {
     display: inline-block;
     position: relative;
-    /* padding-left: 35px; */
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     margin-right: 2rem;
     margin-bottom: 12px;
     cursor: pointer;

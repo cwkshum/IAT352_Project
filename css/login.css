@@ -1,3 +1,11 @@
+a {
+	color: #788F7B;
+}
+
+a:hover, a:focus {
+	color: #000000;
+}
+
 /* background image for Login Page*/
 .page-background{
     width: 100%;
@@ -53,7 +61,6 @@
 /* container for log-in form */
 .form-container {  
     background: white;
-    border: 1.5px solid #ECEEF0;
     position: relative;
     width: 40rem;
     padding: 8rem 6rem;
@@ -99,6 +106,7 @@ input[type="email"], input[type="password"]{
 /* padding for "or" */
 .or-padding { 
     padding-bottom: 2rem;
+    font-weight: 300;
 }
 
 /* container for error message */

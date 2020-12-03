@@ -118,3 +118,22 @@ input[type = "number"]{
     text-align: center;
     padding-top: 2rem;
 }
+
+#email-taken-msg, #password-message, #email-validation-msg{
+    font-size: 0.8rem;
+    color: #9c4b49;
+}
+
+#first-name-validation, #last-name-validation{
+    font-size: 0.7rem;
+    color: #9c4b49;
+}
+
+a{
+    color: #788F7B;
+    transition: color 0.5s;
+}
+
+a:hover, a:focus{
+    color: #000000;
+}

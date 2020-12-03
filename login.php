@@ -48,10 +48,10 @@
                         <!-- <input id = "login_btn" class="button" name="submit" type="submit" value="LOG IN"> -->
                         <button class="button login_btn" value="LOG IN">LOG IN</button>
                         
-                        <h4 class="or-padding"> OR </h4>
+                        <h4 class="or-padding"> Don't have an account? <a href="signup_form.php">SIGN UP</a></h4>
 
                         <!-- "Create an Account" button -->
-                        <a href="signup_form.php" class="button">CREATE AN ACCOUNT</a>
+                        <!-- <a href="signup_form.php">Create an Account</a> -->
                     </div>
                 <!-- </form> -->
             </div>

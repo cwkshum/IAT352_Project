@@ -8,6 +8,16 @@
     background-attachment: fixed;
     background-position: center;
 }
+
+.small-header-women {
+    width: 100%;
+    padding: 3rem;
+    background-image: url("../img/womensproducts.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
   
 .small-header-image {
     visibility: hidden;
@@ -95,6 +105,7 @@ h4 {
 }
 
 /* -------------------------------------- */
+
 
 
  /* container for all content */
@@ -235,12 +246,12 @@ figure {
   
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-    border: 2px solid black;
+    border: 2px solid grey;
 }
   
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-    border: 2px solid black;
+    border: 2px solid grey;
 }
   
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -256,7 +267,7 @@ figure {
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid black;
+    border: solid grey;
 }
 
 .checkbox-line-spacing { 

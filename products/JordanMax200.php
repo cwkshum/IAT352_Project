@@ -2,13 +2,13 @@
 <html lang="en">
     
     <head>
-        <title>Jordan Max 200 </title> 
+        <title>Jordan Max 200</title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" type="text/css" href="../css/main.css"> 
         <link rel="stylesheet" type="text/css" href="../css/products/content_details.css"> 
-        <link rel="stylesheet" type="text/css" href="../css/products/jordan_max_200.css"> 
+        
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -19,21 +19,12 @@
         require("../db.php");
 	?>
 
-
     <body>
 
         <!-- Navigation -->
         <?php 
             $inFolder = true;  
             include("../public_sessionActiveCheck.php"); 
-        ?>
-
-        <!-- headers must be called before echo statements - users need to be logged in to add to cart -->
-        <?php
-            if (!isset($_SESSION['email']) && isset($_POST["cart"])) { 
-                //redirect visitors to login to add items to their cart 
-                header("location: ../login.php");                        
-            }        
         ?>
 
         <!-- Fetch product name, price, description, and color from db -->
@@ -102,14 +93,14 @@
 
                         //product id 
                         $product_id = $row["product_id"];
-
+                        
                         $productBrand = $row["brand"];
                     }
                 ?>
 
                 <!-- item color selection -->
                 <h4 class="spacing bold">Colour</h4> 
-                <button type="button" class="colour-button"></button>
+                <button type="button" class="white-button"></button>
 
                 <!-- item size selection -->
                 <h4 class="spacing bold">Size</h4>
@@ -119,7 +110,6 @@
                     $sizeQuery = "SELECT products.size FROM products WHERE products.name = 'Jordan Max 200'"; 
                 
                     $sizeList = mysqli_query($connection, $sizeQuery); 
-                    echo '<form action="JordanMax200.php" method="post">';
                     //iterate through how many sizes there are and display them as buttons/options for the customer 
                     $num_sizes = mysqli_num_rows($sizeList);
                     for ($i = 0; $i < $num_sizes; $i++) {
@@ -127,9 +117,6 @@
                         $size = $row["size"];
                         echo '<label class="container">'. $size;
                         echo '<input type="radio" id="'. $size . '" name="shoeSize" value ="'. $size . '"'; 
-                        // if(isset($_POST['shoeSize'])){
-                        //     echo " checked";
-                        // } 
                         echo ">";
                         echo '<span class="checkmark"></span>';
                         echo "</label>";
@@ -137,97 +124,23 @@
                 ?>
                 
                 <br>
-
-                <?php 
-                    $sizeSelected = false; 
-                    if (isset($_POST['shoeSize'])) { 
-                        $sizeSelected = true; 
-                        $productSize = $_POST['shoeSize']; 
-                    }
-                ?> 
-
-                <?php 
-                    // check if a session is in progress, otherwise visitors will be redirected to a sign-up page when they wish to add items to their cart 
-                    if (isset($_SESSION['email'])) {
-                       
-                        //identify the customer id 
-                        $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
-                        $idResult = mysqli_query($connection, $idQuery); 
-                        $idNumber = mysqli_fetch_assoc($idResult);
-                        $cust_id = $idNumber["customer_id"];
-
-                        //Create a cart id 
-                        $cart_id_query = "SELECT cart_id FROM cart ORDER BY cart_id DESC LIMIT 1";
-                        $cart_id_result = mysqli_query($connection, $cart_id_query) or die(mysql_error());
-                        //if there are no products added to the cart, start from a 0000 id, else taking the largest cart id and increment it by 1 to create a new cart id 
-                        $num_results = mysqli_num_rows($cart_id_result); 
-                        $rows = mysqli_fetch_assoc($cart_id_result);
-                        if ($num_results == 0) {
-                            $cart_id = 00001;
-                        } else {
-                            $cart_id = $rows['cart_id'];
-                            $cart_id += 1; 
-                        }
-
-                        if (isset($_POST["cart"]) && $sizeSelected){
-
-                            //insert product information into the member cart 
-                            $addToCartQuery = "INSERT into cart (cart_id, product_id, product_name, product_brand, product_price, product_size, customer_id) VALUES ($cart_id, $product_id, '$productName', '$productBrand', $productPrice, $productSize, $cust_id)";
-                            // echo $query;
-                            $addResult = mysqli_query($connection, $addToCartQuery);
-                            
-                            //when the item has been succesfully added to their cart show them a message
-                            if($addResult) {
-                                echo "<p class='message'>The item has been added to your cart!</p>";
-                            } else { 
-                                echo "<p class='message'> Unable to add item to cart. <p>";
-                            }
-                        
-                        } else if(isset($_POST["cart"]) && !$sizeSelected){
-                            echo "<p class='message'>Please select a size. </p>";
-                        } 
-
-                        if (isset($_POST["favourites"])){
-
-                            //Check if this item has already been added to favourites
-                            $favQuery = "SELECT product_name FROM favourites WHERE product_name ='" . $productName. "' AND customer_id = '" . $cust_id . "'";
-                            $favResult = mysqli_query($connection, $favQuery) or die(mysql_error());
-            
-                            $num_results = mysqli_num_rows($favResult); 
-                            $rows = mysqli_fetch_assoc($favResult);
-                            
-                            // if the item has not been added, proceed
-                            if($num_results == 0){
-                                //insert product information into favourites
-                                $addToFavouriteQuery = "INSERT into favourites (product_id, product_name, product_brand, product_price, customer_id) VALUES ($product_id, '$productName', '$productBrand', $productPrice, $cust_id)";
-    
-                                // echo $query;
-                                $addResult = mysqli_query($connection, $addToFavouriteQuery);
-    
-                                
-                                //when the item has been succesfully added to their favourites show them a message
-                                if($addResult) {
-                                    echo "<p class='message'>The item has been added to your favourites!</p>";
-                                } 
-                            } else { 
-                                echo "<p class='message'> Item is already in your favourites. <p>"; 
-                            }
-                        
-                        }
-
-                    }
-
-                ?> 
-
+                   
                 <!-- Cart and Favourites Button -->
+                <span id="button-message"></span>
                 <div class="spacing">
-                        <input class="cart-button" type="submit" name="cart" value="Add to Cart">
-                        <input class="favourites-button" type="submit" name="favourites" value="Add to Favourites">
-                    </form>
+                    <!-- <input class="cart-button" type="submit" name="cart" value="Add to Cart"> -->
+                    <button class="cart-button" name ="Jordan Max 200">Add to Cart</button>
+                
+                    <!-- <input class="favourites-button" type="submit" name="favourites" value="Add to Favourites"> -->
+                    <button class="favourites-button" name ="Jordan Max 200">Add to Favourites</button>
                 </div>
 
             </section>
         </div>
+
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="../js/content_action_msg.js"></script>  
+
         <?php
             // Release the returned data
             mysqli_free_result($result);

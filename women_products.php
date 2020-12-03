@@ -25,7 +25,7 @@
         
         <!-- hero image -->
         <header>
-            <div class="small-header">
+            <div class="small-header-women">
                 <img src="img/hero1.jpg" class="small-header-image">
             </div>
         </header>
