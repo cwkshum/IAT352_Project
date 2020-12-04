@@ -28,7 +28,7 @@
         $cust_id = $idNumber["customer_id"];
 
         // Check if this item has already been added to favourites
-        $favQuery = "SELECT product_name FROM favourites WHERE product_name ='" . $productName. "' AND customer_id = '" . $cust_id . "'";
+        $favQuery = "SELECT product_name FROM favourites WHERE product_name ='" . $productName. "' AND customer_id = " . $cust_id ;
         $favResult = mysqli_query($connection, $favQuery) or die(mysql_error());
         $num_results = mysqli_num_rows($favResult); 
         $rows = mysqli_fetch_assoc($favResult);
@@ -46,7 +46,7 @@
             $moveToFavesResult = mysqli_query($connection, $moveToFavesQuery) or die(mysql_error());
 
             //Delete the moved item from cart 
-            $deleteFromCart = "DELETE FROM cart WHERE product_name = '" . $productName . "' AND product_size =" .$productSize. " AND customer_id =" . $cust_id;
+            $deleteFromCart = "DELETE FROM cart WHERE product_name = '" . $productName . "' AND product_size =" .$productSize. " AND customer_id =" . $cust_id." AND product_id =".$productId;
             $deleteFromCartResult = mysqli_query($connection, $deleteFromCart) or die(mysql_error());
         }
     }

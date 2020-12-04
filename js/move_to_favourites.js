@@ -14,11 +14,11 @@ function moveToFavourites(productName, productSizeId) {
         url: "move_to_favourites.php",
         method: "POST", 
         data:{productName:productName, productSizeId:productSizeId},
-
         success:function(data) {
+         
             // parse the data sent from PHP script
             var result = $.parseJSON(data); 
-            
+
             var string = '';
 
             // If no results, display message
@@ -45,7 +45,7 @@ function moveToFavourites(productName, productSizeId) {
                     string +='</div>'; 
                     // product links
                     string +='<div class="cart-options">';
-                        string += '<button class="cart-options-links move-to">Move to Favourites</button> <p class="line-spacing">|</p> <button value="'+ value["product_name"] +'" name ="' + value["product_size"] + '"class="cart-options-links remove-cart">Remove</button>';
+                        string += '<button value="'+ value["product_name"] +'" name ="' + value["product_size"] + ' ' + value["product_id"] + '"class="cart-options-links move-to">Move to Favourites</button> <p class="line-spacing">|</p> <button value="'+ value["product_name"] +'" name ="' + value["product_size"] + '"class="cart-options-links remove-cart">Remove</button>';
                     string +='</div>'; 
                 string +='</div>'; 
             });  
