@@ -1,3 +1,4 @@
+//Arrrows for manual control
 var slideIndex = 1;
 slideControl(slideIndex);
 
