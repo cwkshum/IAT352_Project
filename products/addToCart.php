@@ -12,11 +12,11 @@
         $productName = '';
         $productSize = '';
 
-        // if (isset($_POST["cart"]) && $sizeSelected){
         if(isset($_POST["size"])){
             $productName = $_POST["productName"];
             $productSize = $_POST["size"];
 
+            //if the user has selected to size to add the item into the cart, retrieve all the product information to insert into the DB 
             $productQuery = "SELECT product_id, brand, price FROM products WHERE name='".$productName."' AND size =".$productSize;
             $productResult = mysqli_query($connection, $productQuery);
             $productInfo = mysqli_fetch_assoc($productResult);
@@ -26,10 +26,9 @@
 
             //insert product information into the member cart 
             $addToCartQuery = "INSERT into cart (product_id, product_name, product_brand, product_price, product_size, customer_id) VALUES ($product_id, '$productName', '$productBrand', $productPrice, $productSize, $cust_id)";
-            // echo $query;
             $addResult = mysqli_query($connection, $addToCartQuery);
             
-            //when the item has been succesfully added to their cart show them a message
+            // when the item has been succesfully added to their cart show them a message
             if($addResult) {
                 echo json_encode("The item has been added to your cart!");
             } else { 

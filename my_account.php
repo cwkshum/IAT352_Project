@@ -12,12 +12,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Linked Stylesheets -->
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/my_account.css"> 
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-        
         
     </head>
 
@@ -55,7 +55,7 @@
             }
         ?>
 
-        <!-- Section that displays the member's account infromation -->
+        <!-- Display the member's account information -->
         <div class="account-container"> 
             <h1>My Account</h1>
             <!-- name display -->
@@ -82,25 +82,29 @@
             <hr> 
 
             <div>
-            <?php
-                //identify the customer id 
-                $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
-                $idResult = mysqli_query($connection, $idQuery); 
-                $idNumber = mysqli_fetch_assoc($idResult);
-                $cust_id = $idNumber["customer_id"];
+                <?php
+                    //identify the customer id 
+                    $idQuery = "SELECT customer_id FROM members WHERE email = '" . $_SESSION['email'] . "'"; 
+                    $idResult = mysqli_query($connection, $idQuery); 
+                    $idNumber = mysqli_fetch_assoc($idResult);
+                    $cust_id = $idNumber["customer_id"];
 
-                $query = "SELECT toggle_favourites, toggle_cart FROM customization WHERE customer_id = " . $cust_id; 
-                $result = mysqli_query($connection, $query);
-                $rows = mysqli_fetch_assoc($result);
-                $toggleFavourites = $rows["toggle_favourites"]; 
-                $toggleCart = $rows["toggle_cart"];
-            ?>
+                    //retrieve the customer customization from the DB 
+                    $query = "SELECT toggle_favourites, toggle_cart FROM customization WHERE customer_id = " . $cust_id; 
+                    $result = mysqli_query($connection, $query);
+                    $rows = mysqli_fetch_assoc($result);
+                    $toggleFavourites = $rows["toggle_favourites"]; 
+                    $toggleCart = $rows["toggle_cart"];
+                ?>
+                <!-- Setting Home Page Display Preference -->
                 <h3 class="home-preferences">Home Page Preferences</h3>
 
+                <!-- Toggle Favourites Display Checkbox -->
                 <input type="checkbox" id="toggle_favourites" name="toggle_favourites" value="false" class="favourites common_selector" 
                 <?php if($toggleFavourites) echo "checked='checked'";?>>
                 <label for="toggle_favourites">Show Favourites</label><br>
 
+                <!-- Toggle Cart Display Checkbox -->
                 <input type="checkbox" id="toggle_cart" name="toggle_cart" value="false" class="cart common_selector" 
                 <?php if($toggleCart) echo "checked='checked'";?>>
                 <label for="toggle_cart">Show Cart</label><br>
@@ -139,9 +143,10 @@
                             
                             // Display Products in Cart
                             echo '<div class="unit-container">';
-                                // Product Image
                                 echo '<figure>';
+                                    // Product Image
                                     echo '<a href="products/'. $stripped .'.php"> <img class="product-image" src="img/'. $stripped .'.png"> </a>';
+                                    // Product Information
                                     echo '<figcaption class="content-unit-text"><span class="product-name">'.$productName . '</span> <br><span class="price">$'. $productPrice .'</span> <br>
                                     <button value="' .$productName. '" class="remove-favourites">Remove from Favourites</button></figcaption>';
                                 echo '</figure>';
@@ -156,7 +161,8 @@
                 </div>
             </div>
         </div>
-
+        
+        <!-- Linked Javascript -->
         <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="js/customization.js"></script>  
         <script src="js/remove_favourites.js"></script>  

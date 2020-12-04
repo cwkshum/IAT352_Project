@@ -119,16 +119,20 @@ input[type = "number"]{
     padding-top: 2rem;
 }
 
+/* email message display */
 #email-taken-msg, #password-message, #email-validation-msg{
     font-size: 0.8rem;
     color: #9c4b49;
 }
 
+/* name validation message */
 #first-name-validation, #last-name-validation{
     font-size: 0.7rem;
     color: #9c4b49;
 }
 
+
+/* -------- link styling -------- */
 a{
     color: #788F7B;
     transition: color 0.5s;
@@ -137,3 +141,4 @@ a{
 a:hover, a:focus{
     color: #000000;
 }
+/* --------------------------------- */

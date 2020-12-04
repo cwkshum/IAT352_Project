@@ -33,8 +33,10 @@
             array_push($result_array, $row);
         }
     }
-    /* send a JSON encded array to client */
+
+    // send a JSON encoded array to client
     echo json_encode($result_array);
 
+    // Close connection to DB
     $connection->close();
 ?>

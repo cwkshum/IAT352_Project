@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Linked Stylesheets -->
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/content.css"> 
 
@@ -22,14 +23,14 @@
             include("public_sessionActiveCheck.php"); 
         ?> 
         
-        <!-- hero image -->
         <header>
+            <!-- Header image -->
             <div class="small-header">
                 <img src="img/hero1.jpg" class="small-header-image">
             </div>
         </header>
 
-        <!-- filters --> 
+        <!-- Filters --> 
         <div class="filter-flexbox-container"> 
             <div class="filter-flex-item">
 
@@ -55,7 +56,6 @@
                     <input type="checkbox" id="Reebok" name="Reebok" value="Reebok"  class="common_selector brand"<?php if(isset($_POST['Reebok'])) echo "checked='checked'"; ?>>
                     <label for="Reebok">Reebok</label><br>
                 </div> 
-
 
                 <div class="checkbox-line-spacing">
                     <input type="checkbox" id="Timberland" name="Timberland" value="Timberland"  class="common_selector brand"<?php if(isset($_POST['Timberland'])) echo "checked='checked'"; ?>>
@@ -117,12 +117,12 @@
         
         <!-- Products Display Section -->
         <div class="content-container"> 
-       
             <h1>Mens Shoes</h1>
-            <div id="getFilter">
-            </div>
+            <!-- Display Products -->
+            <div id="getFilter"></div>
         </div>
-
+        
+        <!-- Linked Stylesheets -->
         <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="js/mens_filter.js"></script>  
         

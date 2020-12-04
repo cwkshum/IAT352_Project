@@ -138,7 +138,8 @@
 
             </section>
         </div>
-
+        
+        <!-- Linked JavaScript Files -->
         <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="../js/content_action_msg.js"></script>  
 

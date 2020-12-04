@@ -16,7 +16,9 @@
         $productName = $_POST["productName"];
         $productSizeId = $_POST["productSizeId"];
         $productSizeIdExplode = explode(" ", $productSizeId);
+        // set product size
         $productSize = $productSizeIdExplode[0];
+        // set product id
         $productId = $productSizeIdExplode[1];
 
         //identify the customer id 
@@ -36,11 +38,10 @@
             $infoQuery = "SELECT brand, price FROM products WHERE name = '" . $productName. "' AND size =".$productSize . " AND product_id =" . $productId;
             $infoResult = mysqli_query($connection, $infoQuery);
             $rows = mysqli_fetch_assoc($infoResult);
-            // $product_id = $rows["product_id"];
             $productBrand = $rows["brand"];
             $productPrice = $rows["price"];
             
-            //Move the cart item to favourites
+            // Move the cart item to favourites
             $moveToFavesQuery = "INSERT INTO favourites (product_id, product_name, product_brand, product_price, customer_id) VALUES ($productId, '$productName', '$productBrand', $productPrice, $cust_id)";
             $moveToFavesResult = mysqli_query($connection, $moveToFavesQuery) or die(mysql_error());
 
@@ -50,7 +51,7 @@
         }
     }
 
-    //display the products left in cart
+    // Display the products left in cart
     $fetchProductsQuery = "SELECT * FROM cart WHERE customer_id = " .$cust_id; 
 
     // get results from DB 
@@ -61,7 +62,8 @@
             array_push($result_array, $row);
         }
     }
-    /* send a JSON encded array to client */
+
+    // send a JSON encoded array to client
     echo json_encode($result_array);
 
     $connection->close();

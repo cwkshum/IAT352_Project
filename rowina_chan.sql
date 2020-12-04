@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 03:36 AM
+-- Host: localhost
+-- Generation Time: Dec 04, 2020 at 05:02 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.3.22
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ USE `rowina_chan`;
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
-  `cart_id` int(11) NOT NULL,
+  `cart_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
   `product_name` varchar(50) DEFAULT NULL,
@@ -41,14 +41,23 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`cart_id`),
   KEY `customer_id` (`customer_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `cart`
+-- Table structure for table `customization`
 --
 
-INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `product_name`, `product_brand`, `product_price`, `product_size`) VALUES
-(1, 1, 4103917, 'Jordan Retro 13', 'Jordan', 190, 6);
+DROP TABLE IF EXISTS `customization`;
+CREATE TABLE IF NOT EXISTS `customization` (
+  `customization_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) DEFAULT NULL,
+  `toggle_favourites` tinyint(1) DEFAULT NULL,
+  `toggle_cart` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`customization_id`),
+  KEY `customer_id` (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -58,15 +67,16 @@ INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `product_name`, `pro
 
 DROP TABLE IF EXISTS `favourites`;
 CREATE TABLE IF NOT EXISTS `favourites` (
-  `favourites_id` int(11) NOT NULL,
+  `favourites_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `product_name` varchar(30) DEFAULT NULL,
+  `product_name` varchar(50) DEFAULT NULL,
   `product_brand` varchar(30) DEFAULT NULL,
+  `product_price` int(11) DEFAULT NULL,
   PRIMARY KEY (`favourites_id`),
   KEY `customer_id` (`customer_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -84,13 +94,6 @@ CREATE TABLE IF NOT EXISTS `members` (
   `dob` varchar(11) NOT NULL,
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `members`
---
-
-INSERT INTO `members` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `dob`) VALUES
-(1, 'chim', 'Perera', 'chamiraperera97@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', 'Feb-01-1997');
 
 -- --------------------------------------------------------
 
@@ -275,6 +278,12 @@ INSERT INTO `products` (`product_id`, `name`, `price`, `brand`, `colour`, `size`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `members` (`customer_id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Constraints for table `customization`
+--
+ALTER TABLE `customization`
+  ADD CONSTRAINT `customization_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `members` (`customer_id`);
 
 --
 -- Constraints for table `favourites`

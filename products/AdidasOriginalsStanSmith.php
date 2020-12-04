@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Linked Stylesheets -->
         <link rel="stylesheet" type="text/css" href="../css/main.css"> 
         <link rel="stylesheet" type="text/css" href="../css/products/content_details.css"> 
         
@@ -137,7 +138,8 @@
 
             </section>
         </div>
-
+        
+        <!-- Linked Javascript Files -->
         <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="../js/content_action_msg.js"></script>  
 

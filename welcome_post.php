@@ -8,7 +8,8 @@
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
+        
+        <!-- Linked Stylesheets -->
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/welcome_post.css"> 
     </head>
@@ -230,14 +231,13 @@
                                 $idResult = mysqli_query($connection, $idQuery); 
                                 $idNumber = mysqli_fetch_assoc($idResult);
                                 $cust_id = $idNumber["customer_id"];
-
+                                
+                                // Insert information into customization table in the database
                                 $query = "INSERT into customization (customer_id, toggle_favourites, toggle_cart) VALUES ($id, false, false)";
                                 $result = mysqli_query($connection, $query);
 
+                                // redirect user to their account page
                                 header("Location: my_account.php");
-                                
-
-
                             }
                         } else if($password_error){
                             // Display Error Message
@@ -251,7 +251,7 @@
                                 echo "<a href='login.php' class='button'>LOG IN</a>";
                             echo "</div>";
 
-                        }else{
+                        } else{
                             // Display Error Message
                             echo "<h1>Oops!</h1>";
                             echo "<h2 class='message'>Please valid characters when signing up.</h2>";

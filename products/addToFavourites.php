@@ -11,6 +11,7 @@
         $cust_id = $idNumber["customer_id"];
         $productName = $_POST["productName"];
 
+        //retrieve all the product information to insert into the DB 
         $productQuery = "SELECT product_id, brand, price FROM products WHERE name='".$productName."'";
         $productResult = mysqli_query($connection, $productQuery); 
         $productInfo = mysqli_fetch_assoc($productResult);
@@ -30,7 +31,6 @@
             //insert product information into favourites
             $addToFavouriteQuery = "INSERT into favourites (product_id, product_name, product_brand, product_price, customer_id) VALUES ($product_id, '$productName', '$productBrand', $productPrice, $cust_id)";
             
-            // echo $query;
             $addResult = mysqli_query($connection, $addToFavouriteQuery);
             
             //when the item has been succesfully added to their favourites show them a message

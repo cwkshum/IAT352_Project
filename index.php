@@ -6,15 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
+    <!-- Linked Stylesheets -->
     <link rel="stylesheet" type="text/css" href="css/main.css"> 
     <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
-
     <!-- Navigation -->
     <?php 
       $inFolder = false;  
@@ -27,7 +27,7 @@
       <!-- First Carousel Image Slide -->
       <div class="mySlides fade">
         <!-- Image -->
-        <img src="img/mainheader1.png" style="width:100%">
+        <img src="img/mainheader1.png" alt="Adidas Superstar" class="img-width">
         <!-- Product Name and Link -->
         <div class="product-info-container">
           <h2 class="product-name">Adidas Superstar</h2>
@@ -38,7 +38,7 @@
       <!-- Second Carousel Image Slide -->
       <div class="mySlides fade">
         <!-- Image -->
-        <img src="img/mainheader2.png" style="width:100%">
+        <img src="img/mainheader2.png" alt="Nike Air Force" class="img-width">
         <!-- Product Name and Link -->
         <div class="product-info-container">
           <h2 class="product-name">Nike Air Force</h2>
@@ -49,7 +49,7 @@
       <!-- Third Carousel Image Slide -->
       <div class="mySlides fade">
         <!-- Image -->
-        <img src="img/mainheader3.png" style="width:100%">
+        <img src="img/mainheader3.png" alt="Jordan Retro 13" sclass="img-width">
         <!-- Product Name and Link -->
         <div class="product-info-container">
           <h2 class="product-name">Jordan Retro 13</h2>

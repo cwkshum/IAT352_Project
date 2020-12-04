@@ -9,17 +9,22 @@ function currentSlide(n) {
   slideControl(slideIndex = n);
 }
 
+// Changing active indicator dot
 function slideControl(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) {
+    slideIndex = 1;
+  }    
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
   for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+    slides[i].style.display = "none";  
   }
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
@@ -28,6 +33,7 @@ function slideControl(n) {
 var slideAuto = 0;
 showSlides();
 
+// Changing active carousel slide
 function showSlides() {
   var i;
   var slides = document.getElementsByClassName("mySlides");
@@ -42,5 +48,6 @@ function showSlides() {
   }
   slides[slideAuto-1].style.display = "block";  
   dots[slideAuto-1].className += " active";
-  setTimeout(showSlides, 5000); // Change image every 5 seconds
+  // Change image every 5 seconds
+  setTimeout(showSlides, 5000); 
 }

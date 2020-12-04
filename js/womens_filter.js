@@ -15,6 +15,7 @@ $(document).ready(function(){
             data:{action:action, brand:brand, colour:colour, size:size},
             success:function(data){
 
+                //parse the data
                 var result = $.parseJSON(data);
 
                 var string ='<div class="grid units-add-gutters three-column">';

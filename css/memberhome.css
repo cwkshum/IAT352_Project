@@ -15,6 +15,10 @@
   grid-template-rows: auto;
   grid-auto-flow: row;  
 }
+
+.img-width {
+  width: 100%;
+}
 /* ------------------------------------------ */
 
 

@@ -6,12 +6,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    
     <head>
-        <title>Edit Account</title> 
+        <title>Edit My Account</title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Linked Stylesheets -->
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/edit_account.css"> 
 
@@ -49,7 +49,6 @@
                     $dob = $row['dob'];
                     $password = $row['password'];
                 }
-
             }
         ?>
 
@@ -168,7 +167,7 @@
                         $editResult = mysqli_query($connection, $editQuery);
                         $newEmail = $email; 
                         $_SESSION['email'] = $newEmail;
-                        
+
                         header("Location: my_account.php");
                     
                     //if the user is changing information but keeping their old email, do not get them an "this email has already been registered error" 
@@ -182,7 +181,6 @@
                     } else if ($rows == 1 && $_SESSION['email'] != $email) {
                         echo "<h3>It appears this email has already been registered.</h3>";
                     }
-
                 }
             ?> 
 
@@ -236,6 +234,7 @@
             </div>
         </div>
         
+        <!-- Linked Javascript Files -->
         <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="js/customization.js"></script>  
         <script src="js/remove_favourites.js"></script>  

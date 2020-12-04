@@ -6,12 +6,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Linked Stylesheet -->
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/content.css"> 
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
 
     </head>
     
@@ -23,16 +23,15 @@
             include("public_sessionActiveCheck.php"); 
         ?> 
         
-        <!-- hero image -->
+        <!-- header image -->
         <header>
             <div class="small-header-women">
                 <img src="img/hero1.jpg" class="small-header-image">
             </div>
         </header>
 
-        <!-- filters --> 
+        <!-- Filters --> 
         <div class="filter-flexbox-container"> 
-           
             <div class="filter-flex-item">
                
                <!-- Filter Selection for Brands -->
@@ -106,22 +105,20 @@
                     }
                     echo "</ul>";
                 ?> 
-                
             </div>
-
         </div> 
         
         <!-- Products Display Section -->
         <div class="content-container"> 
        
             <h1>Womens Shoes</h1>
-            <div id="getFilter">
-            </div>
+            <!-- Display products -->
+            <div id="getFilter"></div>
         </div>
 
+        <!-- Linked JavaScript Files -->
         <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="js/womens_filter.js"></script>   
-    
         
     </body>
 </html>

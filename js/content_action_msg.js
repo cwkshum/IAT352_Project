@@ -1,8 +1,10 @@
+//if the user adds an item to the cart, carry out the function
 $(document).on('click', '.cart-button', function() {
     var productName = $(this).attr("name");
     addToCart(productName);
 }); 
 
+//if the user adds an item to their favourites, carry out the function
 $(document).on('click', '.favourites-button', function() {
     var productName = $(this).attr("name");
     addToFavourites(productName);
@@ -80,6 +82,7 @@ function addToFavourites(productName) {
     });
 }; 
 
+//retrieve the size of the shoe they added  to their cart
 function get_size(){
     var size = $("input[name='shoeSize']:checked").val();
     return size;

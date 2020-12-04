@@ -15,18 +15,12 @@
         $idNumber = mysqli_fetch_assoc($idResult);
         $cust_id = $idNumber["customer_id"];
         
-        //Check if this item has already been added to favourites
+        // Delete item from favourites list
         $removeFavQuery = "DELETE FROM favourites WHERE product_name ='" . $productName. "' AND customer_id = " .$cust_id;
         $removeFavResult = mysqli_query($connection, $removeFavQuery) or die(mysql_error());
-
-        // $num_results = mysqli_num_rows($removeFavResult); 
-        // $rows = mysqli_fetch_assoc($removeFavResult);
-        
-        // $fetchResult = mysqli_query($connection, $fetchProductsQuery);
-        // $num_results = mysqli_num_rows($fetchResult); 
-        // $rows = mysqli_fetch_assoc($fetchResult);
     }
 
+    // Get the remaining items from favourites in the database 
     $fetchProductsQuery = "SELECT * FROM favourites WHERE customer_id = " .$cust_id; 
 
     // get results from DB 
@@ -37,7 +31,7 @@
             array_push($result_array, $row);
         }
     }
-    /* send a JSON encded array to client */
+    // send a JSON encded array to client 
     echo json_encode($result_array);
 
     $connection->close();

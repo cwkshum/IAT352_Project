@@ -18,38 +18,28 @@
 
         // toggle favourites in member home 
         if(isset($_POST["favourites"])){
+            // set toggle favourites to true
             $setFavouritesQuery .= "UPDATE customization SET toggle_favourites = true WHERE customer_id = " .$cust_id; 
             $favouritesResult = mysqli_query($connection, $setFavouritesQuery); 
 
         } else{
+            // set toggle favourites to false
             $setFavouritesQuery .= "UPDATE customization SET toggle_favourites = false WHERE customer_id = " .$cust_id;
             $favouritesResult = mysqli_query($connection, $setFavouritesQuery); 
         }
 
         // toggle cart in member home 
-        if(isset($_POST["cart"])){            
+        if(isset($_POST["cart"])){      
+            // set toggle cart to true      
             $setCartQuery .= "UPDATE customization SET toggle_cart = true WHERE customer_id = " .$cust_id; 
             $cartResult = mysqli_query($connection, $setCartQuery); 
         } else{
+            // set toggle cart to false
             $setCartQuery .= "UPDATE customization SET toggle_cart = false WHERE customer_id = " .$cust_id;
             $cartResult = mysqli_query($connection, $setCartQuery); 
         }
-    
     }
 
-    // // get results from DB 
-    // $result_array = array();
-    // $result = $connection->query($setFavouritesQuery);
-    // if ($result->num_rows > 0) {
-    //     while($row = $result->fetch_assoc()) {
-    //         array_push($result_array, $row);
-    //     }
-    // }
-
-    /* send a JSON encded array to client */
-    // echo json_encode($setFavouritesQuery);
-
-    
     // close connection to DB 
     $connection->close();
 ?>

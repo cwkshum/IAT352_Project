@@ -3,10 +3,10 @@
   session_start();
 
   if(isset($_SESSION["email"])) {
-    //set a session variable 
-    // $_SESSION['in_progress'] = true; 
+    // if the user is logged it then redirect them to the member's home page
     include ('navigation/member_navigation.php'); 
   } else {
+    //if the user is not logged in, redirect them to the visitor's home page
     include ('navigation/visitor_navigation.php'); 
   }
 

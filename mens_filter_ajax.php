@@ -44,6 +44,7 @@
         if(empty($whereBrandQuery) && empty($whereColourQuery) && empty($whereSizeQuery)){
             $query .= " WHERE gender ='Men' GROUP BY name";
         } else {
+            // show filtered products
             $query .= " AND gender ='Men' GROUP BY name";
         }
     }
@@ -56,7 +57,7 @@
             array_push($result_array, $row);
         }
     }
-    /* send a JSON encded array to client */
+    // send a JSON encoded array to client 
     echo json_encode($result_array);
        
     // close connection to DB 

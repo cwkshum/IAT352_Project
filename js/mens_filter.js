@@ -15,6 +15,7 @@ $(document).ready(function(){
             data:{action:action, brand:brand, colour:colour, size:size},
             success:function(data){
 
+                //parse the data
                 var result = $.parseJSON(data);
 
                 var string ='<div class="grid units-add-gutters three-column">';
@@ -51,7 +52,7 @@ $(document).ready(function(){
         })
     }
 
-
+    //retrieve the values from the filter buttons
     function get_filter(class_name){
         var filter = [];
         $('.'+class_name+':checked').each(function(){
